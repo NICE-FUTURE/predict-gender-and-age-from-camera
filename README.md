@@ -81,15 +81,20 @@ def train_CNN(x_train, y_train, x_test, y_test):
 个人推荐这篇文章：[https://medium.com/%E9%9B%9E%E9%9B%9E%E8%88%87%E5%85%94%E5%85%94%E7%9A%84%E5%B7%A5%E7%A8%8B%E4%B8%96%E7%95%8C/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-ml-note-cnn%E6%BC%94%E5%8C%96%E5%8F%B2-alexnet-vgg-inception-resnet-keras-coding-668f74879306](https://medium.com/%E9%9B%9E%E9%9B%9E%E8%88%87%E5%85%94%E5%85%94%E7%9A%84%E5%B7%A5%E7%A8%8B%E4%B8%96%E7%95%8C/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-ml-note-cnn%E6%BC%94%E5%8C%96%E5%8F%B2-alexnet-vgg-inception-resnet-keras-coding-668f74879306)
 
 这是一次训练过程的记录
+
 train4gender_history.png
+
 ![train4gender_history.png](https://img.hxhen.com/20200414234421.png)
 
 train4age_history.png
+
 ![train4age_history.png](https://img.hxhen.com/20200414234451.png)
 
 能够实时对摄像头拍摄的图像处理并展示。
 下面是一张不敢恭维的效果图，结果有点惨不忍睹……（组合的四张图片挑选自imdb-wiki数据集）
+
 ![](https://img.hxhen.com/20200415150416.png)
+
 ![](https://img.hxhen.com/20200415150435.png)
 
 ### 完整代码 
