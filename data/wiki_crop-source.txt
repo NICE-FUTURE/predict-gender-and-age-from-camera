@@ -1,0 +1,17 @@
+# 原始数据集是 imdb-wiki，选用其中约10000张图片
+
+- 10000张中选用1000张作为测试集，其余作为训练集
+- 所有图片转换为灰度图，尺寸改为20*20
+
+原始数据来源：https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/wiki_crop.tar
+
+wiki.mat 文件格式：
+
+0 dob: date of birth (Matlab serial date number)
+1 photo_taken: year when the photo was taken
+2 full_path: path to file
+3 gender: 0 for female and 1 for male, NaN if unknown
+4 name: name of the celebrity
+5 face_location: location of the face.
+6 face_score: detector score (the higher the better). Inf implies that no face was found in the image and the face_location then just returns the entire image
+7 second_face_score: detector score of the face with the second highest score. This is useful to ignore images with more than one face. second_face_score is NaN if no second face was detected.
