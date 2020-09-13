@@ -1,31 +1,13 @@
-from keras.models import Model
-from keras.layers import Dense, Input, Conv2D, MaxPooling2D, Flatten, Dropout
-# from keras.callbacks import EarlyStopping
+from keras.callbacks import ModelCheckpoint, LearningRateScheduler
+from keras.optimizers import Adam
 import matplotlib.pyplot as plt
-from data import Data
-# from custom_metrics import *
 
-batch_size = 256
-epochs = 50
+import time
 
-# CNN
-def train_CNN(x_train, y_train, x_test, y_test):
-    input_layer = Input(shape=(20, 20, 1), name="input_layer")
+from config import Config
+from data import Dataset
+from models import *
 
-    conv2d_layer = Conv2D(32, kernel_size=(3, 3), activation='relu')(input_layer)
-    conv2d_layer = Conv2D(64, (3, 3), activation='relu')(conv2d_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    pool_layer = Dropout(0.25)(pool_layer)
-    flatten_layer = Flatten()(pool_layer)
-    hidden_layer = Dense(128, activation='relu')(flatten_layer)
-    hidden_layer = Dropout(0.5)(hidden_layer)
-
-    output_layer = Dense(units=1, activation="sigmoid", name="output_layer")(hidden_layer)
-    model = Model(input_layer, output_layer)
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-    history = model.fit(x_train, y_train, validation_data=(x_test, y_test), batch_size=batch_size, epochs=epochs, verbose=2)
-    return model, history
-   
 
 def visualize_history(history):
 
@@ -39,21 +21,44 @@ def visualize_history(history):
     plt.plot(history["val_acc"], c="orange", label="val_acc")
     plt.legend()
 
-    # plt.subplot("212")
-    # plt.plot(history["precision"], c="blue", label="precision")
-    # plt.plot(history["recall"], c="orange", label="recall")
-    # plt.plot(history["f1_score"], c="red", label="f1_score")
-    # plt.legend()
-
-    plt.savefig("train4gender_history.png")
+    plt.savefig("train4gender_history-{}.png".format(time.time()))
 
 if __name__ == "__main__":
-    data = Data(trainpath="./data/trainset/", testpath="./data/testset/")
-    x_train, y_train, x_test, y_test = data.load4gender()
 
-    x_train = x_train.reshape(x_train.shape[0], 20, 20, 1)
-    x_test = x_test.reshape(x_test.shape[0], 20, 20, 1)
+    trainset = Dataset(file_dir="../data/trainset/", load_type="gender")
+    testset = Dataset(file_dir="../data/testset/", load_type="gender")
 
-    model, history = train_CNN(x_train, y_train, x_test, y_test)
-    model.save("cnn4gender.h5")
-    visualize_history(history.history)
+    # model = cnn_classification(Config.height, Config.width, Config.channel)
+    model = vgg16_classification(Config.height, Config.width, Config.channel)
+    adam = Adam(lr=Config.gender_lr)
+    model.compile(optimizer=adam, loss="binary_crossentropy", metrics=["accuracy"])
+
+    start_time = time.time()
+    
+    checkpoint = ModelCheckpoint("./cnn4gender_best.h5", monitor='val_loss', verbose=1, 
+            save_best_only=True, mode='auto', period=1)
+    def scheduler(epoch, lr):
+        # print("epoch:{}, lr:{}".format(epoch, 1e-7 * (2**epoch)))
+        # return 1e-7 * (2**epoch)  # 寻找最合适的learning rate  最佳 learning rate 为 10^(-8)*(2^9)=5.12x10^(-6)
+        return lr
+    lr_scheduler = LearningRateScheduler(scheduler)  # 适时调整learning rate
+
+    history = model.fit_generator(generator=trainset, validation_data=testset, \
+            epochs=Config.gender_epochs, verbose=2, callbacks=[checkpoint, lr_scheduler])
+
+    stop_time = time.time()
+    print("training time:{}min".format((stop_time-start_time)/60))
+
+    # 去除前几次迭代过大的loss, 更好展示loss下降趋势
+    history_loss = {}
+    for name in ("loss", "val_loss", "acc", "val_acc"):
+        loss = history.history[name]
+        minimum = min(loss)
+        for item in loss:
+            if item > minimum*5000:
+                item = 0
+            else:
+                break
+        history_loss[name] = loss
+
+    visualize_history(history_loss)

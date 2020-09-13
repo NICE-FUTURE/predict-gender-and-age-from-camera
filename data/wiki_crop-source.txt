@@ -1,11 +1,6 @@
-# 原始数据集是 imdb-wiki，选用其中约10000张图片
+https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/wiki_crop.tar
 
-- 10000张中选用1000张作为测试集，其余作为训练集
-- 所有图片转换为灰度图，尺寸改为20*20
-
-原始数据来源：https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/wiki_crop.tar
-
-wiki.mat 文件格式：
+wiki.mat文件：
 
 0 dob: date of birth (Matlab serial date number)
 1 photo_taken: year when the photo was taken

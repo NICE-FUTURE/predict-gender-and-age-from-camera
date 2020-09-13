@@ -2,7 +2,7 @@
 1. 从wiki_crop里面按一些条件筛选图片
 2. 将人脸部分裁剪出来
 3. 文件名包含性别和年龄
-4. 放入images-10000文件夹
+4. 放入images-<dataset-size>文件夹
 '''
 
 import scipy.io as sio
@@ -29,7 +29,7 @@ cnt = 0  # 有效样例数目
 infact = 0  # 实际遍历数目
 male = 0
 female = 0
-dataset_size = 10000
+dataset_size = 1100
 
 if not os.path.exists("./images-{}/".format(dataset_size)):
     os.mkdir("./images-{}/".format(dataset_size))
@@ -58,7 +58,7 @@ for i in range(total):
         cnt -= 1
         continue
 
-    # 控制男女数目各5000
+    # 控制男女数目各一半
     gender_flag = int(gender_flag)
     if gender_flag == 0 and female >= dataset_size//2:
             cnt -= 1
@@ -86,8 +86,8 @@ for i in range(total):
     elif gender_flag == 1:
         male += 1
 
-    # 只保留脸部，保留灰度图
+    # 只保留脸部，保留RGB图
     x, y, w, h = faces[0]
-    img = gray[x:x+w, y:y+h]
+    img = img[x:x+w, y:y+h]
 
     cv2.imwrite("images-{}/{}-{}-{}.jpg".format(dataset_size, cnt, age, gender_flag), img)

@@ -1,32 +1,14 @@
-from keras.models import Model
-from keras.layers import Dense, Input, Conv2D, MaxPooling2D, Flatten, Dropout
-# from keras.callbacks import EarlyStopping
+from keras.callbacks import ModelCheckpoint, LearningRateScheduler
+from keras.optimizers import Adam
 import matplotlib.pyplot as plt
-from data import Data
-# from custom_metrics import *
+import numpy as np
 
-batch_size = 256
-epochs = 150
+import time
 
-# CNN
-def train_CNN(x_train, y_train, x_test, y_test):
-    input_layer = Input(shape=(20, 20, 1), name="input_layer")
+from config import Config
+from data import Dataset
+from models import *
 
-    conv2d_layer = Conv2D(32, kernel_size=(3, 3), activation='relu')(input_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    conv2d_layer = Conv2D(64, (3, 3), activation='relu')(pool_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    pool_layer = Dropout(0.25)(pool_layer)
-    flatten_layer = Flatten()(pool_layer)
-    hidden_layer = Dense(128, activation='relu')(flatten_layer)
-    hidden_layer = Dropout(0.5)(hidden_layer)
-
-    output_layer = Dense(units=1, activation="relu", name="output_layer")(hidden_layer)
-    model = Model(input_layer, output_layer)
-    model.compile(optimizer="adam", loss="mae")
-    history = model.fit(x_train, y_train, validation_data=(x_test, y_test), batch_size=batch_size, epochs=epochs, verbose=2)
-    return model, history
-   
 
 def visualize_history(history):
 
@@ -35,15 +17,43 @@ def visualize_history(history):
     plt.plot(history["val_loss"], c="orange", label="val_loss")
     plt.legend()
 
-    plt.savefig("train4age_history.png")
+    plt.savefig("train4age_history-{}.png".format(time.time()))
 
 if __name__ == "__main__":
-    data = Data(trainpath="./data/trainset/", testpath="./data/testset/")
-    x_train, y_train, x_test, y_test = data.load4age()
+    trainset = Dataset(file_dir="../data/trainset/", load_type="age")
+    testset = Dataset(file_dir="../data/testset/", load_type="age")
 
-    x_train = x_train.reshape(x_train.shape[0], 20, 20, 1)
-    x_test = x_test.reshape(x_test.shape[0], 20, 20, 1)
+    # 训练模型
+    # model = cnn_regression(Config.width, Config.height, Config.channel)
+    model = vgg16_regression(Config.width, Config.height, Config.channel)
+    adam = Adam(lr=Config.age_lr)
+    model.compile(optimizer="adam", loss="mse")
 
-    model, history = train_CNN(x_train, y_train, x_test, y_test)
-    model.save("cnn4age.h5")
-    visualize_history(history.history)
+    start_time = time.time()
+    
+    checkpoint = ModelCheckpoint("./cnn4age_best.h5", monitor='val_loss', verbose=1, 
+            save_best_only=True, mode='auto', period=1)
+    def scheduler(epoch, lr):
+        # print("epoch:{}, lr:{}".format(epoch, 1e-7 * (2**epoch)))
+        # return 1e-7 * (2**epoch)  # 寻找最合适的learning rate, 最佳 epoch 16, lr 0.0016384左右
+        return lr
+    lr_scheduler = LearningRateScheduler(scheduler)  # 适时调整learning rate
+    history = model.fit_generator(generator=trainset, validation_data=testset, \
+            epochs=Config.age_epochs, verbose=2, callbacks=[checkpoint, lr_scheduler])
+
+    stop_time = time.time()
+    print("training time:{}min".format((stop_time-start_time)/60))
+
+    # 去除迭代过大的loss, 更好展示loss下降趋势
+    history_loss = {}
+    for name in ("loss", "val_loss"):
+        loss = []
+        minimum = min(history.history[name])
+        for item in history.history[name]:
+            if item > minimum*5000:
+                loss.append(loss[-1])
+            else:
+                loss.append(item)
+        history_loss[name] = loss
+
+    visualize_history(history_loss)

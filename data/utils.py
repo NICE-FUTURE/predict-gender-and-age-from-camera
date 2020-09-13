@@ -1,16 +1,17 @@
 import os
+import shutil
 import random
 from PIL import Image
 from collections import Counter
 
-def statistic_images():
+def statistic_images(path):
     '''
     统计图片size
     '''
-    trainset = os.listdir("./trainset/")
+    trainset = os.listdir(path)
     result = []
     for filename in trainset:
-        image = Image.open("./trainset/"+filename)
+        image = Image.open(path+"/"+filename)
         result.append(image.size)
         image.close()
     x = [item[0] for item in result]
@@ -18,21 +19,19 @@ def statistic_images():
     print("均值：", (sum(x)/len(x), sum(y)/len(y)) )
     print("众数：", list(Counter(result).items())[0])
 
-def resize_images(paths=[]):
+def resize_images(paths=[], size=20):
     '''
     更改图片尺寸
     '''
-
     for directory in paths:
-        if not os.path.exists(directory+"-s20/"):
-            os.mkdir(directory+"-s20/")
+        if not os.path.exists(directory+"-s{}/".format(size)):
+            os.mkdir(directory+"-s{}/".format(size))
 
         dataset = os.listdir(directory)
         for filename in dataset:
             image = Image.open(directory+"/"+filename)
             try:
-                # image.resize((20, 20)).convert("L").save(directory+"-s20/"+filename[:-3]+"png")
-                image.resize((20, 20)).save(directory+"-s20/"+filename[:-3]+"png")
+                image.resize((size, size)).save(directory+"-s"+str(size)+"/"+filename[:-3]+"png")
             except:
                 pass
             image.close()
@@ -74,7 +73,7 @@ def count_male_female(path):
 
     print("male:{}, female:{}".format(male, female))
 
-def split_train_test(root):
+def split_train_test(root, n_test):
     '''
     拆分训练集和测试集
     '''
@@ -93,11 +92,11 @@ def split_train_test(root):
     cnt = 0
     for filename in filenames:
         gender = filename[:-4].split("-")[-1]
-        if cnt < 1000 and gender == "0" and flag == "0":
+        if cnt < n_test and gender == "0" and flag == "0":
             testset.append(filename)
             flag = "1"
             cnt += 1
-        elif cnt < 1000 and gender == "1" and flag == "1":
+        elif cnt < n_test and gender == "1" and flag == "1":
             testset.append(filename)
             flag = "0"
             cnt += 1
@@ -108,8 +107,40 @@ def split_train_test(root):
         os.rename(root+name, "./trainset/"+name)
     for name in testset:
         os.rename(root+name, "./testset/"+name)
+    os.rmdir(root)
 
-# rename_images(['images-10000'])
-# count_male_female('images-10000')  # 确定性别分类时判定为正的阈值
-# resize_images(["images-10000"])
-split_train_test("images-10000-s20/")
+
+def resplit_images():
+    train_filenames = os.listdir("./trainset-9000/")
+    test_filenames = os.listdir("./testset-1000/")
+
+    female_cnt = 0
+    male_cnt = 0
+    for filename in train_filenames:
+        gender = filename[:-4].split("-")[-1]
+        if gender == "0" and female_cnt < 500:
+            shutil.copyfile("./trainset-9000/"+filename, "./trainset/"+filename)
+            female_cnt += 1
+        elif gender == "1" and male_cnt < 500:
+            shutil.copyfile("./trainset-9000/"+filename, "./trainset/"+filename)
+            male_cnt += 1
+
+    female_cnt = 0
+    male_cnt = 0
+    for filename in test_filenames:
+        gender = filename[:-4].split("-")[-1]
+        if gender == "0" and female_cnt < 50:
+            shutil.copyfile("./testset-1000/"+filename, "./testset/"+filename)
+            female_cnt += 1
+        elif gender == "1" and male_cnt < 50:
+            shutil.copyfile("./testset-1000/"+filename, "./testset/"+filename)
+            male_cnt += 1
+
+
+resize_images(["images-1100"], 100)
+split_train_test("images-1100-s100/", 100)
+
+# count_male_female('images-1100')  # 确定性别分类时判定为正的阈值
+# statistic_images("images-1100")  # 统计图片size
+# rename_images(['images-1100'])  # 保证图片序号唯一，由多次执行process导致
+# resplit_images()  # 从大数据集分割小数据集（临时用）
