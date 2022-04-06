@@ -2,9 +2,9 @@
 
 ### 如何使用
 
-- 将data.zip解压到data目录下（data.zip更新为RGB图像，体积较大）
-- 安装所需的第三方库 `pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple` 
-- 修改两处路径，将其指向OpenCV环境中对应的xml文件。分别是 run.py第11行 和 data/process_wiki_data.py第12行
+- 将data.zip解压到data目录下（data.zip更新为RGB图像，体积较大），训练集所在路径应为 `./data/trainset/`，测试集所在路径应为 `./data/testset/`
+- 安装所需的第三方库 `pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple` 
+- 修改两处路径，将其指向OpenCV环境中对应的xml文件。分别是 `run.py`第11行 和 `data/process_wiki_data.py`第12行
 - 训练年龄预测模型 `python train4age.py`
 - 训练性别分类模型 `train4gender.py`
 - 开始使用 `python run.py`

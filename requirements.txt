@@ -1,6 +1,7 @@
-scipy==1.2.1
+scipy
 opencv-python==4.2.0.34
 Pillow
-numpy==1.16.3
-keras==2.2.4
-matplotlib==3.0.3
+numpy
+matplotlib
+torch
+timm

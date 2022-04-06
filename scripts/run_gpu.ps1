@@ -1,0 +1,1 @@
+python .\train.py --epochs 100 --num_workers 8 --batch_size 8 --experiment_name test --train_dir ./data/trainset/ --val_dir ./data/testset/

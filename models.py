@@ -1,75 +1,52 @@
-from keras.layers import Input, Conv2D, MaxPooling2D, Dropout, Flatten, Dense, Flatten
-from keras.models import Model, Sequential
-from keras.applications.vgg16 import VGG16
+import torch.nn as nn
+import timm
 
 
-def cnn_regression(height, width, channel):
-    input_layer = Input(shape=(height, width, channel), name="input_layer")
+class Predictor(nn.Module):
+    """ The header to predict age (regression branch) """
 
-    conv2d_layer = Conv2D(32, kernel_size=(3, 3), activation='relu')(input_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    conv2d_layer = Conv2D(64, (3, 3), activation='relu')(pool_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    pool_layer = Dropout(0.25)(pool_layer)
-    flatten_layer = Flatten()(pool_layer)
-    hidden_layer = Dense(128, activation='relu')(flatten_layer)
-    hidden_layer = Dropout(0.5)(hidden_layer)
+    def __init__(self, num_features, num_classes=1):
+        super().__init__()
+        self.gap = nn.AdaptiveAvgPool2d(1)
+        self.fc = nn.Conv2d(num_features, num_classes, kernel_size=1, bias=True)
 
-    output_layer = Dense(units=1, name="output_layer")(hidden_layer)
-
-    model = Model(input_layer, output_layer)
-    return model
+    def forward(self, x):
+        x = self.gap(x)
+        x = self.fc(x)
+        x = x.squeeze(-1).squeeze(-1).squeeze(-1)
+        return x
 
 
-def cnn_classification(height, width, channel):
-    input_layer = Input(shape=(height, width, channel), name="input_layer")
+class Classifier(nn.Module):
+    """ The header to predict gender (classification branch) """
 
-    conv2d_layer = Conv2D(32, kernel_size=(3, 3), activation='relu')(input_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    conv2d_layer = Conv2D(64, (3, 3), activation='relu')(pool_layer)
-    pool_layer = MaxPooling2D(pool_size=(2, 2))(conv2d_layer)
-    pool_layer = Dropout(0.25)(pool_layer)
-    flatten_layer = Flatten()(pool_layer)
-    hidden_layer = Dense(128, activation='relu')(flatten_layer)
-    hidden_layer = Dropout(0.5)(hidden_layer)
+    def __init__(self, num_features, num_classes=2):
+        super().__init__()
+        self.gap = nn.AdaptiveAvgPool2d(1)
+        self.fc = nn.Conv2d(num_features, num_classes, kernel_size=1, bias=True)
 
-    output_layer = Dense(units=1, activation="sigmoid", name="output_layer")(hidden_layer)
-
-    model = Model(input_layer, output_layer)
-    return model
-   
-
-def vgg16_regression(height, width, channel):
-    inputs = Input(shape=(height, width, channel))
-
-    base_model = VGG16(include_top=False, weights='imagenet', input_tensor=inputs)
-    for layer in base_model.layers:
-        layer.trainable = False
-
-    x = Conv2D(512, kernel_size=(3,3), activation="relu")(base_model.output)
-    x = Conv2D(128, kernel_size=(1,1), activation="relu")(x)
-    x = Conv2D(1, kernel_size=(1,1))(x)
-    outputs = Flatten()(x)
-
-    model = Model(inputs, outputs)
-    with open("age_model_summary.txt", "w", encoding="utf-8") as f:
-        model.summary(print_fn=lambda s:print(s, file=f))
-    return model
+    def forward(self, x):
+        x = self.gap(x)
+        x = self.fc(x)
+        x = x.squeeze(-1).squeeze(-1)
+        return x
 
 
-def vgg16_classification(height, width, channel):
-    inputs = Input(shape=(height, width, channel))
+class Model(nn.Module):
+    """ A model to predict age and gender """
 
-    base_model = VGG16(include_top=False, weights='imagenet', input_tensor=inputs)
-    for layer in base_model.layers:
-        layer.trainable = False
+    def __init__(self, timm_pretrained=True):
+        super().__init__()
 
-    x = Conv2D(512, kernel_size=(3,3), activation="relu")(base_model.output)
-    x = Conv2D(128, kernel_size=(1,1), activation="relu")(x)
-    x = Conv2D(1, kernel_size=(1,1), activation="sigmoid")(x)
-    outputs = Flatten()(x)
+        self.backbone = timm.create_model("resnet50", pretrained=timm_pretrained)
+        self.predictor = Predictor(self.backbone.num_features)
+        self.classifier = Classifier(self.backbone.num_features)
 
-    model = Model(inputs, outputs)
-    with open("gender_model_summary.txt", "w", encoding="utf-8") as f:
-        model.summary(print_fn=lambda s:print(s, file=f))
-    return model
+
+    def forward(self, x):
+
+        x = self.backbone.forward_features(x)  # shape: B, D, H, W
+        age = self.predictor(x)
+        gender = self.classifier(x)
+
+        return age, gender

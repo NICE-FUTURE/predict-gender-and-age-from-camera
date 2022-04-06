@@ -9,7 +9,7 @@ import scipy.io as sio
 import cv2
 import os
 
-face_cascade = cv2.CascadeClassifier('C:/Users/23755/Anaconda3/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('H:/venvs/pytorch-cpu/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml')
 
 root = "./wiki_crop/"
 path = "wiki.mat"
