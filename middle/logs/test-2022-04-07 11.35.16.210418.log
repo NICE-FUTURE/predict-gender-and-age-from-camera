@@ -1,0 +1,664 @@
+2022-04-07 11:35:16,642 timm.models.helpers INFO Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/resnet50_ram-a26f946b.pth)
+2022-04-07 11:35:19,163 root INFO START TIME:Thu Apr  7 11:35:19 2022
+2022-04-07 11:35:19,164 root INFO {'epochs': 100, 'batch_size': 16, 'num_workers': 16, 'log_step': 50, 'img_size': 128, 'lr': 0.001, 'warmup_steps': 10, 'pretrain_weight_path': '', 'experiment_name': 'test', 'train_dir': './data/trainset/', 'val_dir': './data/testset/'}
+2022-04-07 11:36:34,855 root INFO Trainning epoch:1/100 batch:1/586 lr:0.000100 age_loss:0.056985 gender_loss:0.708539loss:0.765524 acc:0.375000
+2022-04-07 11:36:41,176 root INFO Trainning epoch:1/100 batch:51/586 lr:0.000100 age_loss:0.110216 gender_loss:0.698997loss:0.809213 acc:0.477941
+2022-04-07 11:36:45,685 root INFO Trainning epoch:1/100 batch:101/586 lr:0.000100 age_loss:0.087902 gender_loss:0.695677loss:0.783579 acc:0.487624
+2022-04-07 11:36:50,108 root INFO Trainning epoch:1/100 batch:151/586 lr:0.000100 age_loss:0.075862 gender_loss:0.694473loss:0.770335 acc:0.504139
+2022-04-07 11:36:54,450 root INFO Trainning epoch:1/100 batch:201/586 lr:0.000100 age_loss:0.065474 gender_loss:0.694740loss:0.760214 acc:0.500311
+2022-04-07 11:36:58,785 root INFO Trainning epoch:1/100 batch:251/586 lr:0.000100 age_loss:0.059498 gender_loss:0.693589loss:0.753087 acc:0.507968
+2022-04-07 11:37:03,141 root INFO Trainning epoch:1/100 batch:301/586 lr:0.000100 age_loss:0.055059 gender_loss:0.693415loss:0.748474 acc:0.507475
+2022-04-07 11:37:07,512 root INFO Trainning epoch:1/100 batch:351/586 lr:0.000100 age_loss:0.052376 gender_loss:0.692758loss:0.745134 acc:0.515848
+2022-04-07 11:37:11,884 root INFO Trainning epoch:1/100 batch:401/586 lr:0.000100 age_loss:0.049859 gender_loss:0.692230loss:0.742088 acc:0.518392
+2022-04-07 11:37:16,229 root INFO Trainning epoch:1/100 batch:451/586 lr:0.000100 age_loss:0.047649 gender_loss:0.691863loss:0.739512 acc:0.521203
+2022-04-07 11:37:20,604 root INFO Trainning epoch:1/100 batch:501/586 lr:0.000100 age_loss:0.046469 gender_loss:0.691409loss:0.737878 acc:0.525948
+2022-04-07 11:37:24,979 root INFO Trainning epoch:1/100 batch:551/586 lr:0.000100 age_loss:0.044976 gender_loss:0.690863loss:0.735839 acc:0.530853
+2022-04-07 11:38:40,326 root INFO Validating epoch:1/100 batch:1/69 loss:0.691576 acc:0.812500
+2022-04-07 11:38:41,604 root INFO Validating epoch:1/100 batch:51/69 loss:0.746846 acc:0.468137
+2022-04-07 11:38:45,503 root INFO [Epoch:1    /100  ] lr:0.000100 loss:0.734608 val_loss:0.738198 acc:0.532103 val_acc:0.582428
+2022-04-07 11:38:46,712 root INFO Saved best model.
+2022-04-07 11:39:56,147 root INFO Trainning epoch:2/100 batch:1/586 lr:0.000200 age_loss:0.028454 gender_loss:0.678243loss:0.706697 acc:0.625000
+2022-04-07 11:40:00,616 root INFO Trainning epoch:2/100 batch:51/586 lr:0.000200 age_loss:0.037864 gender_loss:0.685378loss:0.723242 acc:0.571078
+2022-04-07 11:40:05,42 root INFO Trainning epoch:2/100 batch:101/586 lr:0.000200 age_loss:0.031901 gender_loss:0.685203loss:0.717104 acc:0.566832
+2022-04-07 11:40:09,493 root INFO Trainning epoch:2/100 batch:151/586 lr:0.000200 age_loss:0.031468 gender_loss:0.684165loss:0.715633 acc:0.572848
+2022-04-07 11:40:13,964 root INFO Trainning epoch:2/100 batch:201/586 lr:0.000200 age_loss:0.030790 gender_loss:0.682537loss:0.713327 acc:0.582711
+2022-04-07 11:40:18,406 root INFO Trainning epoch:2/100 batch:251/586 lr:0.000200 age_loss:0.030986 gender_loss:0.681610loss:0.712596 acc:0.588894
+2022-04-07 11:40:22,944 root INFO Trainning epoch:2/100 batch:301/586 lr:0.000200 age_loss:0.030392 gender_loss:0.681067loss:0.711459 acc:0.588663
+2022-04-07 11:40:27,789 root INFO Trainning epoch:2/100 batch:351/586 lr:0.000200 age_loss:0.030091 gender_loss:0.680180loss:0.710271 acc:0.590812
+2022-04-07 11:40:32,582 root INFO Trainning epoch:2/100 batch:401/586 lr:0.000200 age_loss:0.029763 gender_loss:0.678999loss:0.708762 acc:0.595698
+2022-04-07 11:40:37,336 root INFO Trainning epoch:2/100 batch:451/586 lr:0.000200 age_loss:0.029088 gender_loss:0.677650loss:0.706738 acc:0.598808
+2022-04-07 11:40:42,81 root INFO Trainning epoch:2/100 batch:501/586 lr:0.000200 age_loss:0.029050 gender_loss:0.676650loss:0.705700 acc:0.600299
+2022-04-07 11:40:46,822 root INFO Trainning epoch:2/100 batch:551/586 lr:0.000200 age_loss:0.028789 gender_loss:0.676033loss:0.704822 acc:0.601293
+2022-04-07 11:42:00,295 root INFO Validating epoch:2/100 batch:1/69 loss:0.597328 acc:0.750000
+2022-04-07 11:42:01,731 root INFO Validating epoch:2/100 batch:51/69 loss:0.729910 acc:0.458333
+2022-04-07 11:42:02,958 root INFO [Epoch:2    /100  ] lr:0.000200 loss:0.704469 val_loss:0.693306 acc:0.600256 val_acc:0.578804
+2022-04-07 11:42:04,241 root INFO Saved best model.
+2022-04-07 11:43:13,357 root INFO Trainning epoch:3/100 batch:1/586 lr:0.000300 age_loss:0.019484 gender_loss:0.702643loss:0.722127 acc:0.500000
+2022-04-07 11:43:18,85 root INFO Trainning epoch:3/100 batch:51/586 lr:0.000300 age_loss:0.028227 gender_loss:0.670034loss:0.698261 acc:0.590686
+2022-04-07 11:43:22,792 root INFO Trainning epoch:3/100 batch:101/586 lr:0.000300 age_loss:0.027558 gender_loss:0.662712loss:0.690270 acc:0.623762
+2022-04-07 11:43:27,501 root INFO Trainning epoch:3/100 batch:151/586 lr:0.000300 age_loss:0.027249 gender_loss:0.663062loss:0.690311 acc:0.622517
+2022-04-07 11:43:32,210 root INFO Trainning epoch:3/100 batch:201/586 lr:0.000300 age_loss:0.027072 gender_loss:0.660188loss:0.687260 acc:0.629664
+2022-04-07 11:43:36,917 root INFO Trainning epoch:3/100 batch:251/586 lr:0.000300 age_loss:0.027905 gender_loss:0.659340loss:0.687245 acc:0.625747
+2022-04-07 11:43:41,617 root INFO Trainning epoch:3/100 batch:301/586 lr:0.000300 age_loss:0.027693 gender_loss:0.655656loss:0.683349 acc:0.627492
+2022-04-07 11:43:46,328 root INFO Trainning epoch:3/100 batch:351/586 lr:0.000300 age_loss:0.028393 gender_loss:0.652774loss:0.681167 acc:0.631232
+2022-04-07 11:43:51,39 root INFO Trainning epoch:3/100 batch:401/586 lr:0.000300 age_loss:0.028633 gender_loss:0.650645loss:0.679279 acc:0.634663
+2022-04-07 11:43:55,745 root INFO Trainning epoch:3/100 batch:451/586 lr:0.000300 age_loss:0.028046 gender_loss:0.648975loss:0.677022 acc:0.638858
+2022-04-07 11:44:00,459 root INFO Trainning epoch:3/100 batch:501/586 lr:0.000300 age_loss:0.027904 gender_loss:0.646082loss:0.673986 acc:0.641841
+2022-04-07 11:44:05,171 root INFO Trainning epoch:3/100 batch:551/586 lr:0.000300 age_loss:0.027800 gender_loss:0.643663loss:0.671462 acc:0.644510
+2022-04-07 11:45:19,141 root INFO Validating epoch:3/100 batch:1/69 loss:0.469136 acc:1.000000
+2022-04-07 11:45:20,569 root INFO Validating epoch:3/100 batch:51/69 loss:0.695465 acc:0.589461
+2022-04-07 11:45:21,786 root INFO [Epoch:3    /100  ] lr:0.000300 loss:0.670471 val_loss:0.649182 acc:0.643771 val_acc:0.656522
+2022-04-07 11:45:23,30 root INFO Saved best model.
+2022-04-07 11:46:32,874 root INFO Trainning epoch:4/100 batch:1/586 lr:0.000400 age_loss:0.016800 gender_loss:0.752007loss:0.768806 acc:0.437500
+2022-04-07 11:46:37,616 root INFO Trainning epoch:4/100 batch:51/586 lr:0.000400 age_loss:0.029351 gender_loss:0.624248loss:0.653599 acc:0.676471
+2022-04-07 11:46:42,335 root INFO Trainning epoch:4/100 batch:101/586 lr:0.000400 age_loss:0.028487 gender_loss:0.613567loss:0.642054 acc:0.683168
+2022-04-07 11:46:47,64 root INFO Trainning epoch:4/100 batch:151/586 lr:0.000400 age_loss:0.027197 gender_loss:0.612174loss:0.639371 acc:0.673427
+2022-04-07 11:46:51,793 root INFO Trainning epoch:4/100 batch:201/586 lr:0.000400 age_loss:0.028280 gender_loss:0.606501loss:0.634781 acc:0.677239
+2022-04-07 11:46:56,523 root INFO Trainning epoch:4/100 batch:251/586 lr:0.000400 age_loss:0.028164 gender_loss:0.605465loss:0.633629 acc:0.678785
+2022-04-07 11:47:01,255 root INFO Trainning epoch:4/100 batch:301/586 lr:0.000400 age_loss:0.027507 gender_loss:0.601468loss:0.628975 acc:0.680648
+2022-04-07 11:47:05,982 root INFO Trainning epoch:4/100 batch:351/586 lr:0.000400 age_loss:0.027194 gender_loss:0.598858loss:0.626052 acc:0.682158
+2022-04-07 11:47:10,716 root INFO Trainning epoch:4/100 batch:401/586 lr:0.000400 age_loss:0.027117 gender_loss:0.595664loss:0.622780 acc:0.685630
+2022-04-07 11:47:15,456 root INFO Trainning epoch:4/100 batch:451/586 lr:0.000400 age_loss:0.026862 gender_loss:0.594364loss:0.621226 acc:0.687916
+2022-04-07 11:47:20,185 root INFO Trainning epoch:4/100 batch:501/586 lr:0.000400 age_loss:0.026763 gender_loss:0.593075loss:0.619838 acc:0.689247
+2022-04-07 11:47:24,929 root INFO Trainning epoch:4/100 batch:551/586 lr:0.000400 age_loss:0.026689 gender_loss:0.591825loss:0.618514 acc:0.690449
+2022-04-07 11:48:38,248 root INFO Validating epoch:4/100 batch:1/69 loss:0.400409 acc:0.875000
+2022-04-07 11:48:39,683 root INFO Validating epoch:4/100 batch:51/69 loss:0.623890 acc:0.692402
+2022-04-07 11:48:40,889 root INFO [Epoch:4    /100  ] lr:0.000400 loss:0.617737 val_loss:0.577923 acc:0.689420 val_acc:0.728080
+2022-04-07 11:48:42,249 root INFO Saved best model.
+2022-04-07 11:49:50,719 root INFO Trainning epoch:5/100 batch:1/586 lr:0.000500 age_loss:0.022236 gender_loss:0.586322loss:0.608558 acc:0.687500
+2022-04-07 11:49:55,489 root INFO Trainning epoch:5/100 batch:51/586 lr:0.000500 age_loss:0.026529 gender_loss:0.576993loss:0.603522 acc:0.700980
+2022-04-07 11:50:00,238 root INFO Trainning epoch:5/100 batch:101/586 lr:0.000500 age_loss:0.025950 gender_loss:0.571264loss:0.597214 acc:0.706064
+2022-04-07 11:50:04,977 root INFO Trainning epoch:5/100 batch:151/586 lr:0.000500 age_loss:0.027912 gender_loss:0.565325loss:0.593236 acc:0.703228
+2022-04-07 11:50:09,711 root INFO Trainning epoch:5/100 batch:201/586 lr:0.000500 age_loss:0.027559 gender_loss:0.566730loss:0.594288 acc:0.704291
+2022-04-07 11:50:14,448 root INFO Trainning epoch:5/100 batch:251/586 lr:0.000500 age_loss:0.027391 gender_loss:0.568093loss:0.595483 acc:0.699452
+2022-04-07 11:50:19,174 root INFO Trainning epoch:5/100 batch:301/586 lr:0.000500 age_loss:0.027096 gender_loss:0.562625loss:0.589720 acc:0.704319
+2022-04-07 11:50:23,897 root INFO Trainning epoch:5/100 batch:351/586 lr:0.000500 age_loss:0.026635 gender_loss:0.558147loss:0.584781 acc:0.708155
+2022-04-07 11:50:28,631 root INFO Trainning epoch:5/100 batch:401/586 lr:0.000500 age_loss:0.026588 gender_loss:0.556487loss:0.583074 acc:0.708853
+2022-04-07 11:50:33,360 root INFO Trainning epoch:5/100 batch:451/586 lr:0.000500 age_loss:0.026114 gender_loss:0.554678loss:0.580792 acc:0.710227
+2022-04-07 11:50:38,87 root INFO Trainning epoch:5/100 batch:501/586 lr:0.000500 age_loss:0.026064 gender_loss:0.552241loss:0.578305 acc:0.713822
+2022-04-07 11:50:42,822 root INFO Trainning epoch:5/100 batch:551/586 lr:0.000500 age_loss:0.025947 gender_loss:0.549152loss:0.575098 acc:0.717446
+2022-04-07 11:51:55,266 root INFO Validating epoch:5/100 batch:1/69 loss:0.401947 acc:0.812500
+2022-04-07 11:51:56,688 root INFO Validating epoch:5/100 batch:51/69 loss:0.563461 acc:0.748775
+2022-04-07 11:51:57,922 root INFO [Epoch:5    /100  ] lr:0.000500 loss:0.572586 val_loss:0.530088 acc:0.718857 val_acc:0.768659
+2022-04-07 11:51:59,137 root INFO Saved best model.
+2022-04-07 11:53:09,435 root INFO Trainning epoch:6/100 batch:1/586 lr:0.000600 age_loss:0.025478 gender_loss:0.468306loss:0.493784 acc:0.812500
+2022-04-07 11:53:14,199 root INFO Trainning epoch:6/100 batch:51/586 lr:0.000600 age_loss:0.024866 gender_loss:0.532324loss:0.557190 acc:0.729167
+2022-04-07 11:53:18,943 root INFO Trainning epoch:6/100 batch:101/586 lr:0.000600 age_loss:0.024710 gender_loss:0.535042loss:0.559752 acc:0.729579
+2022-04-07 11:53:23,672 root INFO Trainning epoch:6/100 batch:151/586 lr:0.000600 age_loss:0.024134 gender_loss:0.531562loss:0.555695 acc:0.736755
+2022-04-07 11:53:28,407 root INFO Trainning epoch:6/100 batch:201/586 lr:0.000600 age_loss:0.024112 gender_loss:0.524208loss:0.548320 acc:0.738806
+2022-04-07 11:53:33,143 root INFO Trainning epoch:6/100 batch:251/586 lr:0.000600 age_loss:0.024444 gender_loss:0.521467loss:0.545911 acc:0.742281
+2022-04-07 11:53:37,868 root INFO Trainning epoch:6/100 batch:301/586 lr:0.000600 age_loss:0.025400 gender_loss:0.517359loss:0.542760 acc:0.747093
+2022-04-07 11:53:42,599 root INFO Trainning epoch:6/100 batch:351/586 lr:0.000600 age_loss:0.024883 gender_loss:0.518517loss:0.543400 acc:0.749288
+2022-04-07 11:53:47,322 root INFO Trainning epoch:6/100 batch:401/586 lr:0.000600 age_loss:0.024751 gender_loss:0.517134loss:0.541885 acc:0.751403
+2022-04-07 11:53:52,51 root INFO Trainning epoch:6/100 batch:451/586 lr:0.000600 age_loss:0.024663 gender_loss:0.512815loss:0.537478 acc:0.754157
+2022-04-07 11:53:56,788 root INFO Trainning epoch:6/100 batch:501/586 lr:0.000600 age_loss:0.024520 gender_loss:0.509823loss:0.534343 acc:0.755240
+2022-04-07 11:54:01,527 root INFO Trainning epoch:6/100 batch:551/586 lr:0.000600 age_loss:0.024294 gender_loss:0.506915loss:0.531208 acc:0.755445
+2022-04-07 11:55:14,718 root INFO Validating epoch:6/100 batch:1/69 loss:0.399349 acc:0.812500
+2022-04-07 11:55:16,149 root INFO Validating epoch:6/100 batch:51/69 loss:0.522017 acc:0.785539
+2022-04-07 11:55:17,378 root INFO [Epoch:6    /100  ] lr:0.000600 loss:0.530543 val_loss:0.493053 acc:0.755973 val_acc:0.797826
+2022-04-07 11:55:18,711 root INFO Saved best model.
+2022-04-07 11:56:27,540 root INFO Trainning epoch:7/100 batch:1/586 lr:0.000700 age_loss:0.025122 gender_loss:0.400236loss:0.425358 acc:0.875000
+2022-04-07 11:56:32,267 root INFO Trainning epoch:7/100 batch:51/586 lr:0.000700 age_loss:0.027140 gender_loss:0.506725loss:0.533865 acc:0.746324
+2022-04-07 11:56:36,962 root INFO Trainning epoch:7/100 batch:101/586 lr:0.000700 age_loss:0.028625 gender_loss:0.498203loss:0.526828 acc:0.756188
+2022-04-07 11:56:41,670 root INFO Trainning epoch:7/100 batch:151/586 lr:0.000700 age_loss:0.026035 gender_loss:0.492473loss:0.518508 acc:0.760348
+2022-04-07 11:56:46,373 root INFO Trainning epoch:7/100 batch:201/586 lr:0.000700 age_loss:0.024962 gender_loss:0.491147loss:0.516110 acc:0.763371
+2022-04-07 11:56:51,77 root INFO Trainning epoch:7/100 batch:251/586 lr:0.000700 age_loss:0.024715 gender_loss:0.489778loss:0.514493 acc:0.764691
+2022-04-07 11:56:55,775 root INFO Trainning epoch:7/100 batch:301/586 lr:0.000700 age_loss:0.024417 gender_loss:0.490674loss:0.515091 acc:0.765988
+2022-04-07 11:57:00,470 root INFO Trainning epoch:7/100 batch:351/586 lr:0.000700 age_loss:0.024057 gender_loss:0.493307loss:0.517364 acc:0.762286
+2022-04-07 11:57:05,182 root INFO Trainning epoch:7/100 batch:401/586 lr:0.000700 age_loss:0.024145 gender_loss:0.490147loss:0.514292 acc:0.764183
+2022-04-07 11:57:09,887 root INFO Trainning epoch:7/100 batch:451/586 lr:0.000700 age_loss:0.024130 gender_loss:0.490363loss:0.514493 acc:0.762472
+2022-04-07 11:57:14,598 root INFO Trainning epoch:7/100 batch:501/586 lr:0.000700 age_loss:0.024287 gender_loss:0.488248loss:0.512535 acc:0.764845
+2022-04-07 11:57:19,297 root INFO Trainning epoch:7/100 batch:551/586 lr:0.000700 age_loss:0.024295 gender_loss:0.485357loss:0.509652 acc:0.767241
+2022-04-07 11:58:32,891 root INFO Validating epoch:7/100 batch:1/69 loss:0.290011 acc:0.875000
+2022-04-07 11:58:34,328 root INFO Validating epoch:7/100 batch:51/69 loss:0.680757 acc:0.649510
+2022-04-07 11:58:35,558 root INFO [Epoch:7    /100  ] lr:0.000700 loss:0.507737 val_loss:0.580215 acc:0.768665 val_acc:0.715399
+2022-04-07 11:59:46,37 root INFO Trainning epoch:8/100 batch:1/586 lr:0.000800 age_loss:0.025391 gender_loss:0.420833loss:0.446224 acc:0.812500
+2022-04-07 11:59:50,752 root INFO Trainning epoch:8/100 batch:51/586 lr:0.000800 age_loss:0.021458 gender_loss:0.439661loss:0.461119 acc:0.795343
+2022-04-07 11:59:55,440 root INFO Trainning epoch:8/100 batch:101/586 lr:0.000800 age_loss:0.024152 gender_loss:0.454906loss:0.479058 acc:0.789604
+2022-04-07 12:00:00,139 root INFO Trainning epoch:8/100 batch:151/586 lr:0.000800 age_loss:0.023780 gender_loss:0.453567loss:0.477347 acc:0.791391
+2022-04-07 12:00:04,836 root INFO Trainning epoch:8/100 batch:201/586 lr:0.000800 age_loss:0.023163 gender_loss:0.453553loss:0.476716 acc:0.790734
+2022-04-07 12:00:09,536 root INFO Trainning epoch:8/100 batch:251/586 lr:0.000800 age_loss:0.023904 gender_loss:0.457288loss:0.481192 acc:0.788347
+2022-04-07 12:00:14,246 root INFO Trainning epoch:8/100 batch:301/586 lr:0.000800 age_loss:0.023567 gender_loss:0.455809loss:0.479376 acc:0.786752
+2022-04-07 12:00:18,939 root INFO Trainning epoch:8/100 batch:351/586 lr:0.000800 age_loss:0.023653 gender_loss:0.455277loss:0.478930 acc:0.786147
+2022-04-07 12:00:23,639 root INFO Trainning epoch:8/100 batch:401/586 lr:0.000800 age_loss:0.023623 gender_loss:0.454342loss:0.477965 acc:0.786939
+2022-04-07 12:00:28,336 root INFO Trainning epoch:8/100 batch:451/586 lr:0.000800 age_loss:0.023455 gender_loss:0.449941loss:0.473396 acc:0.790050
+2022-04-07 12:00:33,36 root INFO Trainning epoch:8/100 batch:501/586 lr:0.000800 age_loss:0.023759 gender_loss:0.449728loss:0.473487 acc:0.789172
+2022-04-07 12:00:37,748 root INFO Trainning epoch:8/100 batch:551/586 lr:0.000800 age_loss:0.023879 gender_loss:0.446313loss:0.470192 acc:0.790495
+2022-04-07 12:01:50,799 root INFO Validating epoch:8/100 batch:1/69 loss:0.271465 acc:0.937500
+2022-04-07 12:01:52,223 root INFO Validating epoch:8/100 batch:51/69 loss:0.556904 acc:0.718137
+2022-04-07 12:01:53,431 root INFO [Epoch:8    /100  ] lr:0.000800 loss:0.471514 val_loss:0.487100 acc:0.789996 val_acc:0.769022
+2022-04-07 12:01:54,727 root INFO Saved best model.
+2022-04-07 12:03:04,373 root INFO Trainning epoch:9/100 batch:1/586 lr:0.000900 age_loss:0.032925 gender_loss:0.688846loss:0.721770 acc:0.687500
+2022-04-07 12:03:09,137 root INFO Trainning epoch:9/100 batch:51/586 lr:0.000900 age_loss:0.023492 gender_loss:0.430318loss:0.453810 acc:0.800245
+2022-04-07 12:03:13,862 root INFO Trainning epoch:9/100 batch:101/586 lr:0.000900 age_loss:0.023254 gender_loss:0.414046loss:0.437300 acc:0.811881
+2022-04-07 12:03:18,589 root INFO Trainning epoch:9/100 batch:151/586 lr:0.000900 age_loss:0.025708 gender_loss:0.417477loss:0.443186 acc:0.808775
+2022-04-07 12:03:23,314 root INFO Trainning epoch:9/100 batch:201/586 lr:0.000900 age_loss:0.025396 gender_loss:0.418014loss:0.443410 acc:0.810012
+2022-04-07 12:03:28,37 root INFO Trainning epoch:9/100 batch:251/586 lr:0.000900 age_loss:0.024463 gender_loss:0.424958loss:0.449421 acc:0.807520
+2022-04-07 12:03:32,766 root INFO Trainning epoch:9/100 batch:301/586 lr:0.000900 age_loss:0.024778 gender_loss:0.434426loss:0.459203 acc:0.800457
+2022-04-07 12:03:37,495 root INFO Trainning epoch:9/100 batch:351/586 lr:0.000900 age_loss:0.024333 gender_loss:0.435211loss:0.459544 acc:0.800214
+2022-04-07 12:03:42,220 root INFO Trainning epoch:9/100 batch:401/586 lr:0.000900 age_loss:0.023932 gender_loss:0.432975loss:0.456907 acc:0.802369
+2022-04-07 12:03:46,953 root INFO Trainning epoch:9/100 batch:451/586 lr:0.000900 age_loss:0.023958 gender_loss:0.427753loss:0.451711 acc:0.804185
+2022-04-07 12:03:51,681 root INFO Trainning epoch:9/100 batch:501/586 lr:0.000900 age_loss:0.023838 gender_loss:0.425002loss:0.448840 acc:0.805763
+2022-04-07 12:03:56,406 root INFO Trainning epoch:9/100 batch:551/586 lr:0.000900 age_loss:0.023704 gender_loss:0.424258loss:0.447962 acc:0.806148
+2022-04-07 12:05:09,638 root INFO Validating epoch:9/100 batch:1/69 loss:0.308669 acc:0.812500
+2022-04-07 12:05:11,65 root INFO Validating epoch:9/100 batch:51/69 loss:0.619976 acc:0.675245
+2022-04-07 12:05:12,301 root INFO [Epoch:9    /100  ] lr:0.000900 loss:0.448027 val_loss:0.529371 acc:0.804608 val_acc:0.738225
+2022-04-07 12:06:22,300 root INFO Trainning epoch:10/100 batch:1/586 lr:0.001000 age_loss:0.011645 gender_loss:0.350040loss:0.361685 acc:0.875000
+2022-04-07 12:06:27,62 root INFO Trainning epoch:10/100 batch:51/586 lr:0.001000 age_loss:0.020929 gender_loss:0.426088loss:0.447017 acc:0.803922
+2022-04-07 12:06:31,785 root INFO Trainning epoch:10/100 batch:101/586 lr:0.001000 age_loss:0.022188 gender_loss:0.409327loss:0.431515 acc:0.808787
+2022-04-07 12:06:36,510 root INFO Trainning epoch:10/100 batch:151/586 lr:0.001000 age_loss:0.022223 gender_loss:0.412471loss:0.434694 acc:0.810844
+2022-04-07 12:06:41,242 root INFO Trainning epoch:10/100 batch:201/586 lr:0.001000 age_loss:0.022153 gender_loss:0.414223loss:0.436376 acc:0.811567
+2022-04-07 12:06:45,979 root INFO Trainning epoch:10/100 batch:251/586 lr:0.001000 age_loss:0.022931 gender_loss:0.414735loss:0.437667 acc:0.810259
+2022-04-07 12:06:50,729 root INFO Trainning epoch:10/100 batch:301/586 lr:0.001000 age_loss:0.022782 gender_loss:0.413973loss:0.436755 acc:0.810631
+2022-04-07 12:06:55,474 root INFO Trainning epoch:10/100 batch:351/586 lr:0.001000 age_loss:0.023033 gender_loss:0.413980loss:0.437013 acc:0.809651
+2022-04-07 12:07:00,214 root INFO Trainning epoch:10/100 batch:401/586 lr:0.001000 age_loss:0.023107 gender_loss:0.411803loss:0.434910 acc:0.811721
+2022-04-07 12:07:04,984 root INFO Trainning epoch:10/100 batch:451/586 lr:0.001000 age_loss:0.023636 gender_loss:0.412460loss:0.436096 acc:0.812916
+2022-04-07 12:07:09,729 root INFO Trainning epoch:10/100 batch:501/586 lr:0.001000 age_loss:0.023100 gender_loss:0.411378loss:0.434478 acc:0.813373
+2022-04-07 12:07:14,471 root INFO Trainning epoch:10/100 batch:551/586 lr:0.001000 age_loss:0.022768 gender_loss:0.408363loss:0.431131 acc:0.815789
+2022-04-07 12:08:27,890 root INFO Validating epoch:10/100 batch:1/69 loss:0.365358 acc:0.812500
+2022-04-07 12:08:29,318 root INFO Validating epoch:10/100 batch:51/69 loss:0.469770 acc:0.776961
+2022-04-07 12:08:30,564 root INFO [Epoch:10   /100  ] lr:0.001000 loss:0.431386 val_loss:0.430032 acc:0.815806 val_acc:0.810688
+2022-04-07 12:08:31,829 root INFO Saved best model.
+2022-04-07 12:09:41,940 root INFO Trainning epoch:11/100 batch:1/586 lr:0.001000 age_loss:0.023324 gender_loss:0.514627loss:0.537951 acc:0.750000
+2022-04-07 12:09:46,701 root INFO Trainning epoch:11/100 batch:51/586 lr:0.001000 age_loss:0.024854 gender_loss:0.416664loss:0.441518 acc:0.805147
+2022-04-07 12:09:51,428 root INFO Trainning epoch:11/100 batch:101/586 lr:0.001000 age_loss:0.023432 gender_loss:0.406189loss:0.429621 acc:0.814975
+2022-04-07 12:09:56,159 root INFO Trainning epoch:11/100 batch:151/586 lr:0.001000 age_loss:0.022678 gender_loss:0.392340loss:0.415018 acc:0.821192
+2022-04-07 12:10:00,889 root INFO Trainning epoch:11/100 batch:201/586 lr:0.001000 age_loss:0.022064 gender_loss:0.386811loss:0.408875 acc:0.821206
+2022-04-07 12:10:05,616 root INFO Trainning epoch:11/100 batch:251/586 lr:0.001000 age_loss:0.022416 gender_loss:0.394053loss:0.416469 acc:0.819223
+2022-04-07 12:10:10,350 root INFO Trainning epoch:11/100 batch:301/586 lr:0.001000 age_loss:0.022559 gender_loss:0.393104loss:0.415663 acc:0.819145
+2022-04-07 12:10:15,77 root INFO Trainning epoch:11/100 batch:351/586 lr:0.001000 age_loss:0.022654 gender_loss:0.390295loss:0.412948 acc:0.822293
+2022-04-07 12:10:19,803 root INFO Trainning epoch:11/100 batch:401/586 lr:0.001000 age_loss:0.022327 gender_loss:0.385461loss:0.407788 acc:0.825281
+2022-04-07 12:10:24,534 root INFO Trainning epoch:11/100 batch:451/586 lr:0.001000 age_loss:0.023167 gender_loss:0.383049loss:0.406216 acc:0.827190
+2022-04-07 12:10:29,268 root INFO Trainning epoch:11/100 batch:501/586 lr:0.001000 age_loss:0.023036 gender_loss:0.383873loss:0.406908 acc:0.829092
+2022-04-07 12:10:33,994 root INFO Trainning epoch:11/100 batch:551/586 lr:0.001000 age_loss:0.022755 gender_loss:0.381029loss:0.403783 acc:0.830989
+2022-04-07 12:11:48,35 root INFO Validating epoch:11/100 batch:1/69 loss:0.367607 acc:0.750000
+2022-04-07 12:11:49,459 root INFO Validating epoch:11/100 batch:51/69 loss:0.401284 acc:0.833333
+2022-04-07 12:11:50,671 root INFO [Epoch:11   /100  ] lr:0.001000 loss:0.403254 val_loss:0.393647 acc:0.831805 val_acc:0.846920
+2022-04-07 12:11:51,974 root INFO Saved best model.
+2022-04-07 12:13:01,618 root INFO Trainning epoch:12/100 batch:1/586 lr:0.000999 age_loss:0.020054 gender_loss:0.216644loss:0.236697 acc:0.875000
+2022-04-07 12:13:06,334 root INFO Trainning epoch:12/100 batch:51/586 lr:0.000999 age_loss:0.023044 gender_loss:0.337435loss:0.360479 acc:0.851716
+2022-04-07 12:13:11,35 root INFO Trainning epoch:12/100 batch:101/586 lr:0.000999 age_loss:0.022009 gender_loss:0.364109loss:0.386118 acc:0.843441
+2022-04-07 12:13:15,742 root INFO Trainning epoch:12/100 batch:151/586 lr:0.000999 age_loss:0.021717 gender_loss:0.364101loss:0.385818 acc:0.841060
+2022-04-07 12:13:20,438 root INFO Trainning epoch:12/100 batch:201/586 lr:0.000999 age_loss:0.021794 gender_loss:0.362255loss:0.384048 acc:0.840796
+2022-04-07 12:13:25,139 root INFO Trainning epoch:12/100 batch:251/586 lr:0.000999 age_loss:0.021400 gender_loss:0.360750loss:0.382150 acc:0.842380
+2022-04-07 12:13:29,838 root INFO Trainning epoch:12/100 batch:301/586 lr:0.000999 age_loss:0.021739 gender_loss:0.362013loss:0.383752 acc:0.843023
+2022-04-07 12:13:34,530 root INFO Trainning epoch:12/100 batch:351/586 lr:0.000999 age_loss:0.021572 gender_loss:0.359716loss:0.381288 acc:0.844373
+2022-04-07 12:13:39,227 root INFO Trainning epoch:12/100 batch:401/586 lr:0.000999 age_loss:0.021895 gender_loss:0.356462loss:0.378357 acc:0.846010
+2022-04-07 12:13:43,924 root INFO Trainning epoch:12/100 batch:451/586 lr:0.000999 age_loss:0.021661 gender_loss:0.356441loss:0.378102 acc:0.844512
+2022-04-07 12:13:48,629 root INFO Trainning epoch:12/100 batch:501/586 lr:0.000999 age_loss:0.022310 gender_loss:0.360209loss:0.382519 acc:0.842939
+2022-04-07 12:13:53,346 root INFO Trainning epoch:12/100 batch:551/586 lr:0.000999 age_loss:0.022558 gender_loss:0.359004loss:0.381563 acc:0.843126
+2022-04-07 12:15:06,279 root INFO Validating epoch:12/100 batch:1/69 loss:0.164767 acc:1.000000
+2022-04-07 12:15:07,705 root INFO Validating epoch:12/100 batch:51/69 loss:0.568529 acc:0.731618
+2022-04-07 12:15:08,986 root INFO [Epoch:12   /100  ] lr:0.000999 loss:0.382266 val_loss:0.483132 acc:0.842150 val_acc:0.785326
+2022-04-07 12:16:18,475 root INFO Trainning epoch:13/100 batch:1/586 lr:0.000998 age_loss:0.010565 gender_loss:0.196117loss:0.206682 acc:0.937500
+2022-04-07 12:16:23,214 root INFO Trainning epoch:13/100 batch:51/586 lr:0.000998 age_loss:0.022326 gender_loss:0.348131loss:0.370457 acc:0.854167
+2022-04-07 12:16:27,902 root INFO Trainning epoch:13/100 batch:101/586 lr:0.000998 age_loss:0.019996 gender_loss:0.363911loss:0.383907 acc:0.843441
+2022-04-07 12:16:32,592 root INFO Trainning epoch:13/100 batch:151/586 lr:0.000998 age_loss:0.020244 gender_loss:0.360012loss:0.380256 acc:0.843957
+2022-04-07 12:16:37,296 root INFO Trainning epoch:13/100 batch:201/586 lr:0.000998 age_loss:0.020153 gender_loss:0.353910loss:0.374063 acc:0.846393
+2022-04-07 12:16:41,995 root INFO Trainning epoch:13/100 batch:251/586 lr:0.000998 age_loss:0.020352 gender_loss:0.358220loss:0.378572 acc:0.843875
+2022-04-07 12:16:46,697 root INFO Trainning epoch:13/100 batch:301/586 lr:0.000998 age_loss:0.020654 gender_loss:0.360843loss:0.381497 acc:0.843646
+2022-04-07 12:16:51,392 root INFO Trainning epoch:13/100 batch:351/586 lr:0.000998 age_loss:0.020886 gender_loss:0.362359loss:0.383245 acc:0.841346
+2022-04-07 12:16:56,98 root INFO Trainning epoch:13/100 batch:401/586 lr:0.000998 age_loss:0.020916 gender_loss:0.360791loss:0.381706 acc:0.841646
+2022-04-07 12:17:00,816 root INFO Trainning epoch:13/100 batch:451/586 lr:0.000998 age_loss:0.020955 gender_loss:0.357138loss:0.378093 acc:0.843681
+2022-04-07 12:17:05,521 root INFO Trainning epoch:13/100 batch:501/586 lr:0.000998 age_loss:0.021645 gender_loss:0.355474loss:0.377119 acc:0.845309
+2022-04-07 12:17:10,229 root INFO Trainning epoch:13/100 batch:551/586 lr:0.000998 age_loss:0.021975 gender_loss:0.354358loss:0.376333 acc:0.846075
+2022-04-07 12:18:24,380 root INFO Validating epoch:13/100 batch:1/69 loss:0.299760 acc:0.812500
+2022-04-07 12:18:25,806 root INFO Validating epoch:13/100 batch:51/69 loss:0.409325 acc:0.808824
+2022-04-07 12:18:27,36 root INFO [Epoch:13   /100  ] lr:0.000998 loss:0.374723 val_loss:0.379235 acc:0.845350 val_acc:0.836957
+2022-04-07 12:18:28,268 root INFO Saved best model.
+2022-04-07 12:19:38,367 root INFO Trainning epoch:14/100 batch:1/586 lr:0.000996 age_loss:0.024721 gender_loss:0.240717loss:0.265438 acc:0.875000
+2022-04-07 12:19:43,97 root INFO Trainning epoch:14/100 batch:51/586 lr:0.000996 age_loss:0.021131 gender_loss:0.315642loss:0.336773 acc:0.879902
+2022-04-07 12:19:47,815 root INFO Trainning epoch:14/100 batch:101/586 lr:0.000996 age_loss:0.024292 gender_loss:0.322237loss:0.346530 acc:0.869431
+2022-04-07 12:19:52,520 root INFO Trainning epoch:14/100 batch:151/586 lr:0.000996 age_loss:0.023405 gender_loss:0.338733loss:0.362138 acc:0.857202
+2022-04-07 12:19:57,228 root INFO Trainning epoch:14/100 batch:201/586 lr:0.000996 age_loss:0.022192 gender_loss:0.334854loss:0.357047 acc:0.859142
+2022-04-07 12:20:01,936 root INFO Trainning epoch:14/100 batch:251/586 lr:0.000996 age_loss:0.021686 gender_loss:0.333423loss:0.355109 acc:0.857570
+2022-04-07 12:20:06,636 root INFO Trainning epoch:14/100 batch:301/586 lr:0.000996 age_loss:0.021610 gender_loss:0.335534loss:0.357145 acc:0.854236
+2022-04-07 12:20:11,341 root INFO Trainning epoch:14/100 batch:351/586 lr:0.000996 age_loss:0.021239 gender_loss:0.330423loss:0.351663 acc:0.856303
+2022-04-07 12:20:16,53 root INFO Trainning epoch:14/100 batch:401/586 lr:0.000996 age_loss:0.020995 gender_loss:0.334499loss:0.355494 acc:0.854426
+2022-04-07 12:20:20,767 root INFO Trainning epoch:14/100 batch:451/586 lr:0.000996 age_loss:0.021429 gender_loss:0.330975loss:0.352404 acc:0.857539
+2022-04-07 12:20:25,477 root INFO Trainning epoch:14/100 batch:501/586 lr:0.000996 age_loss:0.021353 gender_loss:0.332623loss:0.353976 acc:0.856786
+2022-04-07 12:20:30,264 root INFO Trainning epoch:14/100 batch:551/586 lr:0.000996 age_loss:0.021362 gender_loss:0.330795loss:0.352157 acc:0.856171
+2022-04-07 12:21:45,318 root INFO Validating epoch:14/100 batch:1/69 loss:0.359259 acc:0.750000
+2022-04-07 12:21:46,741 root INFO Validating epoch:14/100 batch:51/69 loss:0.335535 acc:0.863971
+2022-04-07 12:21:47,951 root INFO [Epoch:14   /100  ] lr:0.000996 loss:0.354448 val_loss:0.350810 acc:0.856335 val_acc:0.860507
+2022-04-07 12:21:49,313 root INFO Saved best model.
+2022-04-07 12:22:58,792 root INFO Trainning epoch:15/100 batch:1/586 lr:0.000994 age_loss:0.021874 gender_loss:0.245100loss:0.266974 acc:0.875000
+2022-04-07 12:23:03,518 root INFO Trainning epoch:15/100 batch:51/586 lr:0.000994 age_loss:0.019509 gender_loss:0.334352loss:0.353861 acc:0.856618
+2022-04-07 12:23:08,212 root INFO Trainning epoch:15/100 batch:101/586 lr:0.000994 age_loss:0.020865 gender_loss:0.330305loss:0.351170 acc:0.855198
+2022-04-07 12:23:12,916 root INFO Trainning epoch:15/100 batch:151/586 lr:0.000994 age_loss:0.024376 gender_loss:0.331648loss:0.356025 acc:0.854305
+2022-04-07 12:23:17,609 root INFO Trainning epoch:15/100 batch:201/586 lr:0.000994 age_loss:0.023831 gender_loss:0.321110loss:0.344941 acc:0.858831
+2022-04-07 12:23:22,300 root INFO Trainning epoch:15/100 batch:251/586 lr:0.000994 age_loss:0.023743 gender_loss:0.329284loss:0.353027 acc:0.857819
+2022-04-07 12:23:26,999 root INFO Trainning epoch:15/100 batch:301/586 lr:0.000994 age_loss:0.023270 gender_loss:0.323884loss:0.347154 acc:0.861088
+2022-04-07 12:23:31,701 root INFO Trainning epoch:15/100 batch:351/586 lr:0.000994 age_loss:0.022709 gender_loss:0.320876loss:0.343585 acc:0.863070
+2022-04-07 12:23:36,399 root INFO Trainning epoch:15/100 batch:401/586 lr:0.000994 age_loss:0.022321 gender_loss:0.322342loss:0.344663 acc:0.863310
+2022-04-07 12:23:41,110 root INFO Trainning epoch:15/100 batch:451/586 lr:0.000994 age_loss:0.022222 gender_loss:0.323353loss:0.345576 acc:0.861280
+2022-04-07 12:23:45,815 root INFO Trainning epoch:15/100 batch:501/586 lr:0.000994 age_loss:0.021996 gender_loss:0.326877loss:0.348873 acc:0.859905
+2022-04-07 12:23:50,519 root INFO Trainning epoch:15/100 batch:551/586 lr:0.000994 age_loss:0.021940 gender_loss:0.325961loss:0.347901 acc:0.860594
+2022-04-07 12:25:05,206 root INFO Validating epoch:15/100 batch:1/69 loss:0.319568 acc:0.812500
+2022-04-07 12:25:06,646 root INFO Validating epoch:15/100 batch:51/69 loss:0.348359 acc:0.857843
+2022-04-07 12:25:07,906 root INFO [Epoch:15   /100  ] lr:0.000994 loss:0.348046 val_loss:0.339887 acc:0.859322 val_acc:0.868659
+2022-04-07 12:25:09,131 root INFO Saved best model.
+2022-04-07 12:26:17,790 root INFO Trainning epoch:16/100 batch:1/586 lr:0.000991 age_loss:0.010325 gender_loss:0.374431loss:0.384756 acc:0.812500
+2022-04-07 12:26:22,536 root INFO Trainning epoch:16/100 batch:51/586 lr:0.000991 age_loss:0.019613 gender_loss:0.331661loss:0.351274 acc:0.854167
+2022-04-07 12:26:27,247 root INFO Trainning epoch:16/100 batch:101/586 lr:0.000991 age_loss:0.020381 gender_loss:0.335192loss:0.355572 acc:0.856436
+2022-04-07 12:26:31,972 root INFO Trainning epoch:16/100 batch:151/586 lr:0.000991 age_loss:0.020780 gender_loss:0.334099loss:0.354880 acc:0.853063
+2022-04-07 12:26:36,693 root INFO Trainning epoch:16/100 batch:201/586 lr:0.000991 age_loss:0.020381 gender_loss:0.322957loss:0.343339 acc:0.858831
+2022-04-07 12:26:41,410 root INFO Trainning epoch:16/100 batch:251/586 lr:0.000991 age_loss:0.021149 gender_loss:0.323418loss:0.344567 acc:0.856574
+2022-04-07 12:26:46,141 root INFO Trainning epoch:16/100 batch:301/586 lr:0.000991 age_loss:0.020907 gender_loss:0.325846loss:0.346752 acc:0.854859
+2022-04-07 12:26:50,861 root INFO Trainning epoch:16/100 batch:351/586 lr:0.000991 age_loss:0.020488 gender_loss:0.324890loss:0.345379 acc:0.856660
+2022-04-07 12:26:55,597 root INFO Trainning epoch:16/100 batch:401/586 lr:0.000991 age_loss:0.020265 gender_loss:0.322814loss:0.343078 acc:0.858791
+2022-04-07 12:27:00,323 root INFO Trainning epoch:16/100 batch:451/586 lr:0.000991 age_loss:0.020276 gender_loss:0.316919loss:0.337195 acc:0.861835
+2022-04-07 12:27:05,50 root INFO Trainning epoch:16/100 batch:501/586 lr:0.000991 age_loss:0.020775 gender_loss:0.317097loss:0.337872 acc:0.861652
+2022-04-07 12:27:09,783 root INFO Trainning epoch:16/100 batch:551/586 lr:0.000991 age_loss:0.021361 gender_loss:0.315360loss:0.336721 acc:0.863090
+2022-04-07 12:28:23,342 root INFO Validating epoch:16/100 batch:1/69 loss:0.287486 acc:0.875000
+2022-04-07 12:28:24,772 root INFO Validating epoch:16/100 batch:51/69 loss:0.410558 acc:0.813725
+2022-04-07 12:28:25,995 root INFO [Epoch:16   /100  ] lr:0.000991 loss:0.334576 val_loss:0.369403 acc:0.864654 val_acc:0.847826
+2022-04-07 12:29:35,600 root INFO Trainning epoch:17/100 batch:1/586 lr:0.000988 age_loss:0.016468 gender_loss:0.196254loss:0.212722 acc:0.937500
+2022-04-07 12:29:40,346 root INFO Trainning epoch:17/100 batch:51/586 lr:0.000988 age_loss:0.019644 gender_loss:0.290740loss:0.310383 acc:0.879902
+2022-04-07 12:29:45,68 root INFO Trainning epoch:17/100 batch:101/586 lr:0.000988 age_loss:0.019707 gender_loss:0.312506loss:0.332213 acc:0.873762
+2022-04-07 12:29:49,804 root INFO Trainning epoch:17/100 batch:151/586 lr:0.000988 age_loss:0.020227 gender_loss:0.307266loss:0.327493 acc:0.873344
+2022-04-07 12:29:54,536 root INFO Trainning epoch:17/100 batch:201/586 lr:0.000988 age_loss:0.020678 gender_loss:0.302829loss:0.323507 acc:0.872201
+2022-04-07 12:29:59,268 root INFO Trainning epoch:17/100 batch:251/586 lr:0.000988 age_loss:0.020503 gender_loss:0.304255loss:0.324757 acc:0.871514
+2022-04-07 12:30:04,6 root INFO Trainning epoch:17/100 batch:301/586 lr:0.000988 age_loss:0.020137 gender_loss:0.306039loss:0.326176 acc:0.870432
+2022-04-07 12:30:08,746 root INFO Trainning epoch:17/100 batch:351/586 lr:0.000988 age_loss:0.020075 gender_loss:0.302829loss:0.322904 acc:0.872329
+2022-04-07 12:30:13,504 root INFO Trainning epoch:17/100 batch:401/586 lr:0.000988 age_loss:0.020469 gender_loss:0.303881loss:0.324351 acc:0.871259
+2022-04-07 12:30:18,258 root INFO Trainning epoch:17/100 batch:451/586 lr:0.000988 age_loss:0.020262 gender_loss:0.309132loss:0.329394 acc:0.868902
+2022-04-07 12:30:23,7 root INFO Trainning epoch:17/100 batch:501/586 lr:0.000988 age_loss:0.020155 gender_loss:0.306347loss:0.326502 acc:0.869511
+2022-04-07 12:30:27,752 root INFO Trainning epoch:17/100 batch:551/586 lr:0.000988 age_loss:0.020231 gender_loss:0.306498loss:0.326729 acc:0.868988
+2022-04-07 12:31:42,125 root INFO Validating epoch:17/100 batch:1/69 loss:0.244478 acc:0.875000
+2022-04-07 12:31:43,552 root INFO Validating epoch:17/100 batch:51/69 loss:0.390721 acc:0.822304
+2022-04-07 12:31:44,765 root INFO [Epoch:17   /100  ] lr:0.000988 loss:0.329176 val_loss:0.355745 acc:0.867108 val_acc:0.854167
+2022-04-07 12:32:55,26 root INFO Trainning epoch:18/100 batch:1/586 lr:0.000984 age_loss:0.010868 gender_loss:0.139003loss:0.149871 acc:1.000000
+2022-04-07 12:32:59,751 root INFO Trainning epoch:18/100 batch:51/586 lr:0.000984 age_loss:0.019192 gender_loss:0.284842loss:0.304034 acc:0.873775
+2022-04-07 12:33:04,450 root INFO Trainning epoch:18/100 batch:101/586 lr:0.000984 age_loss:0.019788 gender_loss:0.287726loss:0.307515 acc:0.868812
+2022-04-07 12:33:09,156 root INFO Trainning epoch:18/100 batch:151/586 lr:0.000984 age_loss:0.020244 gender_loss:0.292732loss:0.312977 acc:0.868791
+2022-04-07 12:33:13,855 root INFO Trainning epoch:18/100 batch:201/586 lr:0.000984 age_loss:0.021095 gender_loss:0.291255loss:0.312350 acc:0.870336
+2022-04-07 12:33:18,564 root INFO Trainning epoch:18/100 batch:251/586 lr:0.000984 age_loss:0.021221 gender_loss:0.297338loss:0.318559 acc:0.866036
+2022-04-07 12:33:23,267 root INFO Trainning epoch:18/100 batch:301/586 lr:0.000984 age_loss:0.020628 gender_loss:0.294694loss:0.315323 acc:0.870017
+2022-04-07 12:33:27,972 root INFO Trainning epoch:18/100 batch:351/586 lr:0.000984 age_loss:0.020710 gender_loss:0.295257loss:0.315967 acc:0.871617
+2022-04-07 12:33:32,676 root INFO Trainning epoch:18/100 batch:401/586 lr:0.000984 age_loss:0.021122 gender_loss:0.298736loss:0.319858 acc:0.869389
+2022-04-07 12:33:37,383 root INFO Trainning epoch:18/100 batch:451/586 lr:0.000984 age_loss:0.021011 gender_loss:0.296573loss:0.317584 acc:0.870981
+2022-04-07 12:33:42,90 root INFO Trainning epoch:18/100 batch:501/586 lr:0.000984 age_loss:0.020872 gender_loss:0.298918loss:0.319791 acc:0.868263
+2022-04-07 12:33:46,800 root INFO Trainning epoch:18/100 batch:551/586 lr:0.000984 age_loss:0.020929 gender_loss:0.296934loss:0.317863 acc:0.869442
+2022-04-07 12:35:00,689 root INFO Validating epoch:18/100 batch:1/69 loss:0.325625 acc:0.812500
+2022-04-07 12:35:02,117 root INFO Validating epoch:18/100 batch:51/69 loss:0.428188 acc:0.796569
+2022-04-07 12:35:03,343 root INFO [Epoch:18   /100  ] lr:0.000984 loss:0.317239 val_loss:0.375054 acc:0.868494 val_acc:0.836957
+2022-04-07 12:36:14,43 root INFO Trainning epoch:19/100 batch:1/586 lr:0.000980 age_loss:0.007970 gender_loss:0.229816loss:0.237786 acc:0.875000
+2022-04-07 12:36:18,826 root INFO Trainning epoch:19/100 batch:51/586 lr:0.000980 age_loss:0.017224 gender_loss:0.248893loss:0.266117 acc:0.893382
+2022-04-07 12:36:23,560 root INFO Trainning epoch:19/100 batch:101/586 lr:0.000980 age_loss:0.018729 gender_loss:0.276035loss:0.294765 acc:0.880569
+2022-04-07 12:36:28,306 root INFO Trainning epoch:19/100 batch:151/586 lr:0.000980 age_loss:0.018831 gender_loss:0.286879loss:0.305710 acc:0.872517
+2022-04-07 12:36:33,48 root INFO Trainning epoch:19/100 batch:201/586 lr:0.000980 age_loss:0.019340 gender_loss:0.287430loss:0.306770 acc:0.874689
+2022-04-07 12:36:37,779 root INFO Trainning epoch:19/100 batch:251/586 lr:0.000980 age_loss:0.019754 gender_loss:0.296888loss:0.316642 acc:0.870518
+2022-04-07 12:36:42,502 root INFO Trainning epoch:19/100 batch:301/586 lr:0.000980 age_loss:0.020760 gender_loss:0.296449loss:0.317209 acc:0.870224
+2022-04-07 12:36:47,238 root INFO Trainning epoch:19/100 batch:351/586 lr:0.000980 age_loss:0.020726 gender_loss:0.300844loss:0.321570 acc:0.867699
+2022-04-07 12:36:51,977 root INFO Trainning epoch:19/100 batch:401/586 lr:0.000980 age_loss:0.020520 gender_loss:0.297735loss:0.318256 acc:0.867986
+2022-04-07 12:36:56,724 root INFO Trainning epoch:19/100 batch:451/586 lr:0.000980 age_loss:0.020790 gender_loss:0.298304loss:0.319094 acc:0.868210
+2022-04-07 12:37:01,466 root INFO Trainning epoch:19/100 batch:501/586 lr:0.000980 age_loss:0.020546 gender_loss:0.295801loss:0.316347 acc:0.869386
+2022-04-07 12:37:06,201 root INFO Trainning epoch:19/100 batch:551/586 lr:0.000980 age_loss:0.020300 gender_loss:0.294543loss:0.314842 acc:0.871370
+2022-04-07 12:38:19,710 root INFO Validating epoch:19/100 batch:1/69 loss:0.240449 acc:0.937500
+2022-04-07 12:38:21,134 root INFO Validating epoch:19/100 batch:51/69 loss:0.470143 acc:0.778186
+2022-04-07 12:38:22,360 root INFO [Epoch:19   /100  ] lr:0.000980 loss:0.315379 val_loss:0.402409 acc:0.871907 val_acc:0.824275
+2022-04-07 12:39:31,661 root INFO Trainning epoch:20/100 batch:1/586 lr:0.000976 age_loss:0.017920 gender_loss:0.395579loss:0.413498 acc:0.812500
+2022-04-07 12:39:36,395 root INFO Trainning epoch:20/100 batch:51/586 lr:0.000976 age_loss:0.020437 gender_loss:0.278557loss:0.298994 acc:0.876225
+2022-04-07 12:39:41,110 root INFO Trainning epoch:20/100 batch:101/586 lr:0.000976 age_loss:0.019434 gender_loss:0.291180loss:0.310615 acc:0.877475
+2022-04-07 12:39:45,829 root INFO Trainning epoch:20/100 batch:151/586 lr:0.000976 age_loss:0.019778 gender_loss:0.274537loss:0.294315 acc:0.887417
+2022-04-07 12:39:50,551 root INFO Trainning epoch:20/100 batch:201/586 lr:0.000976 age_loss:0.019362 gender_loss:0.275832loss:0.295193 acc:0.883706
+2022-04-07 12:39:55,267 root INFO Trainning epoch:20/100 batch:251/586 lr:0.000976 age_loss:0.019390 gender_loss:0.275087loss:0.294477 acc:0.883715
+2022-04-07 12:39:59,993 root INFO Trainning epoch:20/100 batch:301/586 lr:0.000976 age_loss:0.019401 gender_loss:0.279332loss:0.298734 acc:0.882683
+2022-04-07 12:40:04,721 root INFO Trainning epoch:20/100 batch:351/586 lr:0.000976 age_loss:0.019457 gender_loss:0.275512loss:0.294969 acc:0.884972
+2022-04-07 12:40:09,446 root INFO Trainning epoch:20/100 batch:401/586 lr:0.000976 age_loss:0.020419 gender_loss:0.276683loss:0.297102 acc:0.884507
+2022-04-07 12:40:14,159 root INFO Trainning epoch:20/100 batch:451/586 lr:0.000976 age_loss:0.020675 gender_loss:0.278182loss:0.298857 acc:0.883176
+2022-04-07 12:40:18,879 root INFO Trainning epoch:20/100 batch:501/586 lr:0.000976 age_loss:0.020605 gender_loss:0.283363loss:0.303968 acc:0.880489
+2022-04-07 12:40:23,597 root INFO Trainning epoch:20/100 batch:551/586 lr:0.000976 age_loss:0.020402 gender_loss:0.283538loss:0.303940 acc:0.879651
+2022-04-07 12:41:37,4 root INFO Validating epoch:20/100 batch:1/69 loss:0.209911 acc:0.875000
+2022-04-07 12:41:38,428 root INFO Validating epoch:20/100 batch:51/69 loss:0.477295 acc:0.784314
+2022-04-07 12:41:39,643 root INFO [Epoch:20   /100  ] lr:0.000976 loss:0.305596 val_loss:0.408774 acc:0.878840 val_acc:0.828804
+2022-04-07 12:42:49,242 root INFO Trainning epoch:21/100 batch:1/586 lr:0.000970 age_loss:0.019254 gender_loss:0.169830loss:0.189085 acc:0.937500
+2022-04-07 12:42:53,962 root INFO Trainning epoch:21/100 batch:51/586 lr:0.000970 age_loss:0.019146 gender_loss:0.278866loss:0.298013 acc:0.888480
+2022-04-07 12:42:58,659 root INFO Trainning epoch:21/100 batch:101/586 lr:0.000970 age_loss:0.018958 gender_loss:0.288507loss:0.307465 acc:0.879950
+2022-04-07 12:43:03,368 root INFO Trainning epoch:21/100 batch:151/586 lr:0.000970 age_loss:0.018554 gender_loss:0.281826loss:0.300380 acc:0.882036
+2022-04-07 12:43:08,74 root INFO Trainning epoch:21/100 batch:201/586 lr:0.000970 age_loss:0.018823 gender_loss:0.279703loss:0.298526 acc:0.881841
+2022-04-07 12:43:12,789 root INFO Trainning epoch:21/100 batch:251/586 lr:0.000970 age_loss:0.019098 gender_loss:0.278982loss:0.298080 acc:0.883715
+2022-04-07 12:43:17,492 root INFO Trainning epoch:21/100 batch:301/586 lr:0.000970 age_loss:0.018871 gender_loss:0.279733loss:0.298604 acc:0.884136
+2022-04-07 12:43:22,198 root INFO Trainning epoch:21/100 batch:351/586 lr:0.000970 age_loss:0.018999 gender_loss:0.278350loss:0.297349 acc:0.885506
+2022-04-07 12:43:26,912 root INFO Trainning epoch:21/100 batch:401/586 lr:0.000970 age_loss:0.019905 gender_loss:0.277078loss:0.296983 acc:0.887157
+2022-04-07 12:43:31,617 root INFO Trainning epoch:21/100 batch:451/586 lr:0.000970 age_loss:0.020154 gender_loss:0.277037loss:0.297191 acc:0.886225
+2022-04-07 12:43:36,329 root INFO Trainning epoch:21/100 batch:501/586 lr:0.000970 age_loss:0.020079 gender_loss:0.275748loss:0.295828 acc:0.886352
+2022-04-07 12:43:41,41 root INFO Trainning epoch:21/100 batch:551/586 lr:0.000970 age_loss:0.020217 gender_loss:0.279645loss:0.299861 acc:0.884301
+2022-04-07 12:44:54,54 root INFO Validating epoch:21/100 batch:1/69 loss:0.222211 acc:0.812500
+2022-04-07 12:44:55,483 root INFO Validating epoch:21/100 batch:51/69 loss:0.498354 acc:0.770833
+2022-04-07 12:44:56,693 root INFO [Epoch:21   /100  ] lr:0.000970 loss:0.297539 val_loss:0.421731 acc:0.884386 val_acc:0.817935
+2022-04-07 12:46:05,733 root INFO Trainning epoch:22/100 batch:1/586 lr:0.000965 age_loss:0.031002 gender_loss:0.247936loss:0.278937 acc:0.875000
+2022-04-07 12:46:10,460 root INFO Trainning epoch:22/100 batch:51/586 lr:0.000965 age_loss:0.018575 gender_loss:0.254752loss:0.273327 acc:0.898284
+2022-04-07 12:46:15,168 root INFO Trainning epoch:22/100 batch:101/586 lr:0.000965 age_loss:0.018541 gender_loss:0.261981loss:0.280522 acc:0.891089
+2022-04-07 12:46:19,885 root INFO Trainning epoch:22/100 batch:151/586 lr:0.000965 age_loss:0.018394 gender_loss:0.267393loss:0.285787 acc:0.889487
+2022-04-07 12:46:24,588 root INFO Trainning epoch:22/100 batch:201/586 lr:0.000965 age_loss:0.019395 gender_loss:0.266158loss:0.285553 acc:0.892102
+2022-04-07 12:46:29,297 root INFO Trainning epoch:22/100 batch:251/586 lr:0.000965 age_loss:0.019331 gender_loss:0.265606loss:0.284937 acc:0.890687
+2022-04-07 12:46:34,2 root INFO Trainning epoch:22/100 batch:301/586 lr:0.000965 age_loss:0.019307 gender_loss:0.263377loss:0.282684 acc:0.889535
+2022-04-07 12:46:38,705 root INFO Trainning epoch:22/100 batch:351/586 lr:0.000965 age_loss:0.019231 gender_loss:0.261575loss:0.280807 acc:0.889779
+2022-04-07 12:46:43,406 root INFO Trainning epoch:22/100 batch:401/586 lr:0.000965 age_loss:0.019373 gender_loss:0.263582loss:0.282954 acc:0.888404
+2022-04-07 12:46:48,117 root INFO Trainning epoch:22/100 batch:451/586 lr:0.000965 age_loss:0.019550 gender_loss:0.263132loss:0.282683 acc:0.888442
+2022-04-07 12:46:52,825 root INFO Trainning epoch:22/100 batch:501/586 lr:0.000965 age_loss:0.020150 gender_loss:0.265295loss:0.285445 acc:0.888099
+2022-04-07 12:46:57,542 root INFO Trainning epoch:22/100 batch:551/586 lr:0.000965 age_loss:0.020112 gender_loss:0.265968loss:0.286080 acc:0.886910
+2022-04-07 12:48:09,735 root INFO Validating epoch:22/100 batch:1/69 loss:0.289185 acc:0.875000
+2022-04-07 12:48:11,159 root INFO Validating epoch:22/100 batch:51/69 loss:0.335671 acc:0.873775
+2022-04-07 12:48:12,417 root INFO [Epoch:22   /100  ] lr:0.000965 loss:0.288181 val_loss:0.320216 acc:0.886199 val_acc:0.887681
+2022-04-07 12:48:13,743 root INFO Saved best model.
+2022-04-07 12:49:23,241 root INFO Trainning epoch:23/100 batch:1/586 lr:0.000959 age_loss:0.016239 gender_loss:0.390917loss:0.407155 acc:0.875000
+2022-04-07 12:49:27,993 root INFO Trainning epoch:23/100 batch:51/586 lr:0.000959 age_loss:0.021733 gender_loss:0.289743loss:0.311477 acc:0.882353
+2022-04-07 12:49:32,728 root INFO Trainning epoch:23/100 batch:101/586 lr:0.000959 age_loss:0.020148 gender_loss:0.277007loss:0.297155 acc:0.889851
+2022-04-07 12:49:37,461 root INFO Trainning epoch:23/100 batch:151/586 lr:0.000959 age_loss:0.020019 gender_loss:0.276095loss:0.296114 acc:0.886175
+2022-04-07 12:49:42,186 root INFO Trainning epoch:23/100 batch:201/586 lr:0.000959 age_loss:0.020163 gender_loss:0.271634loss:0.291797 acc:0.887749
+2022-04-07 12:49:46,924 root INFO Trainning epoch:23/100 batch:251/586 lr:0.000959 age_loss:0.020024 gender_loss:0.270321loss:0.290345 acc:0.888197
+2022-04-07 12:49:51,665 root INFO Trainning epoch:23/100 batch:301/586 lr:0.000959 age_loss:0.019644 gender_loss:0.267291loss:0.286935 acc:0.890365
+2022-04-07 12:49:56,396 root INFO Trainning epoch:23/100 batch:351/586 lr:0.000959 age_loss:0.019719 gender_loss:0.265723loss:0.285442 acc:0.890848
+2022-04-07 12:50:01,144 root INFO Trainning epoch:23/100 batch:401/586 lr:0.000959 age_loss:0.019626 gender_loss:0.262405loss:0.282031 acc:0.893859
+2022-04-07 12:50:05,880 root INFO Trainning epoch:23/100 batch:451/586 lr:0.000959 age_loss:0.020682 gender_loss:0.263753loss:0.284435 acc:0.892738
+2022-04-07 12:50:10,624 root INFO Trainning epoch:23/100 batch:501/586 lr:0.000959 age_loss:0.020556 gender_loss:0.264974loss:0.285531 acc:0.891467
+2022-04-07 12:50:15,378 root INFO Trainning epoch:23/100 batch:551/586 lr:0.000959 age_loss:0.020381 gender_loss:0.262506loss:0.282887 acc:0.892241
+2022-04-07 12:51:28,439 root INFO Validating epoch:23/100 batch:1/69 loss:0.408503 acc:0.812500
+2022-04-07 12:51:29,864 root INFO Validating epoch:23/100 batch:51/69 loss:0.315469 acc:0.868873
+2022-04-07 12:51:31,89 root INFO [Epoch:23   /100  ] lr:0.000959 loss:0.285369 val_loss:0.331368 acc:0.891638 val_acc:0.875000
+2022-04-07 12:52:41,494 root INFO Trainning epoch:24/100 batch:1/586 lr:0.000952 age_loss:0.021763 gender_loss:0.205632loss:0.227395 acc:0.937500
+2022-04-07 12:52:46,237 root INFO Trainning epoch:24/100 batch:51/586 lr:0.000952 age_loss:0.021559 gender_loss:0.254677loss:0.276237 acc:0.893382
+2022-04-07 12:52:50,981 root INFO Trainning epoch:24/100 batch:101/586 lr:0.000952 age_loss:0.019234 gender_loss:0.266881loss:0.286115 acc:0.890470
+2022-04-07 12:52:55,711 root INFO Trainning epoch:24/100 batch:151/586 lr:0.000952 age_loss:0.018874 gender_loss:0.264210loss:0.283084 acc:0.893212
+2022-04-07 12:53:00,441 root INFO Trainning epoch:24/100 batch:201/586 lr:0.000952 age_loss:0.019088 gender_loss:0.253751loss:0.272839 acc:0.897388
+2022-04-07 12:53:05,178 root INFO Trainning epoch:24/100 batch:251/586 lr:0.000952 age_loss:0.018358 gender_loss:0.249337loss:0.267695 acc:0.899900
+2022-04-07 12:53:09,921 root INFO Trainning epoch:24/100 batch:301/586 lr:0.000952 age_loss:0.018723 gender_loss:0.250514loss:0.269237 acc:0.898671
+2022-04-07 12:53:14,663 root INFO Trainning epoch:24/100 batch:351/586 lr:0.000952 age_loss:0.018831 gender_loss:0.252774loss:0.271605 acc:0.896902
+2022-04-07 12:53:19,389 root INFO Trainning epoch:24/100 batch:401/586 lr:0.000952 age_loss:0.019284 gender_loss:0.252788loss:0.272072 acc:0.895574
+2022-04-07 12:53:24,127 root INFO Trainning epoch:24/100 batch:451/586 lr:0.000952 age_loss:0.019897 gender_loss:0.250416loss:0.270313 acc:0.896619
+2022-04-07 12:53:28,870 root INFO Trainning epoch:24/100 batch:501/586 lr:0.000952 age_loss:0.019801 gender_loss:0.250001loss:0.269802 acc:0.896582
+2022-04-07 12:53:33,605 root INFO Trainning epoch:24/100 batch:551/586 lr:0.000952 age_loss:0.019556 gender_loss:0.250133loss:0.269689 acc:0.896892
+2022-04-07 12:54:47,797 root INFO Validating epoch:24/100 batch:1/69 loss:0.217724 acc:0.875000
+2022-04-07 12:54:49,224 root INFO Validating epoch:24/100 batch:51/69 loss:0.366617 acc:0.846814
+2022-04-07 12:54:50,428 root INFO [Epoch:24   /100  ] lr:0.000952 loss:0.270186 val_loss:0.330290 acc:0.896438 val_acc:0.872283
+2022-04-07 12:56:00,210 root INFO Trainning epoch:25/100 batch:1/586 lr:0.000946 age_loss:0.022480 gender_loss:0.463300loss:0.485780 acc:0.625000
+2022-04-07 12:56:04,976 root INFO Trainning epoch:25/100 batch:51/586 lr:0.000946 age_loss:0.018104 gender_loss:0.247522loss:0.265626 acc:0.892157
+2022-04-07 12:56:09,707 root INFO Trainning epoch:25/100 batch:101/586 lr:0.000946 age_loss:0.018828 gender_loss:0.250743loss:0.269571 acc:0.893564
+2022-04-07 12:56:14,440 root INFO Trainning epoch:25/100 batch:151/586 lr:0.000946 age_loss:0.019969 gender_loss:0.257558loss:0.277527 acc:0.890315
+2022-04-07 12:56:19,174 root INFO Trainning epoch:25/100 batch:201/586 lr:0.000946 age_loss:0.019789 gender_loss:0.257659loss:0.277448 acc:0.888993
+2022-04-07 12:56:23,910 root INFO Trainning epoch:25/100 batch:251/586 lr:0.000946 age_loss:0.019936 gender_loss:0.257366loss:0.277302 acc:0.889442
+2022-04-07 12:56:28,654 root INFO Trainning epoch:25/100 batch:301/586 lr:0.000946 age_loss:0.020323 gender_loss:0.259019loss:0.279343 acc:0.888081
+2022-04-07 12:56:33,391 root INFO Trainning epoch:25/100 batch:351/586 lr:0.000946 age_loss:0.020066 gender_loss:0.259588loss:0.279654 acc:0.890313
+2022-04-07 12:56:38,134 root INFO Trainning epoch:25/100 batch:401/586 lr:0.000946 age_loss:0.019740 gender_loss:0.259548loss:0.279288 acc:0.890586
+2022-04-07 12:56:42,874 root INFO Trainning epoch:25/100 batch:451/586 lr:0.000946 age_loss:0.020362 gender_loss:0.260511loss:0.280873 acc:0.889828
+2022-04-07 12:56:47,610 root INFO Trainning epoch:25/100 batch:501/586 lr:0.000946 age_loss:0.020046 gender_loss:0.263530loss:0.283576 acc:0.888473
+2022-04-07 12:56:52,358 root INFO Trainning epoch:25/100 batch:551/586 lr:0.000946 age_loss:0.020005 gender_loss:0.264995loss:0.285000 acc:0.887818
+2022-04-07 12:58:05,476 root INFO Validating epoch:25/100 batch:1/69 loss:0.307168 acc:0.812500
+2022-04-07 12:58:06,900 root INFO Validating epoch:25/100 batch:51/69 loss:0.356972 acc:0.845588
+2022-04-07 12:58:08,102 root INFO [Epoch:25   /100  ] lr:0.000946 loss:0.283498 val_loss:0.328375 acc:0.888972 val_acc:0.872283
+2022-04-07 12:59:17,908 root INFO Trainning epoch:26/100 batch:1/586 lr:0.000938 age_loss:0.017911 gender_loss:0.424784loss:0.442696 acc:0.875000
+2022-04-07 12:59:22,670 root INFO Trainning epoch:26/100 batch:51/586 lr:0.000938 age_loss:0.019748 gender_loss:0.247759loss:0.267507 acc:0.900735
+2022-04-07 12:59:27,417 root INFO Trainning epoch:26/100 batch:101/586 lr:0.000938 age_loss:0.019242 gender_loss:0.250250loss:0.269492 acc:0.898515
+2022-04-07 12:59:32,153 root INFO Trainning epoch:26/100 batch:151/586 lr:0.000938 age_loss:0.019158 gender_loss:0.247785loss:0.266943 acc:0.899421
+2022-04-07 12:59:36,876 root INFO Trainning epoch:26/100 batch:201/586 lr:0.000938 age_loss:0.020917 gender_loss:0.246495loss:0.267412 acc:0.901430
+2022-04-07 12:59:41,603 root INFO Trainning epoch:26/100 batch:251/586 lr:0.000938 age_loss:0.020132 gender_loss:0.256381loss:0.276514 acc:0.895916
+2022-04-07 12:59:46,338 root INFO Trainning epoch:26/100 batch:301/586 lr:0.000938 age_loss:0.020362 gender_loss:0.246845loss:0.267208 acc:0.901163
+2022-04-07 12:59:51,72 root INFO Trainning epoch:26/100 batch:351/586 lr:0.000938 age_loss:0.020073 gender_loss:0.248540loss:0.268613 acc:0.901353
+2022-04-07 12:59:55,824 root INFO Trainning epoch:26/100 batch:401/586 lr:0.000938 age_loss:0.020002 gender_loss:0.249609loss:0.269611 acc:0.901496
+2022-04-07 13:00:00,567 root INFO Trainning epoch:26/100 batch:451/586 lr:0.000938 age_loss:0.019916 gender_loss:0.248210loss:0.268125 acc:0.900776
+2022-04-07 13:00:05,307 root INFO Trainning epoch:26/100 batch:501/586 lr:0.000938 age_loss:0.019676 gender_loss:0.248671loss:0.268347 acc:0.899326
+2022-04-07 13:00:10,37 root INFO Trainning epoch:26/100 batch:551/586 lr:0.000938 age_loss:0.019695 gender_loss:0.248604loss:0.268299 acc:0.898026
+2022-04-07 13:01:23,199 root INFO Validating epoch:26/100 batch:1/69 loss:0.312788 acc:0.875000
+2022-04-07 13:01:24,623 root INFO Validating epoch:26/100 batch:51/69 loss:0.330668 acc:0.881127
+2022-04-07 13:01:25,838 root INFO [Epoch:26   /100  ] lr:0.000938 loss:0.268460 val_loss:0.313541 acc:0.898571 val_acc:0.894022
+2022-04-07 13:01:27,94 root INFO Saved best model.
+2022-04-07 13:02:37,512 root INFO Trainning epoch:27/100 batch:1/586 lr:0.000930 age_loss:0.013554 gender_loss:0.258040loss:0.271594 acc:0.875000
+2022-04-07 13:02:41,953 root INFO Trainning epoch:27/100 batch:51/586 lr:0.000930 age_loss:0.016692 gender_loss:0.268833loss:0.285525 acc:0.900735
+2022-04-07 13:02:46,348 root INFO Trainning epoch:27/100 batch:101/586 lr:0.000930 age_loss:0.017685 gender_loss:0.262630loss:0.280315 acc:0.900990
+2022-04-07 13:02:50,767 root INFO Trainning epoch:27/100 batch:151/586 lr:0.000930 age_loss:0.020277 gender_loss:0.243287loss:0.263564 acc:0.907699
+2022-04-07 13:02:55,219 root INFO Trainning epoch:27/100 batch:201/586 lr:0.000930 age_loss:0.020117 gender_loss:0.257279loss:0.277396 acc:0.897699
+2022-04-07 13:02:59,750 root INFO Trainning epoch:27/100 batch:251/586 lr:0.000930 age_loss:0.020730 gender_loss:0.253270loss:0.274001 acc:0.898655
+2022-04-07 13:03:04,248 root INFO Trainning epoch:27/100 batch:301/586 lr:0.000930 age_loss:0.020761 gender_loss:0.252784loss:0.273545 acc:0.896802
+2022-04-07 13:03:08,762 root INFO Trainning epoch:27/100 batch:351/586 lr:0.000930 age_loss:0.020249 gender_loss:0.252191loss:0.272440 acc:0.896368
+2022-04-07 13:03:13,303 root INFO Trainning epoch:27/100 batch:401/586 lr:0.000930 age_loss:0.019931 gender_loss:0.250834loss:0.270764 acc:0.897132
+2022-04-07 13:03:18,3 root INFO Trainning epoch:27/100 batch:451/586 lr:0.000930 age_loss:0.019806 gender_loss:0.248734loss:0.268540 acc:0.897034
+2022-04-07 13:03:22,830 root INFO Trainning epoch:27/100 batch:501/586 lr:0.000930 age_loss:0.019590 gender_loss:0.246821loss:0.266411 acc:0.897081
+2022-04-07 13:03:27,710 root INFO Trainning epoch:27/100 batch:551/586 lr:0.000930 age_loss:0.019579 gender_loss:0.246798loss:0.266377 acc:0.898367
+2022-04-07 13:04:42,434 root INFO Validating epoch:27/100 batch:1/69 loss:0.285800 acc:0.875000
+2022-04-07 13:04:43,865 root INFO Validating epoch:27/100 batch:51/69 loss:0.324219 acc:0.871324
+2022-04-07 13:04:45,73 root INFO [Epoch:27   /100  ] lr:0.000930 loss:0.265585 val_loss:0.306531 acc:0.898358 val_acc:0.885870
+2022-04-07 13:04:46,313 root INFO Saved best model.
+2022-04-07 13:05:56,278 root INFO Trainning epoch:28/100 batch:1/586 lr:0.000922 age_loss:0.008281 gender_loss:0.188909loss:0.197190 acc:0.937500
+2022-04-07 13:06:01,12 root INFO Trainning epoch:28/100 batch:51/586 lr:0.000922 age_loss:0.018044 gender_loss:0.233783loss:0.251827 acc:0.900735
+2022-04-07 13:06:05,703 root INFO Trainning epoch:28/100 batch:101/586 lr:0.000922 age_loss:0.018698 gender_loss:0.256847loss:0.275545 acc:0.892327
+2022-04-07 13:06:10,404 root INFO Trainning epoch:28/100 batch:151/586 lr:0.000922 age_loss:0.018248 gender_loss:0.237663loss:0.255910 acc:0.904801
+2022-04-07 13:06:15,96 root INFO Trainning epoch:28/100 batch:201/586 lr:0.000922 age_loss:0.019583 gender_loss:0.239739loss:0.259322 acc:0.901119
+2022-04-07 13:06:19,800 root INFO Trainning epoch:28/100 batch:251/586 lr:0.000922 age_loss:0.018973 gender_loss:0.242613loss:0.261586 acc:0.899900
+2022-04-07 13:06:24,503 root INFO Trainning epoch:28/100 batch:301/586 lr:0.000922 age_loss:0.018976 gender_loss:0.240202loss:0.259178 acc:0.901578
+2022-04-07 13:06:29,201 root INFO Trainning epoch:28/100 batch:351/586 lr:0.000922 age_loss:0.018995 gender_loss:0.236778loss:0.255773 acc:0.903312
+2022-04-07 13:06:33,909 root INFO Trainning epoch:28/100 batch:401/586 lr:0.000922 age_loss:0.018799 gender_loss:0.236464loss:0.255263 acc:0.903211
+2022-04-07 13:06:38,613 root INFO Trainning epoch:28/100 batch:451/586 lr:0.000922 age_loss:0.019511 gender_loss:0.236917loss:0.256428 acc:0.903271
+2022-04-07 13:06:43,319 root INFO Trainning epoch:28/100 batch:501/586 lr:0.000922 age_loss:0.019445 gender_loss:0.239434loss:0.258879 acc:0.901572
+2022-04-07 13:06:48,34 root INFO Trainning epoch:28/100 batch:551/586 lr:0.000922 age_loss:0.019200 gender_loss:0.239324loss:0.258524 acc:0.902223
+2022-04-07 13:08:01,972 root INFO Validating epoch:28/100 batch:1/69 loss:0.254574 acc:0.875000
+2022-04-07 13:08:03,400 root INFO Validating epoch:28/100 batch:51/69 loss:0.391508 acc:0.841912
+2022-04-07 13:08:04,617 root INFO [Epoch:28   /100  ] lr:0.000922 loss:0.261720 val_loss:0.346087 acc:0.899637 val_acc:0.871377
+2022-04-07 13:09:14,647 root INFO Trainning epoch:29/100 batch:1/586 lr:0.000914 age_loss:0.019561 gender_loss:0.187098loss:0.206659 acc:0.937500
+2022-04-07 13:09:19,415 root INFO Trainning epoch:29/100 batch:51/586 lr:0.000914 age_loss:0.017827 gender_loss:0.229334loss:0.247161 acc:0.908088
+2022-04-07 13:09:24,172 root INFO Trainning epoch:29/100 batch:101/586 lr:0.000914 age_loss:0.018254 gender_loss:0.244503loss:0.262758 acc:0.900371
+2022-04-07 13:09:28,938 root INFO Trainning epoch:29/100 batch:151/586 lr:0.000914 age_loss:0.017992 gender_loss:0.237576loss:0.255567 acc:0.903146
+2022-04-07 13:09:33,686 root INFO Trainning epoch:29/100 batch:201/586 lr:0.000914 age_loss:0.019547 gender_loss:0.239928loss:0.259475 acc:0.901430
+2022-04-07 13:09:38,428 root INFO Trainning epoch:29/100 batch:251/586 lr:0.000914 age_loss:0.019343 gender_loss:0.234501loss:0.253844 acc:0.905627
+2022-04-07 13:09:43,156 root INFO Trainning epoch:29/100 batch:301/586 lr:0.000914 age_loss:0.019149 gender_loss:0.234223loss:0.253373 acc:0.904693
+2022-04-07 13:09:47,896 root INFO Trainning epoch:29/100 batch:351/586 lr:0.000914 age_loss:0.018959 gender_loss:0.234361loss:0.253320 acc:0.905449
+2022-04-07 13:09:52,641 root INFO Trainning epoch:29/100 batch:401/586 lr:0.000914 age_loss:0.018934 gender_loss:0.236228loss:0.255163 acc:0.904925
+2022-04-07 13:09:57,382 root INFO Trainning epoch:29/100 batch:451/586 lr:0.000914 age_loss:0.019830 gender_loss:0.233489loss:0.253319 acc:0.904379
+2022-04-07 13:10:02,126 root INFO Trainning epoch:29/100 batch:501/586 lr:0.000914 age_loss:0.019725 gender_loss:0.233274loss:0.252999 acc:0.904192
+2022-04-07 13:10:06,870 root INFO Trainning epoch:29/100 batch:551/586 lr:0.000914 age_loss:0.019533 gender_loss:0.231849loss:0.251382 acc:0.905399
+2022-04-07 13:11:20,860 root INFO Validating epoch:29/100 batch:1/69 loss:0.129276 acc:1.000000
+2022-04-07 13:11:22,279 root INFO Validating epoch:29/100 batch:51/69 loss:0.477245 acc:0.799020
+2022-04-07 13:11:23,496 root INFO [Epoch:29   /100  ] lr:0.000914 loss:0.252007 val_loss:0.403636 acc:0.904650 val_acc:0.842391
+2022-04-07 13:12:33,180 root INFO Trainning epoch:30/100 batch:1/586 lr:0.000905 age_loss:0.007661 gender_loss:0.169063loss:0.176725 acc:0.937500
+2022-04-07 13:12:37,907 root INFO Trainning epoch:30/100 batch:51/586 lr:0.000905 age_loss:0.019556 gender_loss:0.224507loss:0.244063 acc:0.911765
+2022-04-07 13:12:42,617 root INFO Trainning epoch:30/100 batch:101/586 lr:0.000905 age_loss:0.019980 gender_loss:0.230808loss:0.250788 acc:0.907797
+2022-04-07 13:12:47,319 root INFO Trainning epoch:30/100 batch:151/586 lr:0.000905 age_loss:0.019514 gender_loss:0.227724loss:0.247238 acc:0.906043
+2022-04-07 13:12:52,29 root INFO Trainning epoch:30/100 batch:201/586 lr:0.000905 age_loss:0.019314 gender_loss:0.230919loss:0.250233 acc:0.902363
+2022-04-07 13:12:56,746 root INFO Trainning epoch:30/100 batch:251/586 lr:0.000905 age_loss:0.019114 gender_loss:0.240231loss:0.259345 acc:0.896165
+2022-04-07 13:13:01,448 root INFO Trainning epoch:30/100 batch:301/586 lr:0.000905 age_loss:0.019874 gender_loss:0.236302loss:0.256176 acc:0.899917
+2022-04-07 13:13:06,166 root INFO Trainning epoch:30/100 batch:351/586 lr:0.000905 age_loss:0.019495 gender_loss:0.233121loss:0.252616 acc:0.902066
+2022-04-07 13:13:10,876 root INFO Trainning epoch:30/100 batch:401/586 lr:0.000905 age_loss:0.019440 gender_loss:0.234333loss:0.253773 acc:0.902587
+2022-04-07 13:13:15,587 root INFO Trainning epoch:30/100 batch:451/586 lr:0.000905 age_loss:0.019203 gender_loss:0.235077loss:0.254281 acc:0.902439
+2022-04-07 13:13:20,286 root INFO Trainning epoch:30/100 batch:501/586 lr:0.000905 age_loss:0.019296 gender_loss:0.234124loss:0.253420 acc:0.901447
+2022-04-07 13:13:24,997 root INFO Trainning epoch:30/100 batch:551/586 lr:0.000905 age_loss:0.019143 gender_loss:0.233080loss:0.252222 acc:0.902223
+2022-04-07 13:14:37,523 root INFO Validating epoch:30/100 batch:1/69 loss:0.271754 acc:0.875000
+2022-04-07 13:14:38,945 root INFO Validating epoch:30/100 batch:51/69 loss:0.404563 acc:0.822304
+2022-04-07 13:14:40,157 root INFO [Epoch:30   /100  ] lr:0.000905 loss:0.255253 val_loss:0.358593 acc:0.899957 val_acc:0.855072
+2022-04-07 13:15:50,234 root INFO Trainning epoch:31/100 batch:1/586 lr:0.000895 age_loss:0.018416 gender_loss:0.118746loss:0.137162 acc:1.000000
+2022-04-07 13:15:54,993 root INFO Trainning epoch:31/100 batch:51/586 lr:0.000895 age_loss:0.025550 gender_loss:0.259322loss:0.284872 acc:0.888480
+2022-04-07 13:15:59,725 root INFO Trainning epoch:31/100 batch:101/586 lr:0.000895 age_loss:0.021371 gender_loss:0.236152loss:0.257522 acc:0.897277
+2022-04-07 13:16:04,466 root INFO Trainning epoch:31/100 batch:151/586 lr:0.000895 age_loss:0.020091 gender_loss:0.232906loss:0.252997 acc:0.897765
+2022-04-07 13:16:09,205 root INFO Trainning epoch:31/100 batch:201/586 lr:0.000895 age_loss:0.019535 gender_loss:0.227754loss:0.247290 acc:0.901119
+2022-04-07 13:16:13,946 root INFO Trainning epoch:31/100 batch:251/586 lr:0.000895 age_loss:0.019559 gender_loss:0.228689loss:0.248248 acc:0.900647
+2022-04-07 13:16:18,683 root INFO Trainning epoch:31/100 batch:301/586 lr:0.000895 age_loss:0.019762 gender_loss:0.226348loss:0.246110 acc:0.900955
+2022-04-07 13:16:23,426 root INFO Trainning epoch:31/100 batch:351/586 lr:0.000895 age_loss:0.019536 gender_loss:0.228696loss:0.248233 acc:0.900819
+2022-04-07 13:16:28,167 root INFO Trainning epoch:31/100 batch:401/586 lr:0.000895 age_loss:0.019519 gender_loss:0.230298loss:0.249817 acc:0.900717
+2022-04-07 13:16:32,910 root INFO Trainning epoch:31/100 batch:451/586 lr:0.000895 age_loss:0.019366 gender_loss:0.228282loss:0.247648 acc:0.901885
+2022-04-07 13:16:37,654 root INFO Trainning epoch:31/100 batch:501/586 lr:0.000895 age_loss:0.019345 gender_loss:0.226237loss:0.245582 acc:0.903069
+2022-04-07 13:16:42,395 root INFO Trainning epoch:31/100 batch:551/586 lr:0.000895 age_loss:0.019474 gender_loss:0.223888loss:0.243361 acc:0.904946
+2022-04-07 13:17:56,149 root INFO Validating epoch:31/100 batch:1/69 loss:0.408800 acc:0.812500
+2022-04-07 13:17:57,580 root INFO Validating epoch:31/100 batch:51/69 loss:0.326062 acc:0.873775
+2022-04-07 13:17:58,812 root INFO [Epoch:31   /100  ] lr:0.000895 loss:0.241163 val_loss:0.319661 acc:0.906570 val_acc:0.886775
+2022-04-07 13:19:09,30 root INFO Trainning epoch:32/100 batch:1/586 lr:0.000885 age_loss:0.014068 gender_loss:0.149189loss:0.163257 acc:0.937500
+2022-04-07 13:19:13,793 root INFO Trainning epoch:32/100 batch:51/586 lr:0.000885 age_loss:0.018680 gender_loss:0.217507loss:0.236187 acc:0.915441
+2022-04-07 13:19:18,533 root INFO Trainning epoch:32/100 batch:101/586 lr:0.000885 age_loss:0.017465 gender_loss:0.204619loss:0.222084 acc:0.918317
+2022-04-07 13:19:23,273 root INFO Trainning epoch:32/100 batch:151/586 lr:0.000885 age_loss:0.017977 gender_loss:0.214996loss:0.232973 acc:0.910182
+2022-04-07 13:19:28,12 root INFO Trainning epoch:32/100 batch:201/586 lr:0.000885 age_loss:0.019382 gender_loss:0.216657loss:0.236040 acc:0.910137
+2022-04-07 13:19:32,757 root INFO Trainning epoch:32/100 batch:251/586 lr:0.000885 age_loss:0.019927 gender_loss:0.218829loss:0.238755 acc:0.907869
+2022-04-07 13:19:37,489 root INFO Trainning epoch:32/100 batch:301/586 lr:0.000885 age_loss:0.019699 gender_loss:0.215848loss:0.235547 acc:0.909676
+2022-04-07 13:19:42,220 root INFO Trainning epoch:32/100 batch:351/586 lr:0.000885 age_loss:0.019678 gender_loss:0.212939loss:0.232617 acc:0.912393
+2022-04-07 13:19:46,959 root INFO Trainning epoch:32/100 batch:401/586 lr:0.000885 age_loss:0.019432 gender_loss:0.215764loss:0.235196 acc:0.911471
+2022-04-07 13:19:51,691 root INFO Trainning epoch:32/100 batch:451/586 lr:0.000885 age_loss:0.019249 gender_loss:0.215030loss:0.234279 acc:0.912140
+2022-04-07 13:19:56,423 root INFO Trainning epoch:32/100 batch:501/586 lr:0.000885 age_loss:0.019109 gender_loss:0.214948loss:0.234058 acc:0.912300
+2022-04-07 13:20:01,159 root INFO Trainning epoch:32/100 batch:551/586 lr:0.000885 age_loss:0.019018 gender_loss:0.213731loss:0.232749 acc:0.912432
+2022-04-07 13:21:15,615 root INFO Validating epoch:32/100 batch:1/69 loss:0.446168 acc:0.812500
+2022-04-07 13:21:17,55 root INFO Validating epoch:32/100 batch:51/69 loss:0.367774 acc:0.848039
+2022-04-07 13:21:18,267 root INFO [Epoch:32   /100  ] lr:0.000885 loss:0.233469 val_loss:0.337727 acc:0.911476 val_acc:0.872283
+2022-04-07 13:22:29,152 root INFO Trainning epoch:33/100 batch:1/586 lr:0.000875 age_loss:0.010988 gender_loss:0.108797loss:0.119785 acc:1.000000
+2022-04-07 13:22:33,871 root INFO Trainning epoch:33/100 batch:51/586 lr:0.000875 age_loss:0.018130 gender_loss:0.253254loss:0.271384 acc:0.911765
+2022-04-07 13:22:38,583 root INFO Trainning epoch:33/100 batch:101/586 lr:0.000875 age_loss:0.018574 gender_loss:0.233093loss:0.251667 acc:0.915223
+2022-04-07 13:22:43,294 root INFO Trainning epoch:33/100 batch:151/586 lr:0.000875 age_loss:0.018101 gender_loss:0.227347loss:0.245448 acc:0.913907
+2022-04-07 13:22:48,1 root INFO Trainning epoch:33/100 batch:201/586 lr:0.000875 age_loss:0.018246 gender_loss:0.218365loss:0.236610 acc:0.914801
+2022-04-07 13:22:52,709 root INFO Trainning epoch:33/100 batch:251/586 lr:0.000875 age_loss:0.018428 gender_loss:0.220227loss:0.238655 acc:0.914343
+2022-04-07 13:22:57,416 root INFO Trainning epoch:33/100 batch:301/586 lr:0.000875 age_loss:0.018546 gender_loss:0.217948loss:0.236494 acc:0.914244
+2022-04-07 13:23:02,119 root INFO Trainning epoch:33/100 batch:351/586 lr:0.000875 age_loss:0.018846 gender_loss:0.218597loss:0.237443 acc:0.912749
+2022-04-07 13:23:06,836 root INFO Trainning epoch:33/100 batch:401/586 lr:0.000875 age_loss:0.018826 gender_loss:0.213445loss:0.232271 acc:0.915991
+2022-04-07 13:23:11,553 root INFO Trainning epoch:33/100 batch:451/586 lr:0.000875 age_loss:0.018755 gender_loss:0.217257loss:0.236012 acc:0.913525
+2022-04-07 13:23:16,259 root INFO Trainning epoch:33/100 batch:501/586 lr:0.000875 age_loss:0.018678 gender_loss:0.218865loss:0.237543 acc:0.912176
+2022-04-07 13:23:20,960 root INFO Trainning epoch:33/100 batch:551/586 lr:0.000875 age_loss:0.018659 gender_loss:0.216830loss:0.235489 acc:0.912092
+2022-04-07 13:24:34,9 root INFO Validating epoch:33/100 batch:1/69 loss:0.200561 acc:0.875000
+2022-04-07 13:24:35,434 root INFO Validating epoch:33/100 batch:51/69 loss:0.446435 acc:0.801471
+2022-04-07 13:24:36,665 root INFO [Epoch:33   /100  ] lr:0.000875 loss:0.236180 val_loss:0.383185 acc:0.912223 val_acc:0.842391
+2022-04-07 13:25:47,149 root INFO Trainning epoch:34/100 batch:1/586 lr:0.000864 age_loss:0.003776 gender_loss:0.167644loss:0.171420 acc:0.937500
+2022-04-07 13:25:51,861 root INFO Trainning epoch:34/100 batch:51/586 lr:0.000864 age_loss:0.017591 gender_loss:0.203885loss:0.221476 acc:0.921569
+2022-04-07 13:25:56,560 root INFO Trainning epoch:34/100 batch:101/586 lr:0.000864 age_loss:0.017607 gender_loss:0.188537loss:0.206143 acc:0.925124
+2022-04-07 13:26:01,258 root INFO Trainning epoch:34/100 batch:151/586 lr:0.000864 age_loss:0.017754 gender_loss:0.200876loss:0.218629 acc:0.916805
+2022-04-07 13:26:05,949 root INFO Trainning epoch:34/100 batch:201/586 lr:0.000864 age_loss:0.019247 gender_loss:0.197938loss:0.217185 acc:0.919154
+2022-04-07 13:26:10,654 root INFO Trainning epoch:34/100 batch:251/586 lr:0.000864 age_loss:0.019142 gender_loss:0.205290loss:0.224432 acc:0.916833
+2022-04-07 13:26:15,358 root INFO Trainning epoch:34/100 batch:301/586 lr:0.000864 age_loss:0.018734 gender_loss:0.200761loss:0.219495 acc:0.918812
+2022-04-07 13:26:20,62 root INFO Trainning epoch:34/100 batch:351/586 lr:0.000864 age_loss:0.018765 gender_loss:0.201653loss:0.220419 acc:0.918447
+2022-04-07 13:26:24,770 root INFO Trainning epoch:34/100 batch:401/586 lr:0.000864 age_loss:0.019186 gender_loss:0.204950loss:0.224136 acc:0.915991
+2022-04-07 13:26:29,470 root INFO Trainning epoch:34/100 batch:451/586 lr:0.000864 age_loss:0.019105 gender_loss:0.208472loss:0.227576 acc:0.915188
+2022-04-07 13:26:34,178 root INFO Trainning epoch:34/100 batch:501/586 lr:0.000864 age_loss:0.018922 gender_loss:0.208945loss:0.227867 acc:0.915918
+2022-04-07 13:26:38,885 root INFO Trainning epoch:34/100 batch:551/586 lr:0.000864 age_loss:0.019080 gender_loss:0.213199loss:0.232278 acc:0.913680
+2022-04-07 13:27:52,532 root INFO Validating epoch:34/100 batch:1/69 loss:0.306496 acc:0.812500
+2022-04-07 13:27:53,963 root INFO Validating epoch:34/100 batch:51/69 loss:0.319390 acc:0.875000
+2022-04-07 13:27:55,177 root INFO [Epoch:34   /100  ] lr:0.000864 loss:0.232725 val_loss:0.311715 acc:0.913823 val_acc:0.887681
+2022-04-07 13:29:04,943 root INFO Trainning epoch:35/100 batch:1/586 lr:0.000854 age_loss:0.010595 gender_loss:0.228115loss:0.238710 acc:0.875000
+2022-04-07 13:29:09,659 root INFO Trainning epoch:35/100 batch:51/586 lr:0.000854 age_loss:0.017609 gender_loss:0.215596loss:0.233205 acc:0.906863
+2022-04-07 13:29:14,351 root INFO Trainning epoch:35/100 batch:101/586 lr:0.000854 age_loss:0.017678 gender_loss:0.209568loss:0.227247 acc:0.909035
+2022-04-07 13:29:19,43 root INFO Trainning epoch:35/100 batch:151/586 lr:0.000854 age_loss:0.017925 gender_loss:0.213355loss:0.231280 acc:0.911838
+2022-04-07 13:29:23,736 root INFO Trainning epoch:35/100 batch:201/586 lr:0.000854 age_loss:0.017466 gender_loss:0.215297loss:0.232763 acc:0.911070
+2022-04-07 13:29:28,436 root INFO Trainning epoch:35/100 batch:251/586 lr:0.000854 age_loss:0.017419 gender_loss:0.213348loss:0.230767 acc:0.912600
+2022-04-07 13:29:33,52 root INFO Trainning epoch:35/100 batch:301/586 lr:0.000854 age_loss:0.017425 gender_loss:0.207976loss:0.225400 acc:0.913829
+2022-04-07 13:29:37,479 root INFO Trainning epoch:35/100 batch:351/586 lr:0.000854 age_loss:0.017629 gender_loss:0.212456loss:0.230085 acc:0.912037
+2022-04-07 13:29:41,902 root INFO Trainning epoch:35/100 batch:401/586 lr:0.000854 age_loss:0.018883 gender_loss:0.210370loss:0.229252 acc:0.913030
+2022-04-07 13:29:46,376 root INFO Trainning epoch:35/100 batch:451/586 lr:0.000854 age_loss:0.019035 gender_loss:0.212101loss:0.231136 acc:0.913525
+2022-04-07 13:29:50,878 root INFO Trainning epoch:35/100 batch:501/586 lr:0.000854 age_loss:0.018825 gender_loss:0.205169loss:0.223993 acc:0.917041
+2022-04-07 13:29:55,626 root INFO Trainning epoch:35/100 batch:551/586 lr:0.000854 age_loss:0.018825 gender_loss:0.206953loss:0.225778 acc:0.916175
+2022-04-07 13:31:09,76 root INFO Validating epoch:35/100 batch:1/69 loss:0.197343 acc:0.875000
+2022-04-07 13:31:10,498 root INFO Validating epoch:35/100 batch:51/69 loss:0.450068 acc:0.812500
+2022-04-07 13:31:11,730 root INFO [Epoch:35   /100  ] lr:0.000854 loss:0.227843 val_loss:0.387577 acc:0.915102 val_acc:0.851449
+2022-04-07 13:32:21,88 root INFO Trainning epoch:36/100 batch:1/586 lr:0.000842 age_loss:0.027263 gender_loss:0.118024loss:0.145287 acc:0.937500
+2022-04-07 13:32:25,835 root INFO Trainning epoch:36/100 batch:51/586 lr:0.000842 age_loss:0.018712 gender_loss:0.190906loss:0.209619 acc:0.926471
+2022-04-07 13:32:30,558 root INFO Trainning epoch:36/100 batch:101/586 lr:0.000842 age_loss:0.020161 gender_loss:0.194548loss:0.214709 acc:0.923886
+2022-04-07 13:32:35,285 root INFO Trainning epoch:36/100 batch:151/586 lr:0.000842 age_loss:0.019071 gender_loss:0.196439loss:0.215510 acc:0.925083
+2022-04-07 13:32:40,17 root INFO Trainning epoch:36/100 batch:201/586 lr:0.000842 age_loss:0.019004 gender_loss:0.205426loss:0.224430 acc:0.921020
+2022-04-07 13:32:44,761 root INFO Trainning epoch:36/100 batch:251/586 lr:0.000842 age_loss:0.018443 gender_loss:0.194635loss:0.213077 acc:0.924801
+2022-04-07 13:32:49,504 root INFO Trainning epoch:36/100 batch:301/586 lr:0.000842 age_loss:0.018759 gender_loss:0.195790loss:0.214550 acc:0.922342
+2022-04-07 13:32:54,236 root INFO Trainning epoch:36/100 batch:351/586 lr:0.000842 age_loss:0.018676 gender_loss:0.196156loss:0.214832 acc:0.923077
+2022-04-07 13:32:58,976 root INFO Trainning epoch:36/100 batch:401/586 lr:0.000842 age_loss:0.018506 gender_loss:0.196951loss:0.215457 acc:0.921602
+2022-04-07 13:33:03,702 root INFO Trainning epoch:36/100 batch:451/586 lr:0.000842 age_loss:0.019294 gender_loss:0.196470loss:0.215764 acc:0.921425
+2022-04-07 13:33:08,441 root INFO Trainning epoch:36/100 batch:501/586 lr:0.000842 age_loss:0.019252 gender_loss:0.199125loss:0.218377 acc:0.920908
+2022-04-07 13:33:13,187 root INFO Trainning epoch:36/100 batch:551/586 lr:0.000842 age_loss:0.018960 gender_loss:0.199315loss:0.218275 acc:0.919691
+2022-04-07 13:34:27,520 root INFO Validating epoch:36/100 batch:1/69 loss:0.306459 acc:0.812500
+2022-04-07 13:34:28,941 root INFO Validating epoch:36/100 batch:51/69 loss:0.308328 acc:0.887255
+2022-04-07 13:34:30,160 root INFO [Epoch:36   /100  ] lr:0.000842 loss:0.218611 val_loss:0.296956 acc:0.918622 val_acc:0.898551
+2022-04-07 13:34:31,366 root INFO Saved best model.
+2022-04-07 13:35:41,60 root INFO Trainning epoch:37/100 batch:1/586 lr:0.000831 age_loss:0.046466 gender_loss:0.181754loss:0.228220 acc:0.937500
+2022-04-07 13:35:45,828 root INFO Trainning epoch:37/100 batch:51/586 lr:0.000831 age_loss:0.021698 gender_loss:0.176456loss:0.198154 acc:0.926471
+2022-04-07 13:35:50,561 root INFO Trainning epoch:37/100 batch:101/586 lr:0.000831 age_loss:0.019080 gender_loss:0.181451loss:0.200531 acc:0.927599
+2022-04-07 13:35:55,298 root INFO Trainning epoch:37/100 batch:151/586 lr:0.000831 age_loss:0.018369 gender_loss:0.182235loss:0.200604 acc:0.925911
+2022-04-07 13:36:00,34 root INFO Trainning epoch:37/100 batch:201/586 lr:0.000831 age_loss:0.019554 gender_loss:0.192717loss:0.212271 acc:0.921331
+2022-04-07 13:36:04,787 root INFO Trainning epoch:37/100 batch:251/586 lr:0.000831 age_loss:0.019602 gender_loss:0.197990loss:0.217592 acc:0.918327
+2022-04-07 13:36:09,517 root INFO Trainning epoch:37/100 batch:301/586 lr:0.000831 age_loss:0.019354 gender_loss:0.196462loss:0.215816 acc:0.919643
+2022-04-07 13:36:14,272 root INFO Trainning epoch:37/100 batch:351/586 lr:0.000831 age_loss:0.018982 gender_loss:0.195585loss:0.214567 acc:0.920584
+2022-04-07 13:36:19,12 root INFO Trainning epoch:37/100 batch:401/586 lr:0.000831 age_loss:0.019026 gender_loss:0.194829loss:0.213855 acc:0.921446
+2022-04-07 13:36:23,752 root INFO Trainning epoch:37/100 batch:451/586 lr:0.000831 age_loss:0.018877 gender_loss:0.195324loss:0.214201 acc:0.920593
+2022-04-07 13:36:28,493 root INFO Trainning epoch:37/100 batch:501/586 lr:0.000831 age_loss:0.018710 gender_loss:0.195316loss:0.214026 acc:0.920160
+2022-04-07 13:36:33,232 root INFO Trainning epoch:37/100 batch:551/586 lr:0.000831 age_loss:0.018652 gender_loss:0.195464loss:0.214116 acc:0.919918
+2022-04-07 13:37:46,630 root INFO Validating epoch:37/100 batch:1/69 loss:0.167383 acc:0.937500
+2022-04-07 13:37:48,60 root INFO Validating epoch:37/100 batch:51/69 loss:0.458384 acc:0.807598
+2022-04-07 13:37:49,285 root INFO [Epoch:37   /100  ] lr:0.000831 loss:0.214665 val_loss:0.394119 acc:0.920328 val_acc:0.846920
+2022-04-07 13:38:59,641 root INFO Trainning epoch:38/100 batch:1/586 lr:0.000819 age_loss:0.015793 gender_loss:0.205911loss:0.221703 acc:0.937500
+2022-04-07 13:39:04,401 root INFO Trainning epoch:38/100 batch:51/586 lr:0.000819 age_loss:0.017637 gender_loss:0.179975loss:0.197612 acc:0.920343
+2022-04-07 13:39:09,127 root INFO Trainning epoch:38/100 batch:101/586 lr:0.000819 age_loss:0.017324 gender_loss:0.185920loss:0.203245 acc:0.921411
+2022-04-07 13:39:13,860 root INFO Trainning epoch:38/100 batch:151/586 lr:0.000819 age_loss:0.017940 gender_loss:0.185986loss:0.203926 acc:0.924669
+2022-04-07 13:39:18,601 root INFO Trainning epoch:38/100 batch:201/586 lr:0.000819 age_loss:0.017942 gender_loss:0.182040loss:0.199982 acc:0.926928
+2022-04-07 13:39:23,340 root INFO Trainning epoch:38/100 batch:251/586 lr:0.000819 age_loss:0.018108 gender_loss:0.181575loss:0.199683 acc:0.926295
+2022-04-07 13:39:28,82 root INFO Trainning epoch:38/100 batch:301/586 lr:0.000819 age_loss:0.019313 gender_loss:0.184498loss:0.203810 acc:0.924626
+2022-04-07 13:39:32,820 root INFO Trainning epoch:38/100 batch:351/586 lr:0.000819 age_loss:0.018786 gender_loss:0.185625loss:0.204411 acc:0.925570
+2022-04-07 13:39:37,567 root INFO Trainning epoch:38/100 batch:401/586 lr:0.000819 age_loss:0.019006 gender_loss:0.188389loss:0.207395 acc:0.923317
+2022-04-07 13:39:42,311 root INFO Trainning epoch:38/100 batch:451/586 lr:0.000819 age_loss:0.018759 gender_loss:0.185223loss:0.203982 acc:0.924335
+2022-04-07 13:39:47,41 root INFO Trainning epoch:38/100 batch:501/586 lr:0.000819 age_loss:0.018765 gender_loss:0.188776loss:0.207541 acc:0.922904
+2022-04-07 13:39:51,789 root INFO Trainning epoch:38/100 batch:551/586 lr:0.000819 age_loss:0.018763 gender_loss:0.188521loss:0.207284 acc:0.923662
+2022-04-07 13:41:05,832 root INFO Validating epoch:38/100 batch:1/69 loss:0.316626 acc:0.812500
+2022-04-07 13:41:07,256 root INFO Validating epoch:38/100 batch:51/69 loss:0.423998 acc:0.827206
+2022-04-07 13:41:08,495 root INFO [Epoch:38   /100  ] lr:0.000819 loss:0.210240 val_loss:0.368803 acc:0.921822 val_acc:0.861413
+2022-04-07 13:42:17,966 root INFO Trainning epoch:39/100 batch:1/586 lr:0.000806 age_loss:0.014892 gender_loss:0.135046loss:0.149938 acc:0.937500
+2022-04-07 13:42:22,679 root INFO Trainning epoch:39/100 batch:51/586 lr:0.000806 age_loss:0.019272 gender_loss:0.187557loss:0.206829 acc:0.928922
+2022-04-07 13:42:27,371 root INFO Trainning epoch:39/100 batch:101/586 lr:0.000806 age_loss:0.018353 gender_loss:0.201005loss:0.219359 acc:0.917698
+2022-04-07 13:42:32,73 root INFO Trainning epoch:39/100 batch:151/586 lr:0.000806 age_loss:0.021072 gender_loss:0.198359loss:0.219431 acc:0.917219
+2022-04-07 13:42:36,758 root INFO Trainning epoch:39/100 batch:201/586 lr:0.000806 age_loss:0.020073 gender_loss:0.197159loss:0.217232 acc:0.918843
+2022-04-07 13:42:41,456 root INFO Trainning epoch:39/100 batch:251/586 lr:0.000806 age_loss:0.019615 gender_loss:0.199387loss:0.219002 acc:0.919572
+2022-04-07 13:42:46,145 root INFO Trainning epoch:39/100 batch:301/586 lr:0.000806 age_loss:0.019372 gender_loss:0.202876loss:0.222248 acc:0.916944
+2022-04-07 13:42:50,845 root INFO Trainning epoch:39/100 batch:351/586 lr:0.000806 age_loss:0.019343 gender_loss:0.200639loss:0.219983 acc:0.917023
+2022-04-07 13:42:55,559 root INFO Trainning epoch:39/100 batch:401/586 lr:0.000806 age_loss:0.019047 gender_loss:0.198918loss:0.217965 acc:0.917238
+2022-04-07 13:43:00,263 root INFO Trainning epoch:39/100 batch:451/586 lr:0.000806 age_loss:0.019338 gender_loss:0.198017loss:0.217355 acc:0.918099
+2022-04-07 13:43:04,972 root INFO Trainning epoch:39/100 batch:501/586 lr:0.000806 age_loss:0.019055 gender_loss:0.195085loss:0.214140 acc:0.918912
+2022-04-07 13:43:09,679 root INFO Trainning epoch:39/100 batch:551/586 lr:0.000806 age_loss:0.019058 gender_loss:0.195444loss:0.214502 acc:0.919238
+2022-04-07 13:44:23,298 root INFO Validating epoch:39/100 batch:1/69 loss:0.330433 acc:0.875000
+2022-04-07 13:44:24,715 root INFO Validating epoch:39/100 batch:51/69 loss:0.289621 acc:0.889706
+2022-04-07 13:44:25,940 root INFO [Epoch:39   /100  ] lr:0.000806 loss:0.212596 val_loss:0.299992 acc:0.921075 val_acc:0.894022
+2022-04-07 13:45:35,260 root INFO Trainning epoch:40/100 batch:1/586 lr:0.000794 age_loss:0.018510 gender_loss:0.022166loss:0.040676 acc:1.000000
+2022-04-07 13:45:39,985 root INFO Trainning epoch:40/100 batch:51/586 lr:0.000794 age_loss:0.017404 gender_loss:0.190255loss:0.207659 acc:0.922794
+2022-04-07 13:45:44,679 root INFO Trainning epoch:40/100 batch:101/586 lr:0.000794 age_loss:0.018756 gender_loss:0.189166loss:0.207922 acc:0.926361
+2022-04-07 13:45:49,381 root INFO Trainning epoch:40/100 batch:151/586 lr:0.000794 age_loss:0.018394 gender_loss:0.187941loss:0.206335 acc:0.926738
+2022-04-07 13:45:54,85 root INFO Trainning epoch:40/100 batch:201/586 lr:0.000794 age_loss:0.018446 gender_loss:0.185350loss:0.203796 acc:0.928483
+2022-04-07 13:45:58,795 root INFO Trainning epoch:40/100 batch:251/586 lr:0.000794 age_loss:0.018183 gender_loss:0.185475loss:0.203658 acc:0.928536
+2022-04-07 13:46:03,505 root INFO Trainning epoch:40/100 batch:301/586 lr:0.000794 age_loss:0.018161 gender_loss:0.189306loss:0.207467 acc:0.924419
+2022-04-07 13:46:08,209 root INFO Trainning epoch:40/100 batch:351/586 lr:0.000794 age_loss:0.017945 gender_loss:0.188807loss:0.206753 acc:0.923255
+2022-04-07 13:46:12,917 root INFO Trainning epoch:40/100 batch:401/586 lr:0.000794 age_loss:0.018547 gender_loss:0.190109loss:0.208656 acc:0.921446
+2022-04-07 13:46:17,628 root INFO Trainning epoch:40/100 batch:451/586 lr:0.000794 age_loss:0.018517 gender_loss:0.188783loss:0.207299 acc:0.922533
+2022-04-07 13:46:22,335 root INFO Trainning epoch:40/100 batch:501/586 lr:0.000794 age_loss:0.018325 gender_loss:0.188213loss:0.206539 acc:0.922530
+2022-04-07 13:46:27,55 root INFO Trainning epoch:40/100 batch:551/586 lr:0.000794 age_loss:0.018277 gender_loss:0.190156loss:0.208433 acc:0.921847
+2022-04-07 13:47:40,245 root INFO Validating epoch:40/100 batch:1/69 loss:0.265982 acc:0.875000
+2022-04-07 13:47:41,672 root INFO Validating epoch:40/100 batch:51/69 loss:0.291535 acc:0.895833
+2022-04-07 13:47:42,892 root INFO [Epoch:40   /100  ] lr:0.000794 loss:0.213272 val_loss:0.293239 acc:0.920542 val_acc:0.901268
+2022-04-07 13:47:44,81 root INFO Saved best model.
+2022-04-07 13:48:53,781 root INFO Trainning epoch:41/100 batch:1/586 lr:0.000781 age_loss:0.005269 gender_loss:0.384693loss:0.389962 acc:0.750000
+2022-04-07 13:48:58,561 root INFO Trainning epoch:41/100 batch:51/586 lr:0.000781 age_loss:0.016661 gender_loss:0.210183loss:0.226844 acc:0.919118
+2022-04-07 13:49:03,287 root INFO Trainning epoch:41/100 batch:101/586 lr:0.000781 age_loss:0.017828 gender_loss:0.186583loss:0.204411 acc:0.932550
+2022-04-07 13:49:08,19 root INFO Trainning epoch:41/100 batch:151/586 lr:0.000781 age_loss:0.018398 gender_loss:0.182329loss:0.200727 acc:0.935430
+2022-04-07 13:49:12,761 root INFO Trainning epoch:41/100 batch:201/586 lr:0.000781 age_loss:0.017923 gender_loss:0.185097loss:0.203019 acc:0.933147
+2022-04-07 13:49:17,517 root INFO Trainning epoch:41/100 batch:251/586 lr:0.000781 age_loss:0.018341 gender_loss:0.188490loss:0.206832 acc:0.929532
+2022-04-07 13:49:22,267 root INFO Trainning epoch:41/100 batch:301/586 lr:0.000781 age_loss:0.018077 gender_loss:0.193225loss:0.211302 acc:0.926080
+2022-04-07 13:49:27,18 root INFO Trainning epoch:41/100 batch:351/586 lr:0.000781 age_loss:0.018210 gender_loss:0.190464loss:0.208674 acc:0.927172
+2022-04-07 13:49:31,761 root INFO Trainning epoch:41/100 batch:401/586 lr:0.000781 age_loss:0.018013 gender_loss:0.188113loss:0.206126 acc:0.927681
+2022-04-07 13:49:36,494 root INFO Trainning epoch:41/100 batch:451/586 lr:0.000781 age_loss:0.017958 gender_loss:0.189545loss:0.207503 acc:0.927522
+2022-04-07 13:49:41,231 root INFO Trainning epoch:41/100 batch:501/586 lr:0.000781 age_loss:0.018687 gender_loss:0.188630loss:0.207317 acc:0.926896
+2022-04-07 13:49:45,979 root INFO Trainning epoch:41/100 batch:551/586 lr:0.000781 age_loss:0.018550 gender_loss:0.187295loss:0.205846 acc:0.927518
+2022-04-07 13:50:58,14 root INFO Validating epoch:41/100 batch:1/69 loss:0.348127 acc:0.812500
+2022-04-07 13:50:59,441 root INFO Validating epoch:41/100 batch:51/69 loss:0.440030 acc:0.833333
+2022-04-07 13:51:00,650 root INFO [Epoch:41   /100  ] lr:0.000781 loss:0.209506 val_loss:0.381650 acc:0.925235 val_acc:0.864130
+2022-04-07 13:52:11,60 root INFO Trainning epoch:42/100 batch:1/586 lr:0.000768 age_loss:0.014476 gender_loss:0.129166loss:0.143642 acc:0.937500
+2022-04-07 13:52:15,833 root INFO Trainning epoch:42/100 batch:51/586 lr:0.000768 age_loss:0.017182 gender_loss:0.199797loss:0.216979 acc:0.911765
+2022-04-07 13:52:20,570 root INFO Trainning epoch:42/100 batch:101/586 lr:0.000768 age_loss:0.016521 gender_loss:0.189153loss:0.205674 acc:0.918936
+2022-04-07 13:52:25,301 root INFO Trainning epoch:42/100 batch:151/586 lr:0.000768 age_loss:0.018607 gender_loss:0.190380loss:0.208987 acc:0.922185
+2022-04-07 13:52:30,28 root INFO Trainning epoch:42/100 batch:201/586 lr:0.000768 age_loss:0.018429 gender_loss:0.184444loss:0.202872 acc:0.924751
+2022-04-07 13:52:34,768 root INFO Trainning epoch:42/100 batch:251/586 lr:0.000768 age_loss:0.018505 gender_loss:0.186828loss:0.205333 acc:0.924054
+2022-04-07 13:52:39,507 root INFO Trainning epoch:42/100 batch:301/586 lr:0.000768 age_loss:0.018184 gender_loss:0.186426loss:0.204610 acc:0.924003
+2022-04-07 13:52:44,238 root INFO Trainning epoch:42/100 batch:351/586 lr:0.000768 age_loss:0.018042 gender_loss:0.182746loss:0.200789 acc:0.924858
+2022-04-07 13:52:48,965 root INFO Trainning epoch:42/100 batch:401/586 lr:0.000768 age_loss:0.018112 gender_loss:0.188096loss:0.206209 acc:0.923317
+2022-04-07 13:52:53,697 root INFO Trainning epoch:42/100 batch:451/586 lr:0.000768 age_loss:0.018803 gender_loss:0.187090loss:0.205892 acc:0.923642
+2022-04-07 13:52:58,429 root INFO Trainning epoch:42/100 batch:501/586 lr:0.000768 age_loss:0.018727 gender_loss:0.188473loss:0.207200 acc:0.923528
+2022-04-07 13:53:03,158 root INFO Trainning epoch:42/100 batch:551/586 lr:0.000768 age_loss:0.018571 gender_loss:0.188021loss:0.206592 acc:0.924569
+2022-04-07 13:54:16,249 root INFO Validating epoch:42/100 batch:1/69 loss:0.344225 acc:0.875000
+2022-04-07 13:54:17,684 root INFO Validating epoch:42/100 batch:51/69 loss:0.275251 acc:0.910539
+2022-04-07 13:54:18,903 root INFO [Epoch:42   /100  ] lr:0.000768 loss:0.206381 val_loss:0.281168 acc:0.924915 val_acc:0.913043
+2022-04-07 13:54:20,132 root INFO Saved best model.
+2022-04-07 13:55:29,205 root INFO Trainning epoch:43/100 batch:1/586 lr:0.000755 age_loss:0.015751 gender_loss:0.535456loss:0.551207 acc:0.750000
+2022-04-07 13:55:33,963 root INFO Trainning epoch:43/100 batch:51/586 lr:0.000755 age_loss:0.016912 gender_loss:0.202182loss:0.219094 acc:0.924020
+2022-04-07 13:55:38,704 root INFO Trainning epoch:43/100 batch:101/586 lr:0.000755 age_loss:0.017323 gender_loss:0.194603loss:0.211925 acc:0.931312
+2022-04-07 13:55:43,448 root INFO Trainning epoch:43/100 batch:151/586 lr:0.000755 age_loss:0.017437 gender_loss:0.201491loss:0.218928 acc:0.922185
+2022-04-07 13:55:48,206 root INFO Trainning epoch:43/100 batch:201/586 lr:0.000755 age_loss:0.019190 gender_loss:0.200332loss:0.219523 acc:0.920398
+2022-04-07 13:55:52,959 root INFO Trainning epoch:43/100 batch:251/586 lr:0.000755 age_loss:0.018755 gender_loss:0.197581loss:0.216336 acc:0.919323
+2022-04-07 13:55:57,710 root INFO Trainning epoch:43/100 batch:301/586 lr:0.000755 age_loss:0.018556 gender_loss:0.196523loss:0.215079 acc:0.920889
+2022-04-07 13:56:02,469 root INFO Trainning epoch:43/100 batch:351/586 lr:0.000755 age_loss:0.018543 gender_loss:0.192140loss:0.210683 acc:0.922543
+2022-04-07 13:56:07,222 root INFO Trainning epoch:43/100 batch:401/586 lr:0.000755 age_loss:0.018375 gender_loss:0.191714loss:0.210089 acc:0.920979
+2022-04-07 13:56:11,973 root INFO Trainning epoch:43/100 batch:451/586 lr:0.000755 age_loss:0.018260 gender_loss:0.190643loss:0.208902 acc:0.922256
+2022-04-07 13:56:16,706 root INFO Trainning epoch:43/100 batch:501/586 lr:0.000755 age_loss:nan gender_loss:nanloss:nan acc:0.906312
+2022-04-07 13:56:21,415 root INFO Trainning epoch:43/100 batch:551/586 lr:0.000755 age_loss:nan gender_loss:nanloss:nan acc:0.870576
+2022-04-07 13:56:25,846 root INFO STOP TIME:Thu Apr  7 13:56:25 2022

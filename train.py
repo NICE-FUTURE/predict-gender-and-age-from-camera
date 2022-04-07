@@ -25,7 +25,7 @@ torch.manual_seed(2)
 torch.cuda.manual_seed_all(2)
 np.random.seed(2)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-cudnn.benchmark = True  # pytorch 为网络寻找最优的卷积计算方法 在网络结构不变的情况下可以提速
+cudnn.benchmark = True
 
 
 def main(args):
@@ -70,14 +70,17 @@ def main(args):
 
     logging.info('START TIME:{}'.format(time.asctime(time.localtime(time.time()))))
     logging.info(vars(args))
-    best_val = 0
+    best_val = None
     meter = utils.ListMeter()
     for epoch in range(args.epochs):
-        # train
+        # 训练
         scheduler.step()
         loss, acc = train(train_loader, model, criterion, optimizer, epoch, args)
+        if np.isnan(loss):
+            print("ERROR! Loss is Nan. Break.")
+            break
         meter.add({"loss": loss, "acc": acc})
-        # validate
+        # 验证
         val_loss, val_acc = validate(val_loader, model, criterion, epoch, args)
         meter.add({"val_loss": val_loss, "val_acc": val_acc})
         logging.info(
@@ -88,8 +91,8 @@ def main(args):
         )
         utils.plot_history(meter.get("loss"), meter.get("acc"), meter.get("val_loss"), meter.get("val_acc"), history_save_path)
 
-        # save best model
-        if val_acc < best_val:
+        # 保存
+        if best_val is None or val_loss < best_val:
             best_val = val_loss
             torch.save(model.state_dict(), model_save_path)
             logging.info("Saved best model.")
@@ -114,12 +117,13 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
         loss2 = gender_criterion(gender_pd, genders)
         loss = loss1 + loss2
         acc = utils.accuracy(gender_pd, genders)
-        meter.add({"loss": loss.item(), "acc": acc})
+        meter.add({"age_loss":loss1, "gender_loss":loss2, "loss":loss.item(), "acc":acc})
 
         if i % args.log_step == 0:
             logging.info(
                 "Trainning epoch:{}/{} batch:{}/{} ".format(epoch+1, args.epochs, i+1, total) + 
                 "lr:{:.6f} ".format(optimizer.param_groups[0]['lr']) + 
+                "age_loss:{:.6f} gender_loss:{:.6f}".format(meter.get("age_loss"), meter.get("gender_loss")) + 
                 "loss:{:.6f} acc:{:.6f}".format(meter.get("loss"), meter.get("acc"))
             )
 
@@ -132,7 +136,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
 
 def validate(val_loader, model, criterion, epoch, args):
     age_criterion, gender_criterion = criterion
-    model.eval()  # switch to evaluate mode
+    model.eval()
     meter = utils.AverageMeter()
     with torch.no_grad():
         total = len(val_loader)

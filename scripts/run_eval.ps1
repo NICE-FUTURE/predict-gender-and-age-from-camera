@@ -1,0 +1,1 @@
+python .\evaluate.py --num_workers 4 --batch_size 4 --experiment_name test --val_dir ../../predict-gender-and-age-from-camera/data/testset/ --pretrain_weight_path .\middle\saved_models\test-best.pth --mode run

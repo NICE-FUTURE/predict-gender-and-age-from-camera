@@ -16,7 +16,7 @@ class BatchDataset(Dataset):
         image_path = os.path.join(self.image_dir, filename)
         image = Image.open(image_path).convert('RGB')
         image = self.transform(image)
-        age = np.float32(filename.split(".")[0].split("-")[1])
+        age = np.float32(int(filename.split(".")[0].split("-")[1]) / 100.0)
         gender = int(filename.split(".")[0].split("-")[2])
 
         return image, age, gender, filename

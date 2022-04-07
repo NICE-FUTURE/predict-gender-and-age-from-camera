@@ -7,10 +7,20 @@ class Predictor(nn.Module):
 
     def __init__(self, num_features, num_classes=1):
         super().__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(num_features, num_features//4, kernel_size=3, padding=3//2), 
+            nn.BatchNorm2d(num_features//4), 
+            nn.ReLU(inplace=True), 
+            nn.Conv2d(num_features//4, num_features//16, kernel_size=3, padding=3//2), 
+            nn.BatchNorm2d(num_features//16), 
+            nn.ReLU(inplace=True), 
+            nn.Conv2d(num_features//16, num_features//32, kernel_size=3, padding=3//2), 
+        )
         self.gap = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Conv2d(num_features, num_classes, kernel_size=1, bias=True)
+        self.fc = nn.Conv2d(num_features//32, num_classes, kernel_size=1, bias=True)
 
     def forward(self, x):
+        x = self.conv(x)
         x = self.gap(x)
         x = self.fc(x)
         x = x.squeeze(-1).squeeze(-1).squeeze(-1)
@@ -22,10 +32,20 @@ class Classifier(nn.Module):
 
     def __init__(self, num_features, num_classes=2):
         super().__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(num_features, num_features//4, kernel_size=3, padding=3//2), 
+            nn.BatchNorm2d(num_features//4), 
+            nn.ReLU(inplace=True), 
+            nn.Conv2d(num_features//4, num_features//16, kernel_size=3, padding=3//2), 
+            nn.BatchNorm2d(num_features//16), 
+            nn.ReLU(inplace=True), 
+            nn.Conv2d(num_features//16, num_features//32, kernel_size=3, padding=3//2), 
+        )
         self.gap = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Conv2d(num_features, num_classes, kernel_size=1, bias=True)
+        self.fc = nn.Conv2d(num_features//32, num_classes, kernel_size=1, bias=True)
 
     def forward(self, x):
+        x = self.conv(x)
         x = self.gap(x)
         x = self.fc(x)
         x = x.squeeze(-1).squeeze(-1)
