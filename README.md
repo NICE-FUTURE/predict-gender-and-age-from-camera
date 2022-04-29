@@ -6,7 +6,7 @@
 2. 模型结构由少量的卷积层替换为成熟的ResNet作为主干，并将年龄预测和性别预测统一到一个模型中，采用双分支输出结构。
 3. 目前在验证集的性别预测准确率为 91%
 4. 实际体验差强人意，但与去年5月份的试水版本相比，效果会更好
-5. ~~【2022.4.22】模型权重已上传 <a href="https://github.com/NICE-FUTURE/predict-gender-and-age-from-camera/raw/master/middle/saved_models/test-best.pth">click to download</a> ，玩得愉快\~~~
+5. ~~【2022.4.22】模型权重已上传 <a href="#">click to download</a> ，玩得愉快\~~~
 6. 【2022.4.29】删除了代码仓库中的权重文件，如有需要，欢迎移步 <a href="https://github.com/NICE-FUTURE/predict-gender-and-age-from-camera/releases/">Release</a> 页面下载~
 
 ### 如何使用
