@@ -123,7 +123,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
             logging.info(
                 "Trainning epoch:{}/{} batch:{}/{} ".format(epoch+1, args.epochs, i+1, total) + 
                 "lr:{:.6f} ".format(optimizer.param_groups[0]['lr']) + 
-                "age_loss:{:.6f} gender_loss:{:.6f}".format(meter.get("age_loss"), meter.get("gender_loss")) + 
+                "age_loss:{:.6f} gender_loss:{:.6f} ".format(meter.get("age_loss"), meter.get("gender_loss")) + 
                 "loss:{:.6f} acc:{:.6f}".format(meter.get("loss"), meter.get("acc"))
             )
 
