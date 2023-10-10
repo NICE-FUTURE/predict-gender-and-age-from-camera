@@ -6,20 +6,21 @@ import numpy as np
 
 class BatchDataset(Dataset):
 
-    def __init__(self, image_dir, transform):
-        self.image_dir = image_dir
+    def __init__(self, root, txt_dir, name, transform):
+        self.root = root
         self.transform = transform
-        self.filenames = os.listdir(image_dir)
+        with open(os.path.join(txt_dir, f"{name}.txt"), "r", encoding="utf-8") as f:
+            self.lines = f.readlines()
 
-    def __getitem__(self, index):
-        filename = self.filenames[index]
-        image_path = os.path.join(self.image_dir, filename)
+    def __getitem__(self, idx):
+        filename, age, gender = self.lines[idx].strip().split(",")
+        image_path = os.path.join(self.root, filename)
         image = Image.open(image_path).convert('RGB')
         image = self.transform(image)
-        age = np.float32(int(filename.split(".")[0].split("-")[1]) / 100.0)
-        gender = int(filename.split(".")[0].split("-")[2])
+        age = np.float32(int(age)/ 100.0) 
+        gender = int(gender)
 
         return image, age, gender, filename
 
     def __len__(self):
-        return len(self.filenames)
+        return len(self.lines)

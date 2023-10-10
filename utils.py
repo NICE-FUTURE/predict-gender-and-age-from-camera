@@ -1,9 +1,33 @@
-# -*- "coding: utf-8" -*-
+from datetime import datetime
+import math
+import random
 
+import numpy as np
+import matplotlib.pyplot as plt
 import torch
 from torch.optim.lr_scheduler import LambdaLR
-import math
-import matplotlib.pyplot as plt
+
+
+def fix_seed(seed=123):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    # torch.backends.cudnn.benchmark = True
+    # torch.backends.cudnn.deterministic = False
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+
+
+def cal_eta(start_time, cur, total):
+    time_now = datetime.now()
+    time_now = time_now.replace(microsecond=0)
+    scale = (total-cur) / float(cur)
+    delta = (time_now - start_time)
+    eta = (delta*scale)
+    time_fin = time_now + eta
+    eta = time_fin.replace(microsecond=0) - time_now
+    return str(eta)
 
 
 def plot_history(loss_list, acc_list, val_loss_list, val_acc_list, save_path):

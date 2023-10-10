@@ -1,29 +1,19 @@
 import torch.nn as nn
 import timm
+from timm.layers import Mlp
 
 
-class Predictor(nn.Module):
+class Regression(nn.Module):
     """ The header to predict age (regression branch) """
 
     def __init__(self, num_features, num_classes=1):
         super().__init__()
-        self.conv = nn.Sequential(
-            nn.Conv2d(num_features, num_features//4, kernel_size=3, padding=3//2), 
-            nn.BatchNorm2d(num_features//4), 
-            nn.ReLU(inplace=True), 
-            nn.Conv2d(num_features//4, num_features//16, kernel_size=3, padding=3//2), 
-            nn.BatchNorm2d(num_features//16), 
-            nn.ReLU(inplace=True), 
-            nn.Conv2d(num_features//16, num_features//32, kernel_size=3, padding=3//2), 
-        )
-        self.gap = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Conv2d(num_features//32, num_classes, kernel_size=1, bias=True)
+        self.mlp = Mlp(num_features, hidden_features=num_features//2, out_features=num_features//4, drop=0.5)
+        self.fc = nn.Linear(num_features//4, num_classes)
 
     def forward(self, x):
-        x = self.conv(x)
-        x = self.gap(x)
+        x = self.mlp(x)
         x = self.fc(x)
-        x = x.squeeze(-1).squeeze(-1).squeeze(-1)
         return x
 
 
@@ -32,40 +22,31 @@ class Classifier(nn.Module):
 
     def __init__(self, num_features, num_classes=2):
         super().__init__()
-        self.conv = nn.Sequential(
-            nn.Conv2d(num_features, num_features//4, kernel_size=3, padding=3//2), 
-            nn.BatchNorm2d(num_features//4), 
-            nn.ReLU(inplace=True), 
-            nn.Conv2d(num_features//4, num_features//16, kernel_size=3, padding=3//2), 
-            nn.BatchNorm2d(num_features//16), 
-            nn.ReLU(inplace=True), 
-            nn.Conv2d(num_features//16, num_features//32, kernel_size=3, padding=3//2), 
-        )
-        self.gap = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Conv2d(num_features//32, num_classes, kernel_size=1, bias=True)
+        self.mlp = Mlp(num_features, hidden_features=num_features//2, out_features=num_features//4, drop=0.5)
+        self.fc = nn.Linear(num_features//4, num_classes)
 
     def forward(self, x):
-        x = self.conv(x)
-        x = self.gap(x)
+        x = self.mlp(x)
         x = self.fc(x)
-        x = x.squeeze(-1).squeeze(-1)
         return x
 
 
 class Model(nn.Module):
     """ A model to predict age and gender """
 
-    def __init__(self, timm_pretrained=True):
+    def __init__(self, timm_arch="swin_small_patch4_window7_224", timm_pretrained=True):
         super().__init__()
 
-        self.backbone = timm.create_model("resnet50", pretrained=timm_pretrained)
-        self.predictor = Predictor(self.backbone.num_features)
+        self.backbone = timm.create_model(timm_arch, pretrained=timm_pretrained)
+        self.gap = nn.AdaptiveAvgPool2d(1)
+        self.predictor = Regression(self.backbone.num_features)
         self.classifier = Classifier(self.backbone.num_features)
 
 
     def forward(self, x):
 
         x = self.backbone.forward_features(x)  # shape: B, D, H, W
+        x = self.gap(x.permute(0,3,1,2)).squeeze(dim=(2,3))
         age = self.predictor(x)
         gender = self.classifier(x)
 
