@@ -21,7 +21,7 @@
 ### 如何使用
 
 - 训练, 离线评估, 在线推理 相关命令见 `./scripts/` 目录下的脚本
-- 使用的 IMDB-WIKI(wiki_crop.tar) 数据集可<a href="https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/wiki_crop.tar">由此下载</a>; 该链接指向的数据集文件已经是 IMDB-WIKI 数据集团队官方按照人脸区域裁剪过的了, 因此不需要进一步裁剪, 详细说明可移步<a ref="https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/">数据集主页</a>
+- 使用的 IMDB-WIKI(wiki_crop.tar) 数据集可<a href="https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/static/wiki_crop.tar">由此下载</a>; 该链接指向的数据集文件已经是 IMDB-WIKI 数据集团队官方按照人脸区域裁剪过的了, 因此不需要进一步裁剪, 详细说明可移步<a href="https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/">数据集主页</a>
 - 安装所需的第三方库 `pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple` 
 - 将 wiki_crop.tar 解压到任意目录下, 然后使用脚本 `./preprocess/prepare_dataset.py` 来准备训练所需的相关文件
 
@@ -43,7 +43,7 @@
 
 由于使用了**完整的原始的 wiki_crop 数据集**, 而从数据集主页可见下图:
 
-![dataset_dist](./preprocess/dataset_dist.png)
+<img src="./preprocess/dataset_dist.png" style="display: block; width: 50%; margin-left: auto; margin-right: auto;" alt="dataset_dist"></img>
 
 该图曲线说明数据集中图片主体的**年龄集中在 30 岁左右** (数据不均衡), 所以训练的模型 (更何况存在过拟合的模型) 会倾向于将年龄预测为该时间段。
 
@@ -55,11 +55,10 @@
 
 训练过程的记录, 从曲线上可以发现模型训练到后面显然已经过拟合了 :), 不过由于使用的权重保存策略是 val_loss 最低点, 所以无伤大雅 (不想重新训练一遍了)
 
-![history.png](./middle/history/swin-small-mlp-20231010-121440.png)
-
+<img src="./middle/history/swin-small-mlp-20231010-121440.png" style="display: block; width: 50%; margin-left: auto; margin-right: auto;" alt="history.png"></img>
 
 这是对一张组合图像的处理结果（组合的四张图片选自 IMDB-WIKI 数据集的原始图像）
 
-![sample_result.png](samples/sample_result.png)
+<img src="samples/sample_result.png" style="display: block; width: 50%; margin-left: auto; margin-right: auto;" alt="sample_result.png"></img>
 
 <a id="sample.mp4" href="./samples/sample.mp4">测试视频</a> 剪辑自: [https://www.di.ens.fr/~laptev/download/drinking.avi](https://www.di.ens.fr/~laptev/download/drinking.avi)
