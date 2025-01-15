@@ -1,7 +1,7 @@
-scipy
-opencv-python==4.2.0.34
-Pillow
-numpy
-matplotlib
-torch
-timm
+scipy==1.10.1
+numpy==1.24.3
+pillow==10.4.0
+opencv-python==4.7.0.72
+matplotlib==3.7.1
+timm==0.6.12
+#torch==2.0.1  # please install torch manually

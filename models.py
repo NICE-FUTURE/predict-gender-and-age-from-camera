@@ -1,6 +1,6 @@
 import torch.nn as nn
 import timm
-from timm.layers import Mlp
+from timm.models.layers import Mlp
 
 
 class Regression(nn.Module):
@@ -38,15 +38,14 @@ class Model(nn.Module):
         super().__init__()
 
         self.backbone = timm.create_model(timm_arch, pretrained=timm_pretrained)
-        self.gap = nn.AdaptiveAvgPool2d(1)
         self.predictor = Regression(self.backbone.num_features)
         self.classifier = Classifier(self.backbone.num_features)
 
 
     def forward(self, x):
 
-        x = self.backbone.forward_features(x)  # shape: B, D, H, W
-        x = self.gap(x.permute(0,3,1,2)).squeeze(dim=(2,3))
+        x = self.backbone.forward_features(x)  # shape: B, L, C
+        x = x.mean(dim=1)  # shape: B, C
         age = self.predictor(x)
         gender = self.classifier(x)
 

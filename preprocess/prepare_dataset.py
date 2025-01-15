@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 
 import numpy as np
 import scipy.io as sio
-from PIL import Image
 
 
 def generate_all_txt(root, txt_dir, num_samples=None):
@@ -52,7 +51,7 @@ def generate_all_txt(root, txt_dir, num_samples=None):
             if cnt_valid >= num_samples:
                 break
 
-    print("cur:{}, valid:{}, total:{}".format(i+1, cnt_valid, total))
+    print("[generate_all_txt]: valid:{}, total:{}".format(cnt_valid, total))
 
 
 def count_male_female(txt_path):
@@ -73,11 +72,11 @@ def count_male_female(txt_path):
                 raise NotImplementedError
             total += 1
 
-    print(f"male:{male}, female:{female}, total:{total}")
+    print(f"[{txt_path}]: male:{male}, female:{female}, total:{total}")
 
 
-def split_train_test(txt_dir, ratio=0.6, seed=123):
-    '''拆分训练集和测试集
+def split_train_test(txt_dir, split="6:2:2", seed=123):
+    '''拆分数据集
     '''
     with open(os.path.join(txt_dir, "all.txt"), "r", encoding="utf-8") as f:
         lines = f.readlines()
@@ -85,9 +84,12 @@ def split_train_test(txt_dir, ratio=0.6, seed=123):
 
     random.seed(seed)
     random.shuffle(lines)
-    n_train = int(total * ratio)
+    ratios = [int(x)/10 for x in split.split(":")]
+    n_train = int(total * ratios[0])
+    n_val = int(total * ratios[1])
     train_lines = lines[:n_train]
-    val_lines = lines[n_train:]
+    val_lines = lines[n_train:n_train+n_val]
+    test_lines = lines[n_train+n_val:]
 
     with open(os.path.join(txt_dir, "train.txt"), "w", encoding="utf-8") as f:
         for line in train_lines:
@@ -95,12 +97,16 @@ def split_train_test(txt_dir, ratio=0.6, seed=123):
     with open(os.path.join(txt_dir, "val.txt"), "w", encoding="utf-8") as f:
         for line in val_lines:
             f.write(line)
+    with open(os.path.join(txt_dir, "test.txt"), "w", encoding="utf-8") as f:
+        for line in test_lines:
+            f.write(line)
 
 
 if __name__ == "__main__":
     pass
-    # generate_all_txt(root="D:/dataset/wiki_crop", txt_dir="../data/wiki/")
-    # split_train_test("../data/wiki/")
-    # count_male_female("../data/wiki/all.txt")
-    # count_male_female("../data/wiki/train.txt")
-    # count_male_female("../data/wiki/val.txt")
+    generate_all_txt(root="D:/dataset/wiki_crop", txt_dir="../data/wiki/")
+    split_train_test("../data/wiki/")
+    count_male_female("../data/wiki/all.txt")
+    count_male_female("../data/wiki/train.txt")
+    count_male_female("../data/wiki/val.txt")
+    count_male_female("../data/wiki/test.txt")

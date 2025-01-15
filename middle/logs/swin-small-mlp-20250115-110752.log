@@ -1,0 +1,938 @@
+2025-01-15 11:07:53,122 timm.models.helpers INFO Loading pretrained weights from url (https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth)
+2025-01-15 11:07:53,220 root INFO Args:
+{'root': 'D:/dataset/wiki_crop/', 'experiment_name': 'swin-small-mlp', 'pretrain_weight_path': '', 'epochs': 50, 'batch_size': 16, 'lr': 1e-05, 'img_size': 224, 'warmup_steps': 10, 'txt_dir': './data/wiki/', 'num_workers': 4, 'log_step': 300}
+
+2025-01-15 11:07:53,221 root INFO Model Structure:
+Model(
+  (backbone): SwinTransformer(
+    (patch_embed): PatchEmbed(
+      (proj): Conv2d(3, 96, kernel_size=(4, 4), stride=(4, 4))
+      (norm): LayerNorm((96,), eps=1e-05, elementwise_affine=True)
+    )
+    (pos_drop): Dropout(p=0.0, inplace=False)
+    (layers): Sequential(
+      (0): BasicLayer(
+        (blocks): Sequential(
+          (0): SwinTransformerBlock(
+            (norm1): LayerNorm((96,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=96, out_features=288, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=96, out_features=96, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): Identity()
+            (norm2): LayerNorm((96,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=96, out_features=384, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=384, out_features=96, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (1): SwinTransformerBlock(
+            (norm1): LayerNorm((96,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=96, out_features=288, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=96, out_features=96, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.004)
+            (norm2): LayerNorm((96,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=96, out_features=384, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=384, out_features=96, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+        )
+        (downsample): PatchMerging(
+          (norm): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+          (reduction): Linear(in_features=384, out_features=192, bias=False)
+        )
+      )
+      (1): BasicLayer(
+        (blocks): Sequential(
+          (0): SwinTransformerBlock(
+            (norm1): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=192, out_features=576, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=192, out_features=192, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.009)
+            (norm2): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=192, out_features=768, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=768, out_features=192, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (1): SwinTransformerBlock(
+            (norm1): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=192, out_features=576, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=192, out_features=192, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.013)
+            (norm2): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=192, out_features=768, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=768, out_features=192, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+        )
+        (downsample): PatchMerging(
+          (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (reduction): Linear(in_features=768, out_features=384, bias=False)
+        )
+      )
+      (2): BasicLayer(
+        (blocks): Sequential(
+          (0): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.017)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (1): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.022)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (2): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.026)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (3): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.030)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (4): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.035)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (5): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.039)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (6): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.043)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (7): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.048)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (8): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.052)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (9): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.057)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (10): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.061)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (11): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.065)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (12): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.070)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (13): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.074)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (14): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.078)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (15): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.083)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (16): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.087)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (17): SwinTransformerBlock(
+            (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=384, out_features=1152, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=384, out_features=384, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.091)
+            (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=384, out_features=1536, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=1536, out_features=384, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+        )
+        (downsample): PatchMerging(
+          (norm): LayerNorm((1536,), eps=1e-05, elementwise_affine=True)
+          (reduction): Linear(in_features=1536, out_features=768, bias=False)
+        )
+      )
+      (3): BasicLayer(
+        (blocks): Sequential(
+          (0): SwinTransformerBlock(
+            (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=768, out_features=2304, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=768, out_features=768, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.096)
+            (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=768, out_features=3072, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=3072, out_features=768, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (1): SwinTransformerBlock(
+            (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (attn): WindowAttention(
+              (qkv): Linear(in_features=768, out_features=2304, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj): Linear(in_features=768, out_features=768, bias=True)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (softmax): Softmax(dim=-1)
+            )
+            (drop_path): DropPath(drop_prob=0.100)
+            (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Mlp(
+              (fc1): Linear(in_features=768, out_features=3072, bias=True)
+              (act): GELU(approximate='none')
+              (drop1): Dropout(p=0.0, inplace=False)
+              (fc2): Linear(in_features=3072, out_features=768, bias=True)
+              (drop2): Dropout(p=0.0, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (head): Linear(in_features=768, out_features=1000, bias=True)
+  )
+  (predictor): Regression(
+    (mlp): Mlp(
+      (fc1): Linear(in_features=768, out_features=384, bias=True)
+      (act): GELU(approximate='none')
+      (drop1): Dropout(p=0.5, inplace=False)
+      (fc2): Linear(in_features=384, out_features=192, bias=True)
+      (drop2): Dropout(p=0.5, inplace=False)
+    )
+    (fc): Linear(in_features=192, out_features=1, bias=True)
+  )
+  (classifier): Classifier(
+    (mlp): Mlp(
+      (fc1): Linear(in_features=768, out_features=384, bias=True)
+      (act): GELU(approximate='none')
+      (drop1): Dropout(p=0.5, inplace=False)
+      (fc2): Linear(in_features=384, out_features=192, bias=True)
+      (drop2): Dropout(p=0.5, inplace=False)
+    )
+    (fc): Linear(in_features=192, out_features=2, bias=True)
+  )
+)
+
+2025-01-15 11:07:53,377 root INFO START TIME:Wed Jan 15 11:07:53 2025
+2025-01-15 11:08:04,749 root INFO Trainning epoch:1/50 batch:1/1480 lr:0.000000 age_loss:0.161808 gender_loss:0.706903 loss:0.868711 acc:0.437500
+2025-01-15 11:08:27,910 root INFO Trainning epoch:1/50 batch:301/1480 lr:0.000000 age_loss:0.187815 gender_loss:0.706886 loss:0.894701 acc:0.455150
+2025-01-15 11:08:51,82 root INFO Trainning epoch:1/50 batch:601/1480 lr:0.000000 age_loss:0.182643 gender_loss:0.706927 loss:0.889570 acc:0.458611
+2025-01-15 11:09:14,298 root INFO Trainning epoch:1/50 batch:901/1480 lr:0.000000 age_loss:0.209469 gender_loss:0.706762 loss:0.916231 acc:0.459975
+2025-01-15 11:09:37,553 root INFO Trainning epoch:1/50 batch:1201/1480 lr:0.000000 age_loss:0.202891 gender_loss:0.707160 loss:0.910051 acc:0.460398
+2025-01-15 11:10:10,500 root INFO Validating epoch:1/50 batch:1/494 loss:0.818737 acc:0.375000
+2025-01-15 11:10:18,464 root INFO Validating epoch:1/50 batch:301/494 loss:0.839027 acc:0.465739
+2025-01-15 11:10:26,185 root INFO [Epoch:1    /50   ] eta:2:04:57 lr:0.000001 loss:0.906913 val_loss:0.835160 acc:0.460618 val_acc:0.471660
+2025-01-15 11:10:27,57 root INFO Saved best model.
+2025-01-15 11:10:38,299 root INFO Trainning epoch:2/50 batch:1/1480 lr:0.000001 age_loss:0.127021 gender_loss:0.725932 loss:0.852953 acc:0.312500
+2025-01-15 11:11:01,513 root INFO Trainning epoch:2/50 batch:301/1480 lr:0.000001 age_loss:0.101349 gender_loss:0.676739 loss:0.778088 acc:0.581395
+2025-01-15 11:11:24,755 root INFO Trainning epoch:2/50 batch:601/1480 lr:0.000001 age_loss:0.118709 gender_loss:0.640081 loss:0.758789 acc:0.665973
+2025-01-15 11:11:47,995 root INFO Trainning epoch:2/50 batch:901/1480 lr:0.000001 age_loss:0.097812 gender_loss:0.607945 loss:0.705757 acc:0.696240
+2025-01-15 11:12:11,321 root INFO Trainning epoch:2/50 batch:1201/1480 lr:0.000001 age_loss:0.087007 gender_loss:0.576932 loss:0.663939 acc:0.713624
+2025-01-15 11:12:44,765 root INFO Validating epoch:2/50 batch:1/494 loss:0.455348 acc:0.875000
+2025-01-15 11:12:52,717 root INFO Validating epoch:2/50 batch:301/494 loss:0.445029 acc:0.858389
+2025-01-15 11:12:58,265 root INFO [Epoch:2    /50   ] eta:2:02:00 lr:0.000002 loss:0.631377 val_loss:0.439710 acc:0.729833 val_acc:0.862433
+2025-01-15 11:12:58,589 root INFO Saved best model.
+2025-01-15 11:13:09,846 root INFO Trainning epoch:3/50 batch:1/1480 lr:0.000002 age_loss:0.074118 gender_loss:0.396645 loss:0.470762 acc:0.812500
+2025-01-15 11:13:33,115 root INFO Trainning epoch:3/50 batch:301/1480 lr:0.000002 age_loss:0.055404 gender_loss:0.368514 loss:0.423918 acc:0.859427
+2025-01-15 11:13:56,356 root INFO Trainning epoch:3/50 batch:601/1480 lr:0.000002 age_loss:0.095054 gender_loss:0.336139 loss:0.431194 acc:0.874168
+2025-01-15 11:14:19,586 root INFO Trainning epoch:3/50 batch:901/1480 lr:0.000002 age_loss:0.079774 gender_loss:0.316878 loss:0.396652 acc:0.881104
+2025-01-15 11:14:42,840 root INFO Trainning epoch:3/50 batch:1201/1480 lr:0.000002 age_loss:0.071424 gender_loss:0.305632 loss:0.377056 acc:0.885928
+2025-01-15 11:15:15,794 root INFO Validating epoch:3/50 batch:1/494 loss:0.376089 acc:0.812500
+2025-01-15 11:15:23,687 root INFO Validating epoch:3/50 batch:301/494 loss:0.266962 acc:0.916528
+2025-01-15 11:15:29,212 root INFO [Epoch:3    /50   ] eta:1:59:04 lr:0.000003 loss:0.362327 val_loss:0.259272 acc:0.889241 val_acc:0.918016
+2025-01-15 11:15:29,501 root INFO Saved best model.
+2025-01-15 11:15:40,592 root INFO Trainning epoch:4/50 batch:1/1480 lr:0.000003 age_loss:0.044904 gender_loss:0.117878 loss:0.162783 acc:0.937500
+2025-01-15 11:16:03,817 root INFO Trainning epoch:4/50 batch:301/1480 lr:0.000003 age_loss:0.041833 gender_loss:0.250458 loss:0.292291 acc:0.908015
+2025-01-15 11:16:27,57 root INFO Trainning epoch:4/50 batch:601/1480 lr:0.000003 age_loss:0.080886 gender_loss:0.239753 loss:0.320639 acc:0.911918
+2025-01-15 11:16:50,326 root INFO Trainning epoch:4/50 batch:901/1480 lr:0.000003 age_loss:0.067477 gender_loss:0.236142 loss:0.303619 acc:0.912805
+2025-01-15 11:17:13,598 root INFO Trainning epoch:4/50 batch:1201/1480 lr:0.000003 age_loss:0.060759 gender_loss:0.230110 loss:0.290869 acc:0.915799
+2025-01-15 11:17:46,639 root INFO Validating epoch:4/50 batch:1/494 loss:0.315116 acc:0.875000
+2025-01-15 11:17:54,616 root INFO Validating epoch:4/50 batch:301/494 loss:0.222440 acc:0.928156
+2025-01-15 11:18:00,164 root INFO [Epoch:4    /50   ] eta:1:56:20 lr:0.000004 loss:0.285561 val_loss:0.216627 acc:0.915043 val_acc:0.929909
+2025-01-15 11:18:00,448 root INFO Saved best model.
+2025-01-15 11:18:11,748 root INFO Trainning epoch:5/50 batch:1/1480 lr:0.000004 age_loss:0.037603 gender_loss:0.072477 loss:0.110079 acc:1.000000
+2025-01-15 11:18:35,10 root INFO Trainning epoch:5/50 batch:301/1480 lr:0.000004 age_loss:0.035822 gender_loss:0.208593 loss:0.244415 acc:0.921304
+2025-01-15 11:18:58,243 root INFO Trainning epoch:5/50 batch:601/1480 lr:0.000004 age_loss:0.037007 gender_loss:0.205724 loss:0.242730 acc:0.922733
+2025-01-15 11:19:21,605 root INFO Trainning epoch:5/50 batch:901/1480 lr:0.000004 age_loss:0.036969 gender_loss:0.206703 loss:0.243672 acc:0.922309
+2025-01-15 11:19:44,953 root INFO Trainning epoch:5/50 batch:1201/1480 lr:0.000004 age_loss:0.056590 gender_loss:0.205350 loss:0.261940 acc:0.923085
+2025-01-15 11:20:18,602 root INFO Validating epoch:5/50 batch:1/494 loss:0.304466 acc:0.875000
+2025-01-15 11:20:26,690 root INFO Validating epoch:5/50 batch:301/494 loss:0.198311 acc:0.936462
+2025-01-15 11:20:32,249 root INFO [Epoch:5    /50   ] eta:1:53:51 lr:0.000005 loss:0.254452 val_loss:0.190678 acc:0.924831 val_acc:0.938639
+2025-01-15 11:20:32,555 root INFO Saved best model.
+2025-01-15 11:20:43,693 root INFO Trainning epoch:6/50 batch:1/1480 lr:0.000005 age_loss:0.030052 gender_loss:0.026037 loss:0.056089 acc:1.000000
+2025-01-15 11:21:06,933 root INFO Trainning epoch:6/50 batch:301/1480 lr:0.000005 age_loss:0.116543 gender_loss:0.170663 loss:0.287205 acc:0.931686
+2025-01-15 11:21:30,214 root INFO Trainning epoch:6/50 batch:601/1480 lr:0.000005 age_loss:0.075628 gender_loss:0.178187 loss:0.253815 acc:0.931156
+2025-01-15 11:21:53,601 root INFO Trainning epoch:6/50 batch:901/1480 lr:0.000005 age_loss:0.061792 gender_loss:0.181692 loss:0.243483 acc:0.930216
+2025-01-15 11:22:16,953 root INFO Trainning epoch:6/50 batch:1201/1480 lr:0.000005 age_loss:0.055057 gender_loss:0.182279 loss:0.237336 acc:0.929850
+2025-01-15 11:22:49,960 root INFO Validating epoch:6/50 batch:1/494 loss:0.265642 acc:0.875000
+2025-01-15 11:22:57,933 root INFO Validating epoch:6/50 batch:301/494 loss:0.184613 acc:0.942276
+2025-01-15 11:23:03,488 root INFO [Epoch:6    /50   ] eta:1:51:13 lr:0.000006 loss:0.232573 val_loss:0.178383 acc:0.930152 val_acc:0.942434
+2025-01-15 11:23:03,802 root INFO Saved best model.
+2025-01-15 11:23:15,32 root INFO Trainning epoch:7/50 batch:1/1480 lr:0.000006 age_loss:0.033652 gender_loss:0.078637 loss:0.112289 acc:1.000000
+2025-01-15 11:23:38,252 root INFO Trainning epoch:7/50 batch:301/1480 lr:0.000006 age_loss:0.035556 gender_loss:0.170281 loss:0.205836 acc:0.934801
+2025-01-15 11:24:01,509 root INFO Trainning epoch:7/50 batch:601/1480 lr:0.000006 age_loss:0.033723 gender_loss:0.170023 loss:0.203746 acc:0.935940
+2025-01-15 11:24:24,776 root INFO Trainning epoch:7/50 batch:901/1480 lr:0.000006 age_loss:0.060945 gender_loss:0.170104 loss:0.231048 acc:0.935211
+2025-01-15 11:24:48,48 root INFO Trainning epoch:7/50 batch:1201/1480 lr:0.000006 age_loss:0.053877 gender_loss:0.169718 loss:0.223595 acc:0.935679
+2025-01-15 11:25:21,170 root INFO Validating epoch:7/50 batch:1/494 loss:0.320076 acc:0.875000
+2025-01-15 11:25:29,97 root INFO Validating epoch:7/50 batch:301/494 loss:0.173730 acc:0.946429
+2025-01-15 11:25:34,638 root INFO [Epoch:7    /50   ] eta:1:48:37 lr:0.000007 loss:0.215908 val_loss:0.165990 acc:0.937172 val_acc:0.947495
+2025-01-15 11:25:34,934 root INFO Saved best model.
+2025-01-15 11:25:46,24 root INFO Trainning epoch:8/50 batch:1/1480 lr:0.000007 age_loss:0.029031 gender_loss:0.063257 loss:0.092288 acc:0.937500
+2025-01-15 11:26:09,268 root INFO Trainning epoch:8/50 batch:301/1480 lr:0.000007 age_loss:0.111923 gender_loss:0.162336 loss:0.274259 acc:0.935216
+2025-01-15 11:26:32,511 root INFO Trainning epoch:8/50 batch:601/1480 lr:0.000007 age_loss:0.072205 gender_loss:0.167891 loss:0.240095 acc:0.935836
+2025-01-15 11:26:55,791 root INFO Trainning epoch:8/50 batch:901/1480 lr:0.000007 age_loss:0.059604 gender_loss:0.157879 loss:0.217482 acc:0.940413
+2025-01-15 11:27:19,25 root INFO Trainning epoch:8/50 batch:1201/1480 lr:0.000007 age_loss:0.053100 gender_loss:0.155591 loss:0.208691 acc:0.941247
+2025-01-15 11:27:52,116 root INFO Validating epoch:8/50 batch:1/494 loss:0.241226 acc:0.812500
+2025-01-15 11:28:00,48 root INFO Validating epoch:8/50 batch:301/494 loss:0.169944 acc:0.946429
+2025-01-15 11:28:05,598 root INFO [Epoch:8    /50   ] eta:1:46:03 lr:0.000008 loss:0.203764 val_loss:0.162587 acc:0.941216 val_acc:0.948760
+2025-01-15 11:28:05,894 root INFO Saved best model.
+2025-01-15 11:28:16,972 root INFO Trainning epoch:9/50 batch:1/1480 lr:0.000008 age_loss:0.033125 gender_loss:0.130082 loss:0.163206 acc:0.937500
+2025-01-15 11:28:40,218 root INFO Trainning epoch:9/50 batch:301/1480 lr:0.000008 age_loss:0.032244 gender_loss:0.152463 loss:0.184707 acc:0.941653
+2025-01-15 11:29:03,449 root INFO Trainning epoch:9/50 batch:601/1480 lr:0.000008 age_loss:0.033090 gender_loss:0.150630 loss:0.183720 acc:0.941868
+2025-01-15 11:29:26,719 root INFO Trainning epoch:9/50 batch:901/1480 lr:0.000008 age_loss:0.060156 gender_loss:0.144823 loss:0.204980 acc:0.944853
+2025-01-15 11:29:49,978 root INFO Trainning epoch:9/50 batch:1201/1480 lr:0.000008 age_loss:0.053025 gender_loss:0.144794 loss:0.197820 acc:0.945254
+2025-01-15 11:30:23,178 root INFO Validating epoch:9/50 batch:1/494 loss:0.144533 acc:0.937500
+2025-01-15 11:30:31,179 root INFO Validating epoch:9/50 batch:301/494 loss:0.158417 acc:0.950581
+2025-01-15 11:30:36,745 root INFO [Epoch:9    /50   ] eta:1:43:29 lr:0.000009 loss:0.193876 val_loss:0.150448 acc:0.945416 val_acc:0.952682
+2025-01-15 11:30:37,105 root INFO Saved best model.
+2025-01-15 11:30:48,311 root INFO Trainning epoch:10/50 batch:1/1480 lr:0.000009 age_loss:0.020985 gender_loss:0.074413 loss:0.095397 acc:0.937500
+2025-01-15 11:31:11,542 root INFO Trainning epoch:10/50 batch:301/1480 lr:0.000009 age_loss:0.032666 gender_loss:0.139632 loss:0.172298 acc:0.950166
+2025-01-15 11:31:34,726 root INFO Trainning epoch:10/50 batch:601/1480 lr:0.000009 age_loss:0.032624 gender_loss:0.139407 loss:0.172031 acc:0.947795
+2025-01-15 11:31:58,158 root INFO Trainning epoch:10/50 batch:901/1480 lr:0.000009 age_loss:0.032601 gender_loss:0.133860 loss:0.166461 acc:0.950264
+2025-01-15 11:32:21,458 root INFO Trainning epoch:10/50 batch:1201/1480 lr:0.000009 age_loss:0.032452 gender_loss:0.136416 loss:0.168869 acc:0.949417
+2025-01-15 11:32:54,602 root INFO Validating epoch:10/50 batch:1/494 loss:0.206658 acc:0.875000
+2025-01-15 11:33:02,352 root INFO Validating epoch:10/50 batch:301/494 loss:0.179834 acc:0.942691
+2025-01-15 11:33:07,795 root INFO [Epoch:10   /50   ] eta:1:40:56 lr:0.000010 loss:0.183430 val_loss:0.170235 acc:0.949798 val_acc:0.945724
+2025-01-15 11:33:18,850 root INFO Trainning epoch:11/50 batch:1/1480 lr:0.000010 age_loss:0.028298 gender_loss:0.333367 loss:0.361665 acc:0.937500
+2025-01-15 11:33:41,528 root INFO Trainning epoch:11/50 batch:301/1480 lr:0.000010 age_loss:0.030706 gender_loss:0.127822 loss:0.158528 acc:0.952035
+2025-01-15 11:34:04,241 root INFO Trainning epoch:11/50 batch:601/1480 lr:0.000010 age_loss:0.031190 gender_loss:0.119914 loss:0.151104 acc:0.955595
+2025-01-15 11:34:26,970 root INFO Trainning epoch:11/50 batch:901/1480 lr:0.000010 age_loss:0.031866 gender_loss:0.125391 loss:0.157257 acc:0.953524
+2025-01-15 11:34:49,682 root INFO Trainning epoch:11/50 batch:1201/1480 lr:0.000010 age_loss:0.051922 gender_loss:0.126358 loss:0.178281 acc:0.953789
+2025-01-15 11:35:21,950 root INFO Validating epoch:11/50 batch:1/494 loss:0.262286 acc:0.875000
+2025-01-15 11:35:29,692 root INFO Validating epoch:11/50 batch:301/494 loss:0.159890 acc:0.952658
+2025-01-15 11:35:35,118 root INFO [Epoch:11   /50   ] eta:1:38:12 lr:0.000010 loss:0.174836 val_loss:0.150323 acc:0.953505 val_acc:0.956225
+2025-01-15 11:35:35,423 root INFO Saved best model.
+2025-01-15 11:35:46,389 root INFO Trainning epoch:12/50 batch:1/1480 lr:0.000010 age_loss:0.025896 gender_loss:0.117974 loss:0.143870 acc:0.937500
+2025-01-15 11:36:09,105 root INFO Trainning epoch:12/50 batch:301/1480 lr:0.000010 age_loss:0.029968 gender_loss:0.121838 loss:0.151807 acc:0.950997
+2025-01-15 11:36:31,802 root INFO Trainning epoch:12/50 batch:601/1480 lr:0.000010 age_loss:0.031495 gender_loss:0.124562 loss:0.156058 acc:0.952475
+2025-01-15 11:36:54,504 root INFO Trainning epoch:12/50 batch:901/1480 lr:0.000010 age_loss:0.031701 gender_loss:0.120005 loss:0.151705 acc:0.955605
+2025-01-15 11:37:17,234 root INFO Trainning epoch:12/50 batch:1201/1480 lr:0.000010 age_loss:0.031422 gender_loss:0.117853 loss:0.149274 acc:0.956026
+2025-01-15 11:37:49,689 root INFO Validating epoch:12/50 batch:1/494 loss:0.286472 acc:0.875000
+2025-01-15 11:37:57,427 root INFO Validating epoch:12/50 batch:301/494 loss:0.150202 acc:0.957641
+2025-01-15 11:38:02,855 root INFO [Epoch:12   /50   ] eta:1:35:28 lr:0.000010 loss:0.164644 val_loss:0.142440 acc:0.956926 val_acc:0.960653
+2025-01-15 11:38:03,134 root INFO Saved best model.
+2025-01-15 11:38:14,140 root INFO Trainning epoch:13/50 batch:1/1480 lr:0.000010 age_loss:0.038042 gender_loss:0.362898 loss:0.400940 acc:0.875000
+2025-01-15 11:38:36,821 root INFO Trainning epoch:13/50 batch:301/1480 lr:0.000010 age_loss:0.029417 gender_loss:0.102599 loss:0.132015 acc:0.961379
+2025-01-15 11:38:59,524 root INFO Trainning epoch:13/50 batch:601/1480 lr:0.000010 age_loss:0.070226 gender_loss:0.102112 loss:0.172338 acc:0.961418
+2025-01-15 11:39:22,238 root INFO Trainning epoch:13/50 batch:901/1480 lr:0.000010 age_loss:0.057500 gender_loss:0.106553 loss:0.164053 acc:0.960114
+2025-01-15 11:39:44,963 root INFO Trainning epoch:13/50 batch:1201/1480 lr:0.000010 age_loss:0.051156 gender_loss:0.108268 loss:0.159424 acc:0.959305
+2025-01-15 11:40:17,309 root INFO Validating epoch:13/50 batch:1/494 loss:0.276081 acc:0.812500
+2025-01-15 11:40:25,139 root INFO Validating epoch:13/50 batch:301/494 loss:0.142015 acc:0.959095
+2025-01-15 11:40:30,543 root INFO [Epoch:13   /50   ] eta:1:32:49 lr:0.000010 loss:0.157284 val_loss:0.134507 acc:0.959037 val_acc:0.961918
+2025-01-15 11:40:30,897 root INFO Saved best model.
+2025-01-15 11:40:41,886 root INFO Trainning epoch:14/50 batch:1/1480 lr:0.000010 age_loss:0.026378 gender_loss:0.067362 loss:0.093740 acc:0.937500
+2025-01-15 11:41:04,580 root INFO Trainning epoch:14/50 batch:301/1480 lr:0.000010 age_loss:0.030598 gender_loss:0.102303 loss:0.132901 acc:0.960548
+2025-01-15 11:41:27,285 root INFO Trainning epoch:14/50 batch:601/1480 lr:0.000010 age_loss:0.030652 gender_loss:0.100395 loss:0.131047 acc:0.962666
+2025-01-15 11:41:49,996 root INFO Trainning epoch:14/50 batch:901/1480 lr:0.000010 age_loss:0.057745 gender_loss:0.101622 loss:0.159368 acc:0.962195
+2025-01-15 11:42:12,732 root INFO Trainning epoch:14/50 batch:1201/1480 lr:0.000010 age_loss:0.050734 gender_loss:0.101667 loss:0.152401 acc:0.963052
+2025-01-15 11:42:45,68 root INFO Validating epoch:14/50 batch:1/494 loss:0.292421 acc:0.875000
+2025-01-15 11:42:52,890 root INFO Validating epoch:14/50 batch:301/494 loss:0.145437 acc:0.957849
+2025-01-15 11:42:58,340 root INFO [Epoch:14   /50   ] eta:1:30:12 lr:0.000010 loss:0.150742 val_loss:0.138554 acc:0.961167 val_acc:0.959894
+2025-01-15 11:43:09,628 root INFO Trainning epoch:15/50 batch:1/1480 lr:0.000010 age_loss:0.060917 gender_loss:0.043443 loss:0.104360 acc:1.000000
+2025-01-15 11:43:32,303 root INFO Trainning epoch:15/50 batch:301/1480 lr:0.000010 age_loss:0.031829 gender_loss:0.097746 loss:0.129575 acc:0.960756
+2025-01-15 11:43:55,2 root INFO Trainning epoch:15/50 batch:601/1480 lr:0.000010 age_loss:0.031137 gender_loss:0.096641 loss:0.127777 acc:0.962042
+2025-01-15 11:44:17,711 root INFO Trainning epoch:15/50 batch:901/1480 lr:0.000010 age_loss:0.030784 gender_loss:0.100852 loss:0.131636 acc:0.961640
+2025-01-15 11:44:40,405 root INFO Trainning epoch:15/50 batch:1201/1480 lr:0.000010 age_loss:0.051117 gender_loss:0.099420 loss:0.150537 acc:0.962011
+2025-01-15 11:45:12,936 root INFO Validating epoch:15/50 batch:1/494 loss:0.501173 acc:0.812500
+2025-01-15 11:45:20,657 root INFO Validating epoch:15/50 batch:301/494 loss:0.147815 acc:0.957849
+2025-01-15 11:45:26,67 root INFO [Epoch:15   /50   ] eta:1:27:37 lr:0.000010 loss:0.144856 val_loss:0.139097 acc:0.962838 val_acc:0.961412
+2025-01-15 11:45:37,152 root INFO Trainning epoch:16/50 batch:1/1480 lr:0.000010 age_loss:0.020743 gender_loss:0.047145 loss:0.067887 acc:1.000000
+2025-01-15 11:45:59,843 root INFO Trainning epoch:16/50 batch:301/1480 lr:0.000010 age_loss:0.030127 gender_loss:0.089759 loss:0.119887 acc:0.968646
+2025-01-15 11:46:22,528 root INFO Trainning epoch:16/50 batch:601/1480 lr:0.000010 age_loss:0.070410 gender_loss:0.088314 loss:0.158724 acc:0.967450
+2025-01-15 11:46:45,226 root INFO Trainning epoch:16/50 batch:901/1480 lr:0.000010 age_loss:0.057222 gender_loss:0.089935 loss:0.147157 acc:0.965941
+2025-01-15 11:47:07,971 root INFO Trainning epoch:16/50 batch:1201/1480 lr:0.000010 age_loss:0.050707 gender_loss:0.092675 loss:0.143382 acc:0.964821
+2025-01-15 11:47:40,483 root INFO Validating epoch:16/50 batch:1/494 loss:0.323365 acc:0.875000
+2025-01-15 11:47:48,210 root INFO Validating epoch:16/50 batch:301/494 loss:0.160965 acc:0.957641
+2025-01-15 11:47:53,624 root INFO [Epoch:16   /50   ] eta:1:25:00 lr:0.000010 loss:0.138714 val_loss:0.151215 acc:0.965625 val_acc:0.959894
+2025-01-15 11:48:04,895 root INFO Trainning epoch:17/50 batch:1/1480 lr:0.000010 age_loss:0.018012 gender_loss:0.044374 loss:0.062386 acc:1.000000
+2025-01-15 11:48:27,574 root INFO Trainning epoch:17/50 batch:301/1480 lr:0.000010 age_loss:0.109414 gender_loss:0.088460 loss:0.197874 acc:0.963040
+2025-01-15 11:48:50,262 root INFO Trainning epoch:17/50 batch:601/1480 lr:0.000010 age_loss:0.070206 gender_loss:0.091501 loss:0.161708 acc:0.963602
+2025-01-15 11:49:12,985 root INFO Trainning epoch:17/50 batch:901/1480 lr:0.000010 age_loss:0.056584 gender_loss:0.087877 loss:0.144461 acc:0.965386
+2025-01-15 11:49:35,692 root INFO Trainning epoch:17/50 batch:1201/1480 lr:0.000010 age_loss:0.050415 gender_loss:0.088864 loss:0.139279 acc:0.965133
+2025-01-15 11:50:08,41 root INFO Validating epoch:17/50 batch:1/494 loss:0.465903 acc:0.812500
+2025-01-15 11:50:15,766 root INFO Validating epoch:17/50 batch:301/494 loss:0.147527 acc:0.957226
+2025-01-15 11:50:21,208 root INFO [Epoch:17   /50   ] eta:1:22:26 lr:0.000009 loss:0.136166 val_loss:0.139177 acc:0.965625 val_acc:0.960273
+2025-01-15 11:50:32,276 root INFO Trainning epoch:18/50 batch:1/1480 lr:0.000009 age_loss:0.054400 gender_loss:0.006508 loss:0.060908 acc:1.000000
+2025-01-15 11:50:54,941 root INFO Trainning epoch:18/50 batch:301/1480 lr:0.000009 age_loss:0.030976 gender_loss:0.079437 loss:0.110412 acc:0.973007
+2025-01-15 11:51:17,627 root INFO Trainning epoch:18/50 batch:601/1480 lr:0.000009 age_loss:0.031364 gender_loss:0.078941 loss:0.110305 acc:0.972338
+2025-01-15 11:51:40,327 root INFO Trainning epoch:18/50 batch:901/1480 lr:0.000009 age_loss:0.031131 gender_loss:0.080940 loss:0.112071 acc:0.970311
+2025-01-15 11:52:03,49 root INFO Trainning epoch:18/50 batch:1201/1480 lr:0.000009 age_loss:0.050639 gender_loss:0.079600 loss:0.130240 acc:0.970025
+2025-01-15 11:52:35,585 root INFO Validating epoch:18/50 batch:1/494 loss:0.190175 acc:0.875000
+2025-01-15 11:52:43,321 root INFO Validating epoch:18/50 batch:301/494 loss:0.146225 acc:0.959302
+2025-01-15 11:52:48,745 root INFO [Epoch:18   /50   ] eta:1:19:51 lr:0.000009 loss:0.126614 val_loss:0.139598 acc:0.970101 val_acc:0.963563
+2025-01-15 11:52:59,993 root INFO Trainning epoch:19/50 batch:1/1480 lr:0.000009 age_loss:0.023135 gender_loss:0.191396 loss:0.214530 acc:0.937500
+2025-01-15 11:53:22,686 root INFO Trainning epoch:19/50 batch:301/1480 lr:0.000009 age_loss:0.030662 gender_loss:0.071498 loss:0.102160 acc:0.975291
+2025-01-15 11:53:45,401 root INFO Trainning epoch:19/50 batch:601/1480 lr:0.000009 age_loss:0.030540 gender_loss:0.077830 loss:0.108370 acc:0.972754
+2025-01-15 11:54:08,144 root INFO Trainning epoch:19/50 batch:901/1480 lr:0.000009 age_loss:0.030564 gender_loss:0.077372 loss:0.107937 acc:0.972531
+2025-01-15 11:54:30,851 root INFO Trainning epoch:19/50 batch:1201/1480 lr:0.000009 age_loss:0.050574 gender_loss:0.077657 loss:0.128230 acc:0.971898
+2025-01-15 11:55:03,406 root INFO Validating epoch:19/50 batch:1/494 loss:0.495215 acc:0.812500
+2025-01-15 11:55:11,257 root INFO Validating epoch:19/50 batch:301/494 loss:0.155984 acc:0.956811
+2025-01-15 11:55:16,684 root INFO [Epoch:19   /50   ] eta:1:17:18 lr:0.000009 loss:0.124089 val_loss:0.147330 acc:0.972138 val_acc:0.961538
+2025-01-15 11:55:27,935 root INFO Trainning epoch:20/50 batch:1/1480 lr:0.000009 age_loss:0.024926 gender_loss:0.113312 loss:0.138239 acc:0.937500
+2025-01-15 11:55:50,638 root INFO Trainning epoch:20/50 batch:301/1480 lr:0.000009 age_loss:0.111555 gender_loss:0.075793 loss:0.187347 acc:0.969477
+2025-01-15 11:56:13,333 root INFO Trainning epoch:20/50 batch:601/1480 lr:0.000009 age_loss:0.070767 gender_loss:0.073372 loss:0.144139 acc:0.972338
+2025-01-15 11:56:36,35 root INFO Trainning epoch:20/50 batch:901/1480 lr:0.000009 age_loss:0.057528 gender_loss:0.073871 loss:0.131398 acc:0.973085
+2025-01-15 11:56:58,740 root INFO Trainning epoch:20/50 batch:1201/1480 lr:0.000009 age_loss:0.050823 gender_loss:0.072440 loss:0.123263 acc:0.973564
+2025-01-15 11:57:31,150 root INFO Validating epoch:20/50 batch:1/494 loss:0.402388 acc:0.812500
+2025-01-15 11:57:38,970 root INFO Validating epoch:20/50 batch:301/494 loss:0.154408 acc:0.957434
+2025-01-15 11:57:44,428 root INFO [Epoch:20   /50   ] eta:1:14:46 lr:0.000009 loss:0.119081 val_loss:0.146215 acc:0.973564 val_acc:0.960147
+2025-01-15 11:57:55,515 root INFO Trainning epoch:21/50 batch:1/1480 lr:0.000009 age_loss:0.025646 gender_loss:0.015787 loss:0.041434 acc:1.000000
+2025-01-15 11:58:18,220 root INFO Trainning epoch:21/50 batch:301/1480 lr:0.000009 age_loss:0.111543 gender_loss:0.072725 loss:0.184269 acc:0.973007
+2025-01-15 11:58:40,927 root INFO Trainning epoch:21/50 batch:601/1480 lr:0.000009 age_loss:0.070438 gender_loss:0.067906 loss:0.138344 acc:0.974522
+2025-01-15 11:59:03,657 root INFO Trainning epoch:21/50 batch:901/1480 lr:0.000009 age_loss:0.056975 gender_loss:0.066926 loss:0.123901 acc:0.974889
+2025-01-15 11:59:26,365 root INFO Trainning epoch:21/50 batch:1201/1480 lr:0.000009 age_loss:0.050561 gender_loss:0.067575 loss:0.118136 acc:0.975177
+2025-01-15 11:59:58,816 root INFO Validating epoch:21/50 batch:1/494 loss:0.396172 acc:0.875000
+2025-01-15 12:00:06,575 root INFO Validating epoch:21/50 batch:301/494 loss:0.156132 acc:0.957849
+2025-01-15 12:00:12,2 root INFO [Epoch:21   /50   ] eta:1:12:14 lr:0.000009 loss:0.114267 val_loss:0.148420 acc:0.975009 val_acc:0.960779
+2025-01-15 12:00:23,69 root INFO Trainning epoch:22/50 batch:1/1480 lr:0.000009 age_loss:0.020862 gender_loss:0.020712 loss:0.041574 acc:1.000000
+2025-01-15 12:00:45,769 root INFO Trainning epoch:22/50 batch:301/1480 lr:0.000009 age_loss:0.030783 gender_loss:0.061727 loss:0.092509 acc:0.977782
+2025-01-15 12:01:08,477 root INFO Trainning epoch:22/50 batch:601/1480 lr:0.000009 age_loss:0.029906 gender_loss:0.060751 loss:0.090656 acc:0.976498
+2025-01-15 12:01:31,194 root INFO Trainning epoch:22/50 batch:901/1480 lr:0.000009 age_loss:0.029790 gender_loss:0.061938 loss:0.091728 acc:0.975930
+2025-01-15 12:01:53,923 root INFO Trainning epoch:22/50 batch:1201/1480 lr:0.000009 age_loss:0.050405 gender_loss:0.062962 loss:0.113367 acc:0.976166
+2025-01-15 12:02:26,367 root INFO Validating epoch:22/50 batch:1/494 loss:0.471171 acc:0.812500
+2025-01-15 12:02:34,101 root INFO Validating epoch:22/50 batch:301/494 loss:0.148022 acc:0.961171
+2025-01-15 12:02:39,516 root INFO [Epoch:22   /50   ] eta:1:09:42 lr:0.000008 loss:0.109294 val_loss:0.140877 acc:0.976689 val_acc:0.963436
+2025-01-15 12:02:50,611 root INFO Trainning epoch:23/50 batch:1/1480 lr:0.000008 age_loss:0.012182 gender_loss:0.017229 loss:0.029411 acc:1.000000
+2025-01-15 12:03:13,281 root INFO Trainning epoch:23/50 batch:301/1480 lr:0.000008 age_loss:0.031054 gender_loss:0.053372 loss:0.084427 acc:0.979236
+2025-01-15 12:03:35,988 root INFO Trainning epoch:23/50 batch:601/1480 lr:0.000008 age_loss:0.031079 gender_loss:0.058202 loss:0.089280 acc:0.977433
+2025-01-15 12:03:58,717 root INFO Trainning epoch:23/50 batch:901/1480 lr:0.000008 age_loss:0.030897 gender_loss:0.059419 loss:0.090316 acc:0.978011
+2025-01-15 12:04:21,438 root INFO Trainning epoch:23/50 batch:1201/1480 lr:0.000008 age_loss:0.050299 gender_loss:0.060415 loss:0.110714 acc:0.977259
+2025-01-15 12:04:53,804 root INFO Validating epoch:23/50 batch:1/494 loss:0.942688 acc:0.812500
+2025-01-15 12:05:01,626 root INFO Validating epoch:23/50 batch:301/494 loss:0.171397 acc:0.959302
+2025-01-15 12:05:07,123 root INFO [Epoch:23   /50   ] eta:1:07:11 lr:0.000008 loss:0.107487 val_loss:0.161205 acc:0.977365 val_acc:0.962551
+2025-01-15 12:05:18,169 root INFO Trainning epoch:24/50 batch:1/1480 lr:0.000008 age_loss:0.026054 gender_loss:0.066451 loss:0.092505 acc:0.937500
+2025-01-15 12:05:40,862 root INFO Trainning epoch:24/50 batch:301/1480 lr:0.000008 age_loss:0.031917 gender_loss:0.057592 loss:0.089508 acc:0.978198
+2025-01-15 12:06:03,565 root INFO Trainning epoch:24/50 batch:601/1480 lr:0.000008 age_loss:0.070585 gender_loss:0.058438 loss:0.129022 acc:0.979305
+2025-01-15 12:06:26,637 root INFO Trainning epoch:24/50 batch:901/1480 lr:0.000008 age_loss:0.057197 gender_loss:0.057856 loss:0.115053 acc:0.979190
+2025-01-15 12:06:53,959 root INFO Trainning epoch:24/50 batch:1201/1480 lr:0.000008 age_loss:0.050522 gender_loss:0.055696 loss:0.106218 acc:0.979808
+2025-01-15 12:07:48,654 root INFO Validating epoch:24/50 batch:1/494 loss:0.739804 acc:0.875000
+2025-01-15 12:07:56,374 root INFO Validating epoch:24/50 batch:301/494 loss:0.176318 acc:0.958264
+2025-01-15 12:08:01,775 root INFO [Epoch:24   /50   ] eta:1:05:08 lr:0.000008 loss:0.102492 val_loss:0.162744 acc:0.979772 val_acc:0.960906
+2025-01-15 12:08:12,906 root INFO Trainning epoch:25/50 batch:1/1480 lr:0.000008 age_loss:0.027217 gender_loss:0.032392 loss:0.059609 acc:1.000000
+2025-01-15 12:08:35,574 root INFO Trainning epoch:25/50 batch:301/1480 lr:0.000008 age_loss:0.030915 gender_loss:0.053320 loss:0.084235 acc:0.983181
+2025-01-15 12:08:58,247 root INFO Trainning epoch:25/50 batch:601/1480 lr:0.000008 age_loss:0.070786 gender_loss:0.053491 loss:0.124278 acc:0.982009
+2025-01-15 12:09:20,962 root INFO Trainning epoch:25/50 batch:901/1480 lr:0.000008 age_loss:0.057093 gender_loss:0.054285 loss:0.111378 acc:0.981201
+2025-01-15 12:09:43,689 root INFO Trainning epoch:25/50 batch:1201/1480 lr:0.000008 age_loss:0.050570 gender_loss:0.054054 loss:0.104625 acc:0.980901
+2025-01-15 12:10:16,69 root INFO Validating epoch:25/50 batch:1/494 loss:0.476989 acc:0.875000
+2025-01-15 12:10:23,905 root INFO Validating epoch:25/50 batch:301/494 loss:0.158610 acc:0.959095
+2025-01-15 12:10:33,119 root INFO [Epoch:25   /50   ] eta:1:02:40 lr:0.000008 loss:0.100814 val_loss:0.148783 acc:0.980922 val_acc:0.962551
+2025-01-15 12:10:44,45 root INFO Trainning epoch:26/50 batch:1/1480 lr:0.000008 age_loss:0.041134 gender_loss:0.007363 loss:0.048497 acc:1.000000
+2025-01-15 12:11:06,729 root INFO Trainning epoch:26/50 batch:301/1480 lr:0.000008 age_loss:0.029629 gender_loss:0.046457 loss:0.076086 acc:0.982143
+2025-01-15 12:11:29,424 root INFO Trainning epoch:26/50 batch:601/1480 lr:0.000008 age_loss:0.030361 gender_loss:0.047040 loss:0.077401 acc:0.982425
+2025-01-15 12:11:52,141 root INFO Trainning epoch:26/50 batch:901/1480 lr:0.000008 age_loss:0.029937 gender_loss:0.047781 loss:0.077718 acc:0.982866
+2025-01-15 12:12:14,867 root INFO Trainning epoch:26/50 batch:1201/1480 lr:0.000008 age_loss:0.030050 gender_loss:0.048403 loss:0.078454 acc:0.982775
+2025-01-15 12:12:47,249 root INFO Validating epoch:26/50 batch:1/494 loss:0.776621 acc:0.875000
+2025-01-15 12:12:55,55 root INFO Validating epoch:26/50 batch:301/494 loss:0.189002 acc:0.955772
+2025-01-15 12:13:00,472 root INFO [Epoch:26   /50   ] eta:1:00:06 lr:0.000007 loss:0.093686 val_loss:0.177595 acc:0.982855 val_acc:0.959008
+2025-01-15 12:13:11,591 root INFO Trainning epoch:27/50 batch:1/1480 lr:0.000007 age_loss:0.026597 gender_loss:0.185616 loss:0.212213 acc:0.937500
+2025-01-15 12:13:34,276 root INFO Trainning epoch:27/50 batch:301/1480 lr:0.000007 age_loss:0.031840 gender_loss:0.049578 loss:0.081418 acc:0.982350
+2025-01-15 12:13:56,960 root INFO Trainning epoch:27/50 batch:601/1480 lr:0.000007 age_loss:0.030751 gender_loss:0.050075 loss:0.080826 acc:0.982633
+2025-01-15 12:14:19,677 root INFO Trainning epoch:27/50 batch:901/1480 lr:0.000007 age_loss:0.030825 gender_loss:0.049780 loss:0.080606 acc:0.982381
+2025-01-15 12:14:42,412 root INFO Trainning epoch:27/50 batch:1201/1480 lr:0.000007 age_loss:0.050580 gender_loss:0.048528 loss:0.099108 acc:0.982254
+2025-01-15 12:15:14,896 root INFO Validating epoch:27/50 batch:1/494 loss:0.919263 acc:0.875000
+2025-01-15 12:15:22,633 root INFO Validating epoch:27/50 batch:301/494 loss:0.174316 acc:0.955772
+2025-01-15 12:15:28,42 root INFO [Epoch:27   /50   ] eta:0:57:34 lr:0.000007 loss:0.095123 val_loss:0.161410 acc:0.982517 val_acc:0.958882
+2025-01-15 12:15:39,142 root INFO Trainning epoch:28/50 batch:1/1480 lr:0.000007 age_loss:0.028772 gender_loss:0.011941 loss:0.040713 acc:1.000000
+2025-01-15 12:16:01,844 root INFO Trainning epoch:28/50 batch:301/1480 lr:0.000007 age_loss:0.031297 gender_loss:0.047042 loss:0.078338 acc:0.981520
+2025-01-15 12:16:24,588 root INFO Trainning epoch:28/50 batch:601/1480 lr:0.000007 age_loss:0.070193 gender_loss:0.042819 loss:0.113012 acc:0.983569
+2025-01-15 12:16:47,287 root INFO Trainning epoch:28/50 batch:901/1480 lr:0.000007 age_loss:0.057526 gender_loss:0.040767 loss:0.098294 acc:0.984462
+2025-01-15 12:17:10,12 root INFO Trainning epoch:28/50 batch:1201/1480 lr:0.000007 age_loss:0.050745 gender_loss:0.041519 loss:0.092264 acc:0.984076
+2025-01-15 12:17:42,643 root INFO Validating epoch:28/50 batch:1/494 loss:1.008970 acc:0.875000
+2025-01-15 12:17:50,395 root INFO Validating epoch:28/50 batch:301/494 loss:0.183780 acc:0.958056
+2025-01-15 12:17:55,853 root INFO [Epoch:28   /50   ] eta:0:55:01 lr:0.000007 loss:0.088429 val_loss:0.170073 acc:0.984840 val_acc:0.960906
+2025-01-15 12:18:07,56 root INFO Trainning epoch:29/50 batch:1/1480 lr:0.000007 age_loss:0.026221 gender_loss:0.003569 loss:0.029789 acc:1.000000
+2025-01-15 12:18:29,778 root INFO Trainning epoch:29/50 batch:301/1480 lr:0.000007 age_loss:0.031724 gender_loss:0.036169 loss:0.067894 acc:0.985880
+2025-01-15 12:18:52,459 root INFO Trainning epoch:29/50 batch:601/1480 lr:0.000007 age_loss:0.030943 gender_loss:0.039555 loss:0.070498 acc:0.985441
+2025-01-15 12:19:15,176 root INFO Trainning epoch:29/50 batch:901/1480 lr:0.000007 age_loss:0.030253 gender_loss:0.037811 loss:0.068064 acc:0.986265
+2025-01-15 12:19:37,882 root INFO Trainning epoch:29/50 batch:1201/1480 lr:0.000007 age_loss:0.030222 gender_loss:0.036707 loss:0.066929 acc:0.986470
+2025-01-15 12:20:10,388 root INFO Validating epoch:29/50 batch:1/494 loss:0.691418 acc:0.875000
+2025-01-15 12:20:18,107 root INFO Validating epoch:29/50 batch:301/494 loss:0.184406 acc:0.957226
+2025-01-15 12:20:23,515 root INFO [Epoch:29   /50   ] eta:0:52:30 lr:0.000006 loss:0.085005 val_loss:0.171347 acc:0.985600 val_acc:0.959641
+2025-01-15 12:20:34,631 root INFO Trainning epoch:30/50 batch:1/1480 lr:0.000006 age_loss:0.027113 gender_loss:0.015284 loss:0.042398 acc:1.000000
+2025-01-15 12:20:57,308 root INFO Trainning epoch:30/50 batch:301/1480 lr:0.000006 age_loss:0.030922 gender_loss:0.036918 loss:0.067840 acc:0.987542
+2025-01-15 12:21:20,8 root INFO Trainning epoch:30/50 batch:601/1480 lr:0.000006 age_loss:0.030972 gender_loss:0.038317 loss:0.069289 acc:0.986481
+2025-01-15 12:21:42,724 root INFO Trainning epoch:30/50 batch:901/1480 lr:0.000006 age_loss:0.030734 gender_loss:0.041197 loss:0.071931 acc:0.985294
+2025-01-15 12:22:05,435 root INFO Trainning epoch:30/50 batch:1201/1480 lr:0.000006 age_loss:0.030490 gender_loss:0.040735 loss:0.071225 acc:0.985325
+2025-01-15 12:22:37,937 root INFO Validating epoch:30/50 batch:1/494 loss:0.869845 acc:0.875000
+2025-01-15 12:22:45,665 root INFO Validating epoch:30/50 batch:301/494 loss:0.197907 acc:0.959302
+2025-01-15 12:22:51,77 root INFO [Epoch:30   /50   ] eta:0:49:58 lr:0.000006 loss:0.085715 val_loss:0.185684 acc:0.986191 val_acc:0.962045
+2025-01-15 12:23:02,185 root INFO Trainning epoch:31/50 batch:1/1480 lr:0.000006 age_loss:0.026784 gender_loss:0.001670 loss:0.028454 acc:1.000000
+2025-01-15 12:23:24,872 root INFO Trainning epoch:31/50 batch:301/1480 lr:0.000006 age_loss:0.031267 gender_loss:0.042015 loss:0.073283 acc:0.984635
+2025-01-15 12:23:47,553 root INFO Trainning epoch:31/50 batch:601/1480 lr:0.000006 age_loss:0.031048 gender_loss:0.035528 loss:0.066576 acc:0.987521
+2025-01-15 12:24:10,250 root INFO Trainning epoch:31/50 batch:901/1480 lr:0.000006 age_loss:0.057269 gender_loss:0.036027 loss:0.093295 acc:0.987861
+2025-01-15 12:24:32,950 root INFO Trainning epoch:31/50 batch:1201/1480 lr:0.000006 age_loss:0.050509 gender_loss:0.036918 loss:0.087427 acc:0.987562
+2025-01-15 12:25:05,479 root INFO Validating epoch:31/50 batch:1/494 loss:1.305772 acc:0.812500
+2025-01-15 12:25:13,220 root INFO Validating epoch:31/50 batch:301/494 loss:0.205275 acc:0.955772
+2025-01-15 12:25:18,646 root INFO [Epoch:31   /50   ] eta:0:47:26 lr:0.000006 loss:0.082582 val_loss:0.188880 acc:0.987753 val_acc:0.960147
+2025-01-15 12:25:29,736 root INFO Trainning epoch:32/50 batch:1/1480 lr:0.000006 age_loss:0.024570 gender_loss:0.009753 loss:0.034323 acc:1.000000
+2025-01-15 12:25:52,413 root INFO Trainning epoch:32/50 batch:301/1480 lr:0.000006 age_loss:0.031052 gender_loss:0.032115 loss:0.063166 acc:0.989203
+2025-01-15 12:26:15,106 root INFO Trainning epoch:32/50 batch:601/1480 lr:0.000006 age_loss:0.071722 gender_loss:0.031470 loss:0.103192 acc:0.989809
+2025-01-15 12:26:37,826 root INFO Trainning epoch:32/50 batch:901/1480 lr:0.000006 age_loss:0.057421 gender_loss:0.033432 loss:0.090853 acc:0.988901
+2025-01-15 12:27:00,547 root INFO Trainning epoch:32/50 batch:1201/1480 lr:0.000006 age_loss:0.050571 gender_loss:0.034425 loss:0.084996 acc:0.988395
+2025-01-15 12:27:32,836 root INFO Validating epoch:32/50 batch:1/494 loss:0.648986 acc:0.812500
+2025-01-15 12:27:40,569 root INFO Validating epoch:32/50 batch:301/494 loss:0.202034 acc:0.952865
+2025-01-15 12:27:45,989 root INFO [Epoch:32   /50   ] eta:0:44:55 lr:0.000005 loss:0.080101 val_loss:0.188857 acc:0.988640 val_acc:0.955339
+2025-01-15 12:27:56,888 root INFO Trainning epoch:33/50 batch:1/1480 lr:0.000005 age_loss:0.021787 gender_loss:0.344310 loss:0.366097 acc:0.937500
+2025-01-15 12:28:19,585 root INFO Trainning epoch:33/50 batch:301/1480 lr:0.000005 age_loss:0.030287 gender_loss:0.030679 loss:0.060966 acc:0.988787
+2025-01-15 12:28:42,275 root INFO Trainning epoch:33/50 batch:601/1480 lr:0.000005 age_loss:0.030802 gender_loss:0.030780 loss:0.061582 acc:0.989601
+2025-01-15 12:29:04,972 root INFO Trainning epoch:33/50 batch:901/1480 lr:0.000005 age_loss:0.057222 gender_loss:0.030581 loss:0.087803 acc:0.989387
+2025-01-15 12:29:27,684 root INFO Trainning epoch:33/50 batch:1201/1480 lr:0.000005 age_loss:0.050476 gender_loss:0.031044 loss:0.081520 acc:0.989332
+2025-01-15 12:30:00,175 root INFO Validating epoch:33/50 batch:1/494 loss:0.572729 acc:0.875000
+2025-01-15 12:30:07,943 root INFO Validating epoch:33/50 batch:301/494 loss:0.186438 acc:0.958472
+2025-01-15 12:30:13,359 root INFO [Epoch:33   /50   ] eta:0:42:24 lr:0.000005 loss:0.078821 val_loss:0.175932 acc:0.988640 val_acc:0.961412
+2025-01-15 12:30:24,429 root INFO Trainning epoch:34/50 batch:1/1480 lr:0.000005 age_loss:0.028182 gender_loss:0.000543 loss:0.028725 acc:1.000000
+2025-01-15 12:30:47,102 root INFO Trainning epoch:34/50 batch:301/1480 lr:0.000005 age_loss:0.109437 gender_loss:0.030468 loss:0.139905 acc:0.990241
+2025-01-15 12:31:09,780 root INFO Trainning epoch:34/50 batch:601/1480 lr:0.000005 age_loss:0.069306 gender_loss:0.027906 loss:0.097212 acc:0.990953
+2025-01-15 12:31:32,470 root INFO Trainning epoch:34/50 batch:901/1480 lr:0.000005 age_loss:0.056725 gender_loss:0.026473 loss:0.083198 acc:0.991190
+2025-01-15 12:31:55,161 root INFO Trainning epoch:34/50 batch:1201/1480 lr:0.000005 age_loss:0.050242 gender_loss:0.028317 loss:0.078558 acc:0.990373
+2025-01-15 12:32:27,534 root INFO Validating epoch:34/50 batch:1/494 loss:1.056703 acc:0.875000
+2025-01-15 12:32:35,261 root INFO Validating epoch:34/50 batch:301/494 loss:0.202830 acc:0.959095
+2025-01-15 12:32:40,676 root INFO [Epoch:34   /50   ] eta:0:39:53 lr:0.000004 loss:0.075057 val_loss:0.191596 acc:0.990118 val_acc:0.960906
+2025-01-15 12:32:51,743 root INFO Trainning epoch:35/50 batch:1/1480 lr:0.000004 age_loss:0.019278 gender_loss:0.014309 loss:0.033587 acc:1.000000
+2025-01-15 12:33:14,448 root INFO Trainning epoch:35/50 batch:301/1480 lr:0.000004 age_loss:0.108750 gender_loss:0.030785 loss:0.139535 acc:0.989826
+2025-01-15 12:33:37,159 root INFO Trainning epoch:35/50 batch:601/1480 lr:0.000004 age_loss:0.070015 gender_loss:0.032023 loss:0.102039 acc:0.988353
+2025-01-15 12:33:59,860 root INFO Trainning epoch:35/50 batch:901/1480 lr:0.000004 age_loss:0.056461 gender_loss:0.027872 loss:0.084333 acc:0.989872
+2025-01-15 12:34:22,574 root INFO Trainning epoch:35/50 batch:1201/1480 lr:0.000004 age_loss:0.049939 gender_loss:0.028306 loss:0.078245 acc:0.989592
+2025-01-15 12:34:54,881 root INFO Validating epoch:35/50 batch:1/494 loss:1.210173 acc:0.875000
+2025-01-15 12:35:02,617 root INFO Validating epoch:35/50 batch:301/494 loss:0.235264 acc:0.957018
+2025-01-15 12:35:08,40 root INFO [Epoch:35   /50   ] eta:0:37:23 lr:0.000004 loss:0.074660 val_loss:0.214173 acc:0.989579 val_acc:0.960526
+2025-01-15 12:35:19,119 root INFO Trainning epoch:36/50 batch:1/1480 lr:0.000004 age_loss:0.024793 gender_loss:0.000987 loss:0.025780 acc:1.000000
+2025-01-15 12:35:41,807 root INFO Trainning epoch:36/50 batch:301/1480 lr:0.000004 age_loss:0.029352 gender_loss:0.028841 loss:0.058193 acc:0.990864
+2025-01-15 12:36:04,506 root INFO Trainning epoch:36/50 batch:601/1480 lr:0.000004 age_loss:0.030388 gender_loss:0.026987 loss:0.057375 acc:0.991057
+2025-01-15 12:36:27,211 root INFO Trainning epoch:36/50 batch:901/1480 lr:0.000004 age_loss:0.030003 gender_loss:0.027343 loss:0.057347 acc:0.990566
+2025-01-15 12:36:49,940 root INFO Trainning epoch:36/50 batch:1201/1480 lr:0.000004 age_loss:0.049808 gender_loss:0.026955 loss:0.076763 acc:0.990425
+2025-01-15 12:37:22,232 root INFO Validating epoch:36/50 batch:1/494 loss:0.903169 acc:0.812500
+2025-01-15 12:37:29,960 root INFO Validating epoch:36/50 batch:301/494 loss:0.220445 acc:0.958056
+2025-01-15 12:37:35,382 root INFO [Epoch:36   /50   ] eta:0:34:53 lr:0.000004 loss:0.073285 val_loss:0.204737 acc:0.990508 val_acc:0.961918
+2025-01-15 12:37:46,432 root INFO Trainning epoch:37/50 batch:1/1480 lr:0.000004 age_loss:0.027856 gender_loss:0.000273 loss:0.028129 acc:1.000000
+2025-01-15 12:38:09,117 root INFO Trainning epoch:37/50 batch:301/1480 lr:0.000004 age_loss:0.030687 gender_loss:0.025533 loss:0.056220 acc:0.990864
+2025-01-15 12:38:31,819 root INFO Trainning epoch:37/50 batch:601/1480 lr:0.000004 age_loss:0.031052 gender_loss:0.024997 loss:0.056049 acc:0.991057
+2025-01-15 12:38:54,540 root INFO Trainning epoch:37/50 batch:901/1480 lr:0.000004 age_loss:0.030444 gender_loss:0.024011 loss:0.054454 acc:0.991329
+2025-01-15 12:39:17,250 root INFO Trainning epoch:37/50 batch:1201/1480 lr:0.000004 age_loss:0.030536 gender_loss:0.024807 loss:0.055343 acc:0.990789
+2025-01-15 12:39:49,569 root INFO Validating epoch:37/50 batch:1/494 loss:0.889088 acc:0.875000
+2025-01-15 12:39:57,298 root INFO Validating epoch:37/50 batch:301/494 loss:0.235034 acc:0.957434
+2025-01-15 12:40:02,717 root INFO [Epoch:37   /50   ] eta:0:32:22 lr:0.000003 loss:0.070169 val_loss:0.217727 acc:0.991174 val_acc:0.960526
+2025-01-15 12:40:13,825 root INFO Trainning epoch:38/50 batch:1/1480 lr:0.000003 age_loss:0.034672 gender_loss:0.003606 loss:0.038278 acc:1.000000
+2025-01-15 12:40:36,528 root INFO Trainning epoch:38/50 batch:301/1480 lr:0.000003 age_loss:0.031390 gender_loss:0.023418 loss:0.054807 acc:0.992317
+2025-01-15 12:40:59,224 root INFO Trainning epoch:38/50 batch:601/1480 lr:0.000003 age_loss:0.030166 gender_loss:0.023877 loss:0.054043 acc:0.991993
+2025-01-15 12:41:21,938 root INFO Trainning epoch:38/50 batch:901/1480 lr:0.000003 age_loss:0.030222 gender_loss:0.024238 loss:0.054460 acc:0.992023
+2025-01-15 12:41:44,649 root INFO Trainning epoch:38/50 batch:1201/1480 lr:0.000003 age_loss:0.030442 gender_loss:0.024195 loss:0.054637 acc:0.991778
+2025-01-15 12:42:17,115 root INFO Validating epoch:38/50 batch:1/494 loss:0.788808 acc:0.875000
+2025-01-15 12:42:24,849 root INFO Validating epoch:38/50 batch:301/494 loss:0.225656 acc:0.960548
+2025-01-15 12:42:30,259 root INFO [Epoch:38   /50   ] eta:0:29:52 lr:0.000003 loss:0.070493 val_loss:0.210587 acc:0.991934 val_acc:0.962551
+2025-01-15 12:42:41,333 root INFO Trainning epoch:39/50 batch:1/1480 lr:0.000003 age_loss:0.022430 gender_loss:0.056146 loss:0.078576 acc:0.937500
+2025-01-15 12:43:04,1 root INFO Trainning epoch:39/50 batch:301/1480 lr:0.000003 age_loss:0.110099 gender_loss:0.023460 loss:0.133559 acc:0.993563
+2025-01-15 12:43:26,693 root INFO Trainning epoch:39/50 batch:601/1480 lr:0.000003 age_loss:0.069938 gender_loss:0.022292 loss:0.092229 acc:0.993240
+2025-01-15 12:43:49,396 root INFO Trainning epoch:39/50 batch:901/1480 lr:0.000003 age_loss:0.056384 gender_loss:0.022623 loss:0.079007 acc:0.992925
+2025-01-15 12:44:12,100 root INFO Trainning epoch:39/50 batch:1201/1480 lr:0.000003 age_loss:0.049768 gender_loss:0.022554 loss:0.072322 acc:0.992454
+2025-01-15 12:44:44,365 root INFO Validating epoch:39/50 batch:1/494 loss:0.907880 acc:0.875000
+2025-01-15 12:44:52,165 root INFO Validating epoch:39/50 batch:301/494 loss:0.245577 acc:0.956395
+2025-01-15 12:44:57,577 root INFO [Epoch:39   /50   ] eta:0:27:22 lr:0.000003 loss:0.069261 val_loss:0.227236 acc:0.992230 val_acc:0.960273
+2025-01-15 12:45:08,712 root INFO Trainning epoch:40/50 batch:1/1480 lr:0.000003 age_loss:0.023591 gender_loss:0.003186 loss:0.026777 acc:1.000000
+2025-01-15 12:45:31,389 root INFO Trainning epoch:40/50 batch:301/1480 lr:0.000003 age_loss:0.110573 gender_loss:0.019685 loss:0.130258 acc:0.992733
+2025-01-15 12:45:54,66 root INFO Trainning epoch:40/50 batch:601/1480 lr:0.000003 age_loss:0.070657 gender_loss:0.019347 loss:0.090003 acc:0.992616
+2025-01-15 12:46:16,768 root INFO Trainning epoch:40/50 batch:901/1480 lr:0.000003 age_loss:0.057126 gender_loss:0.020235 loss:0.077361 acc:0.992370
+2025-01-15 12:46:39,481 root INFO Trainning epoch:40/50 batch:1201/1480 lr:0.000003 age_loss:0.050415 gender_loss:0.019535 loss:0.069950 acc:0.992558
+2025-01-15 12:47:12,13 root INFO Validating epoch:40/50 batch:1/494 loss:0.984428 acc:0.875000
+2025-01-15 12:47:19,742 root INFO Validating epoch:40/50 batch:301/494 loss:0.242196 acc:0.958679
+2025-01-15 12:47:25,154 root INFO [Epoch:40   /50   ] eta:0:24:53 lr:0.000003 loss:0.066326 val_loss:0.222032 acc:0.992483 val_acc:0.961412
+2025-01-15 12:47:36,260 root INFO Trainning epoch:41/50 batch:1/1480 lr:0.000003 age_loss:0.031767 gender_loss:0.000221 loss:0.031988 acc:1.000000
+2025-01-15 12:47:58,923 root INFO Trainning epoch:41/50 batch:301/1480 lr:0.000003 age_loss:0.030587 gender_loss:0.017277 loss:0.047865 acc:0.993148
+2025-01-15 12:48:21,605 root INFO Trainning epoch:41/50 batch:601/1480 lr:0.000003 age_loss:0.030016 gender_loss:0.017301 loss:0.047317 acc:0.993240
+2025-01-15 12:48:44,311 root INFO Trainning epoch:41/50 batch:901/1480 lr:0.000003 age_loss:0.056927 gender_loss:0.017784 loss:0.074711 acc:0.993341
+2025-01-15 12:49:06,996 root INFO Trainning epoch:41/50 batch:1201/1480 lr:0.000003 age_loss:0.050400 gender_loss:0.018051 loss:0.068451 acc:0.993651
+2025-01-15 12:49:39,360 root INFO Validating epoch:41/50 batch:1/494 loss:0.863864 acc:0.875000
+2025-01-15 12:49:47,84 root INFO Validating epoch:41/50 batch:301/494 loss:0.231243 acc:0.960963
+2025-01-15 12:49:52,489 root INFO [Epoch:41   /50   ] eta:0:22:23 lr:0.000002 loss:0.065251 val_loss:0.212935 acc:0.993295 val_acc:0.962930
+2025-01-15 12:50:03,607 root INFO Trainning epoch:42/50 batch:1/1480 lr:0.000002 age_loss:0.026352 gender_loss:0.000251 loss:0.026604 acc:1.000000
+2025-01-15 12:50:26,269 root INFO Trainning epoch:42/50 batch:301/1480 lr:0.000002 age_loss:0.030628 gender_loss:0.021181 loss:0.051810 acc:0.992317
+2025-01-15 12:50:48,938 root INFO Trainning epoch:42/50 batch:601/1480 lr:0.000002 age_loss:0.069961 gender_loss:0.020387 loss:0.090348 acc:0.992720
+2025-01-15 12:51:11,606 root INFO Trainning epoch:42/50 batch:901/1480 lr:0.000002 age_loss:0.056921 gender_loss:0.018845 loss:0.075766 acc:0.992925
+2025-01-15 12:51:34,288 root INFO Trainning epoch:42/50 batch:1201/1480 lr:0.000002 age_loss:0.050261 gender_loss:0.018756 loss:0.069016 acc:0.992923
+2025-01-15 12:52:06,717 root INFO Validating epoch:42/50 batch:1/494 loss:0.819970 acc:0.875000
+2025-01-15 12:52:14,441 root INFO Validating epoch:42/50 batch:301/494 loss:0.240064 acc:0.959925
+2025-01-15 12:52:19,851 root INFO [Epoch:42   /50   ] eta:0:19:53 lr:0.000002 loss:0.065403 val_loss:0.221063 acc:0.992948 val_acc:0.962298
+2025-01-15 12:52:30,955 root INFO Trainning epoch:43/50 batch:1/1480 lr:0.000002 age_loss:0.026195 gender_loss:0.000678 loss:0.026873 acc:1.000000
+2025-01-15 12:52:53,606 root INFO Trainning epoch:43/50 batch:301/1480 lr:0.000002 age_loss:0.030620 gender_loss:0.019839 loss:0.050459 acc:0.993978
+2025-01-15 12:53:16,266 root INFO Trainning epoch:43/50 batch:601/1480 lr:0.000002 age_loss:0.030644 gender_loss:0.019694 loss:0.050338 acc:0.993968
+2025-01-15 12:53:38,950 root INFO Trainning epoch:43/50 batch:901/1480 lr:0.000002 age_loss:0.030510 gender_loss:0.019355 loss:0.049865 acc:0.993757
+2025-01-15 12:54:01,677 root INFO Trainning epoch:43/50 batch:1201/1480 lr:0.000002 age_loss:0.050228 gender_loss:0.018893 loss:0.069121 acc:0.993495
+2025-01-15 12:54:34,56 root INFO Validating epoch:43/50 batch:1/494 loss:1.005650 acc:0.875000
+2025-01-15 12:54:41,784 root INFO Validating epoch:43/50 batch:301/494 loss:0.255105 acc:0.957641
+2025-01-15 12:54:47,201 root INFO [Epoch:43   /50   ] eta:0:17:24 lr:0.000002 loss:0.065377 val_loss:0.233966 acc:0.993370 val_acc:0.960779
+2025-01-15 12:54:58,296 root INFO Trainning epoch:44/50 batch:1/1480 lr:0.000002 age_loss:0.026241 gender_loss:0.004372 loss:0.030613 acc:1.000000
+2025-01-15 12:55:20,980 root INFO Trainning epoch:44/50 batch:301/1480 lr:0.000002 age_loss:0.109788 gender_loss:0.011314 loss:0.121102 acc:0.996055
+2025-01-15 12:55:43,668 root INFO Trainning epoch:44/50 batch:601/1480 lr:0.000002 age_loss:0.071131 gender_loss:0.013984 loss:0.085115 acc:0.995008
+2025-01-15 12:56:06,376 root INFO Trainning epoch:44/50 batch:901/1480 lr:0.000002 age_loss:0.057385 gender_loss:0.015872 loss:0.073256 acc:0.994173
+2025-01-15 12:56:29,96 root INFO Trainning epoch:44/50 batch:1201/1480 lr:0.000002 age_loss:0.050434 gender_loss:0.015050 loss:0.065484 acc:0.994588
+2025-01-15 12:57:01,496 root INFO Validating epoch:44/50 batch:1/494 loss:1.076814 acc:0.875000
+2025-01-15 12:57:09,328 root INFO Validating epoch:44/50 batch:301/494 loss:0.255681 acc:0.957849
+2025-01-15 12:57:14,744 root INFO [Epoch:44   /50   ] eta:0:14:54 lr:0.000001 loss:0.062027 val_loss:0.233604 acc:0.994215 val_acc:0.960906
+2025-01-15 12:57:25,651 root INFO Trainning epoch:45/50 batch:1/1480 lr:0.000001 age_loss:0.051589 gender_loss:0.037716 loss:0.089305 acc:1.000000
+2025-01-15 12:57:48,350 root INFO Trainning epoch:45/50 batch:301/1480 lr:0.000001 age_loss:0.031626 gender_loss:0.013382 loss:0.045008 acc:0.995017
+2025-01-15 12:58:11,37 root INFO Trainning epoch:45/50 batch:601/1480 lr:0.000001 age_loss:0.030956 gender_loss:0.013498 loss:0.044454 acc:0.994592
+2025-01-15 12:58:33,735 root INFO Trainning epoch:45/50 batch:901/1480 lr:0.000001 age_loss:0.030685 gender_loss:0.013480 loss:0.044164 acc:0.994104
+2025-01-15 12:58:56,462 root INFO Trainning epoch:45/50 batch:1201/1480 lr:0.000001 age_loss:0.030562 gender_loss:0.015044 loss:0.045605 acc:0.993859
+2025-01-15 12:59:28,762 root INFO Validating epoch:45/50 batch:1/494 loss:1.105831 acc:0.875000
+2025-01-15 12:59:36,490 root INFO Validating epoch:45/50 batch:301/494 loss:0.250583 acc:0.958887
+2025-01-15 12:59:41,903 root INFO [Epoch:45   /50   ] eta:0:12:25 lr:0.000001 loss:0.061456 val_loss:0.230901 acc:0.994130 val_acc:0.961285
+2025-01-15 12:59:52,993 root INFO Trainning epoch:46/50 batch:1/1480 lr:0.000001 age_loss:0.031871 gender_loss:0.048670 loss:0.080541 acc:0.937500
+2025-01-15 13:00:15,664 root INFO Trainning epoch:46/50 batch:301/1480 lr:0.000001 age_loss:0.030058 gender_loss:0.014607 loss:0.044665 acc:0.994809
+2025-01-15 13:00:38,346 root INFO Trainning epoch:46/50 batch:601/1480 lr:0.000001 age_loss:0.030912 gender_loss:0.014471 loss:0.045383 acc:0.994800
+2025-01-15 13:01:01,40 root INFO Trainning epoch:46/50 batch:901/1480 lr:0.000001 age_loss:0.030282 gender_loss:0.014079 loss:0.044360 acc:0.994867
+2025-01-15 13:01:23,741 root INFO Trainning epoch:46/50 batch:1201/1480 lr:0.000001 age_loss:0.030692 gender_loss:0.014574 loss:0.045267 acc:0.994588
+2025-01-15 13:01:56,100 root INFO Validating epoch:46/50 batch:1/494 loss:1.095414 acc:0.875000
+2025-01-15 13:02:03,831 root INFO Validating epoch:46/50 batch:301/494 loss:0.262649 acc:0.958887
+2025-01-15 13:02:09,251 root INFO [Epoch:46   /50   ] eta:0:09:56 lr:0.000001 loss:0.061223 val_loss:0.242541 acc:0.994383 val_acc:0.961032
+2025-01-15 13:02:20,346 root INFO Trainning epoch:47/50 batch:1/1480 lr:0.000001 age_loss:0.026293 gender_loss:0.000239 loss:0.026533 acc:1.000000
+2025-01-15 13:02:43,24 root INFO Trainning epoch:47/50 batch:301/1480 lr:0.000001 age_loss:0.030299 gender_loss:0.015495 loss:0.045794 acc:0.995432
+2025-01-15 13:03:05,714 root INFO Trainning epoch:47/50 batch:601/1480 lr:0.000001 age_loss:0.030294 gender_loss:0.015427 loss:0.045720 acc:0.994592
+2025-01-15 13:03:28,400 root INFO Trainning epoch:47/50 batch:901/1480 lr:0.000001 age_loss:0.030278 gender_loss:0.014785 loss:0.045063 acc:0.994728
+2025-01-15 13:03:51,89 root INFO Trainning epoch:47/50 batch:1201/1480 lr:0.000001 age_loss:0.030391 gender_loss:0.014213 loss:0.044603 acc:0.995004
+2025-01-15 13:04:23,645 root INFO Validating epoch:47/50 batch:1/494 loss:1.059580 acc:0.875000
+2025-01-15 13:04:31,369 root INFO Validating epoch:47/50 batch:301/494 loss:0.259025 acc:0.958679
+2025-01-15 13:04:36,785 root INFO [Epoch:47   /50   ] eta:0:07:27 lr:0.000001 loss:0.060613 val_loss:0.239135 acc:0.994932 val_acc:0.961159
+2025-01-15 13:04:47,863 root INFO Trainning epoch:48/50 batch:1/1480 lr:0.000001 age_loss:0.023002 gender_loss:0.000924 loss:0.023926 acc:1.000000
+2025-01-15 13:05:10,527 root INFO Trainning epoch:48/50 batch:301/1480 lr:0.000001 age_loss:0.032395 gender_loss:0.011743 loss:0.044137 acc:0.995640
+2025-01-15 13:05:33,214 root INFO Trainning epoch:48/50 batch:601/1480 lr:0.000001 age_loss:0.031780 gender_loss:0.011207 loss:0.042987 acc:0.996152
+2025-01-15 13:05:55,916 root INFO Trainning epoch:48/50 batch:901/1480 lr:0.000001 age_loss:0.057384 gender_loss:0.012706 loss:0.070090 acc:0.995283
+2025-01-15 13:06:18,617 root INFO Trainning epoch:48/50 batch:1201/1480 lr:0.000001 age_loss:0.050254 gender_loss:0.013922 loss:0.064176 acc:0.994796
+2025-01-15 13:06:50,993 root INFO Validating epoch:48/50 batch:1/494 loss:1.051930 acc:0.875000
+2025-01-15 13:06:58,720 root INFO Validating epoch:48/50 batch:301/494 loss:0.257328 acc:0.959095
+2025-01-15 13:07:04,133 root INFO [Epoch:48   /50   ] eta:0:04:57 lr:0.000001 loss:0.060180 val_loss:0.237725 acc:0.994890 val_acc:0.961285
+2025-01-15 13:07:15,236 root INFO Trainning epoch:49/50 batch:1/1480 lr:0.000001 age_loss:0.028317 gender_loss:0.000779 loss:0.029096 acc:1.000000
+2025-01-15 13:07:37,947 root INFO Trainning epoch:49/50 batch:301/1480 lr:0.000001 age_loss:0.031049 gender_loss:0.014082 loss:0.045131 acc:0.994809
+2025-01-15 13:08:00,609 root INFO Trainning epoch:49/50 batch:601/1480 lr:0.000001 age_loss:0.029424 gender_loss:0.013955 loss:0.043378 acc:0.994800
+2025-01-15 13:08:23,309 root INFO Trainning epoch:49/50 batch:901/1480 lr:0.000001 age_loss:0.030141 gender_loss:0.014164 loss:0.044304 acc:0.994728
+2025-01-15 13:08:46,16 root INFO Trainning epoch:49/50 batch:1201/1480 lr:0.000001 age_loss:0.049958 gender_loss:0.013814 loss:0.063772 acc:0.994952
+2025-01-15 13:09:18,430 root INFO Validating epoch:49/50 batch:1/494 loss:1.070603 acc:0.875000
+2025-01-15 13:09:26,241 root INFO Validating epoch:49/50 batch:301/494 loss:0.258862 acc:0.959510
+2025-01-15 13:09:31,650 root INFO [Epoch:49   /50   ] eta:0:02:28 lr:0.000000 loss:0.060284 val_loss:0.239293 acc:0.995017 val_acc:0.961412
+2025-01-15 13:09:42,593 root INFO Trainning epoch:50/50 batch:1/1480 lr:0.000000 age_loss:0.024559 gender_loss:0.031759 loss:0.056318 acc:1.000000
+2025-01-15 13:10:05,263 root INFO Trainning epoch:50/50 batch:301/1480 lr:0.000000 age_loss:0.029036 gender_loss:0.008570 loss:0.037606 acc:0.997301
+2025-01-15 13:10:27,942 root INFO Trainning epoch:50/50 batch:601/1480 lr:0.000000 age_loss:0.069892 gender_loss:0.009904 loss:0.079796 acc:0.996776
+2025-01-15 13:10:50,626 root INFO Trainning epoch:50/50 batch:901/1480 lr:0.000000 age_loss:0.056630 gender_loss:0.011045 loss:0.067675 acc:0.996115
+2025-01-15 13:11:13,344 root INFO Trainning epoch:50/50 batch:1201/1480 lr:0.000000 age_loss:0.050178 gender_loss:0.012424 loss:0.062603 acc:0.995577
+2025-01-15 13:11:45,698 root INFO Validating epoch:50/50 batch:1/494 loss:1.080144 acc:0.875000
+2025-01-15 13:11:53,444 root INFO Validating epoch:50/50 batch:301/494 loss:0.264353 acc:0.959095
+2025-01-15 13:12:00,284 root INFO [Epoch:50   /50   ] eta:0:00:00 lr:0.000000 loss:0.058678 val_loss:0.243986 acc:0.995439 val_acc:0.961665
+2025-01-15 13:12:00,491 root INFO STOP TIME:Wed Jan 15 13:12:00 2025
+2025-01-15 13:12:00,491 root INFO Training time: 2.07 hours

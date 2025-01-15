@@ -2,19 +2,20 @@ from datetime import datetime
 import math
 import random
 
-import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
+
 import torch
 from torch.optim.lr_scheduler import LambdaLR
 
 
 def fix_seed(seed=123):
     torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)               
     torch.cuda.manual_seed_all(seed)
     np.random.seed(seed)
     random.seed(seed)
-    # torch.backends.cudnn.benchmark = True
-    # torch.backends.cudnn.deterministic = False
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
 
@@ -30,10 +31,12 @@ def cal_eta(start_time, cur, total):
     return str(eta)
 
 
-def plot_history(loss_list, acc_list, val_loss_list, val_acc_list, save_path):
+def plot_history(metrics, save_path):
     """
     绘制loss和acc曲线图
     """
+    matplotlib.use("agg")
+    loss_list, acc_list, val_loss_list, val_acc_list = metrics
     plt.figure(figsize=(10,8))
     plt.subplot(211)
     plt.plot(loss_list, color="blue", label="loss")
@@ -48,7 +51,7 @@ def plot_history(loss_list, acc_list, val_loss_list, val_acc_list, save_path):
     plt.close()
 
 
-def accuracy(outputs, targets, k=1):
+def cal_accuracy(outputs, targets, k=1):
     """
     Computes top-k accuracy, from predicted and true labels.
 
@@ -89,59 +92,66 @@ class WarmupCosineSchedule(LambdaLR):
 
 
 class AverageMeter:
-    def __init__(self):
-        self.data = dict()
+    def __init__(self, *keys):
+        self.__data = dict()
+        for k in keys:
+            self.__data[k] = [0.0, 0]
 
-    def add(self, dict_):
-        for k, v in dict_.items():
-            if k not in self.data:
-                self.data[k] = [0.0, 0]
-            self.data[k][0] += v
-            self.data[k][1] += 1
+    def add(self, dict):
+        for k, v in dict.items():
+            if k not in self.__data:
+                self.__data[k] = [0.0, 0]
+            self.__data[k][0] += v
+            self.__data[k][1] += 1
 
     def get(self, *keys):
-        avg_list = []
-        for k in keys:
-            if not k in self.data:
-                self.data[k] = [0.0, 0]
-            avg_list.append(self.data[k][0] / max(1e-5, self.data[k][1]))
-        if len(avg_list) == 1:
-            return avg_list[0]
+        if len(keys) == 1:
+            return self.__data[keys[0]][0] / self.__data[keys[0]][1]   # type: ignore
         else:
-            return tuple(avg_list)
+            v_list = [self.__data[k][0] / self.__data[k][1] for k in keys]
+            return tuple(v_list)
 
-    def pop(self, key):
-        v = self.get(key)
-        self.data[key] = [0.0, 0]
-        return v
-
-    def reset(self):
-        for k in self.data.keys():
-            self.data[k] = [0.0, 0]
-
+    def pop(self, key=None):
+        if key is None:
+            for k in self.__data.keys():
+                self.__data[k] = [0.0, 0]
+        else:
+            v = self.get(key)
+            self.__data[key] = [0.0, 0]
+            return v
 
 
 class ListMeter:
-    def __init__(self):
-        self.data = dict()
+    def __init__(self, *keys):
+        self.__data = dict()
+        for k in keys:
+            self.__data[k] = []
 
     def add(self, dict_):
         for k, v in dict_.items():
-            if k not in self.data:
-                self.data[k] = []
-            self.data[k].append(v)
+            if k not in self.__data:
+                self.__data[k] = []
+            self.__data[k].append(v)
 
-    def get(self, key):
-        if key in self.data:
-            return self.data[key]
+    def get(self, *keys):
+        if len(keys) == 1:
+            return self.__data[keys[0]]
         else:
-            return []
+            v_list = [self.__data[k] for k in keys]
+            return tuple(v_list)
 
-    def pop(self, key):
-        v = self.get(key)
-        self.data[key] = []
-        return v
+    def get_mean(self, *keys):
+        if len(keys) == 1:
+            return np.mean(self.__data[keys[0]])
+        else:
+            v_list = [np.mean(self.__data[k]) for k in keys]
+            return tuple(v_list)
 
-    def reset(self):
-        for k in self.data.keys():
-            self.data[k] = []
+    def pop(self, key=None):
+        if key is None:
+            for k in self.__data.keys():
+                self.__data[k] = []
+        else:
+            v = self.get(key)
+            self.__data[key] = []
+            return v
